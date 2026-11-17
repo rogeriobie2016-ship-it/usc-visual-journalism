@@ -419,6 +419,15 @@ h1{font-size:clamp(42px,6.4vw,104px)}
 .stamp{align-self:flex-start}
 .bgimg.bottom:after{background:linear-gradient(0deg,var(--pp) 30%,rgba(241,241,234,.82) 65%,rgba(241,241,234,.55) 100%)}
 .photos figure.wide{aspect-ratio:16/6.6}.photos figure[style*="aspect-ratio:1"]{aspect-ratio:4/3!important}
+.pj .th{margin:-16px -16px 4px;height:92px;overflow:hidden;border-bottom:2px solid var(--tx)}
+.pj .th img{width:100%;height:100%;object-fit:cover;display:block}
+.proj.dev{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.proj.dev .pj .th{height:100px}
+.pj .th.poem{display:grid;place-items:center;background:var(--navy);color:var(--tape);font-family:var(--tw);font-size:15px;text-align:center;padding:10px;background-image:radial-gradient(1.2px 1.2px at 20px 30px,#f5e9c8,transparent),radial-gradient(1px 1px at 90px 70px,#f5e9c8,transparent),radial-gradient(1.6px 1.6px at 160px 40px,#FFE843,transparent);background-size:200px 110px}
+.pj .th.poem.news{background-color:var(--tape);color:var(--tx);background-image:repeating-linear-gradient(0deg,rgba(23,32,15,.12) 0 1px,transparent 1px 9px)}
+.pj.you .th.poem{background-color:var(--red);color:#fff7e0;font-family:var(--hd);font-stretch:118%;font-weight:860;text-transform:uppercase;font-size:20px}
+.pj .lks{display:flex;gap:12px;flex-wrap:wrap}
+@media (max-width:980px){.proj.dev{grid-template-columns:1fr}}
 @media (max-width:980px){.pj .th{height:80px}}
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}}
 </style>
@@ -561,6 +570,20 @@ h1{font-size:clamp(42px,6.4vw,104px)}
   <figure><img src="img/ssz-1.jpg" alt="" style="object-position:top"></figure><figure><img src="img/ssz-rocket.jpg" alt=""></figure><figure><img src="img/ssz-8.jpg" alt=""></figure><figure><img src="img/ssz-6.jpg" alt=""></figure><figure><img src="img/ssz-2.jpg" alt=""></figure>
  </div>
  <div class="links f" data-s="3"><a class="lk" href="https://canva.link/d84kwo2hiamrc8z" target="_blank" rel="noopener">Pitch deck</a><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html#p-ssz" target="_blank" rel="noopener">Case study</a><a class="lk" href="https://iconoclasistas.net/" target="_blank" rel="noopener">Iconoclasistas (counter-mapping)</a></div>
+</section>
+
+<!-- 07b DEVELOPING WORK -->
+<section class="slide">
+ <div class="kicker f" data-s="0">Work in progress · <b>what I'm building now</b></div>
+ <h2 class="f" data-s="0" style="font-size:clamp(28px,3.8vw,58px)">Developing <mark>work.</mark></h2>
+ <div class="proj dev">
+  <div class="pj r f" data-s="0"><div class="th"><img src="img/ssz-8.jpg" alt="" loading="lazy"></div><div class="t">In production · room-scale VR doc</div><h3>The Sound of a Sacrifice Zone</h3><p>Boca Chica, Texas and Playa Bagdad, Mexico. Co-created with local voices. My ASU capstone.</p><div class="lks"><a href="https://canva.link/d84kwo2hiamrc8z" target="_blank" rel="noopener">Pitch deck</a><a href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html#p-ssz" target="_blank" rel="noopener">Case study</a></div></div>
+  <div class="pj b f dark" data-s="0"><div class="th poem"><span>I hold it true, whate'er befall</span></div><div class="t">WebXR · 16 chapters · Quest, phone, desktop</div><h3>We Are Born Remembering, But We Learn to Forget</h3><p>A newborn remembers every life it has lived, and knows exactly what to say. Every attempt comes out as a cry.</p><div class="aw">USC Immersive Media Hackathon · Nov 2026</div></div>
+  <div class="pj y f" data-s="1"><div class="th poem news"><span>The math of making ends meet</span></div><div class="t">Capital &amp; Main · solutions journalism</div><h3>High Costs, Low Wages</h3><p>California workers tell their own stories: what a month costs, what a paycheck covers, and how they push back.</p><div class="lks"><a href="https://capitalandmain.com/latest-news/high-costs-low-wages" target="_blank" rel="noopener">The series</a></div></div>
+  <div class="pj f" data-s="1"><div class="th"><img src="img/work-brazil-conference.jpg" alt="" loading="lazy" style="object-position:center 20%"></div><div class="t">Harvard &amp; MIT · communications lead</div><h3>Brazil Conference</h3><p>Organizer for general communications and digital marketing, 2025-26.</p><div class="aw">6.2M views in 7 months</div><div class="lks"><a href="https://www.brazilconference.org" target="_blank" rel="noopener">brazilconference.org</a></div></div>
+  <div class="pj y f" data-s="2"><div class="th"><img src="img/pop-poster.jpg" alt="" loading="lazy"></div><div class="t">WebXR · splats + 360°</div><h3>Pages of Prophecy</h3><p>A family's exile story, co-built with director Noelle Muluneh.</p><div class="lks"><a href="https://endearing-gecko-5856a3.netlify.app" target="_blank" rel="noopener">Open it</a></div></div>
+  <div class="pj r f you" data-s="2"><div class="th poem"><span>Your story here</span></div><div class="t">Next · with you</div><h3>Bring me your stories.</h3><p>Let's build them together. <b>rogeriobie2016@gmail.com</b></p><div class="lks"><a href="https://arrival.space/34193039" target="_blank" rel="noopener">Spatial portfolio</a></div></div>
+ </div>
 </section>
 
 <!-- 08 REAL PROJECTS -->
@@ -748,7 +771,7 @@ h1{font-size:clamp(42px,6.4vw,104px)}
  <div class="grp">
   <button class="pb" id="prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button>
   <button class="pb" id="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
-  <span class="count" id="count">01 / 16</span>
+  <span class="count" id="count">01 / 17</span>
  </div>
  <div class="grp"><span class="keys">← → · N notes · H clean · F full screen</span>
   <button class="pb" id="nbtn" aria-label="Speaker notes">N</button>
