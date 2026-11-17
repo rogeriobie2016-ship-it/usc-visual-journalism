@@ -428,6 +428,26 @@ h1{font-size:clamp(42px,6.4vw,104px)}
 .pj.you .th.poem{background-color:var(--red);color:#fff7e0;font-family:var(--hd);font-stretch:118%;font-weight:860;text-transform:uppercase;font-size:20px}
 .pj .lks{display:flex;gap:12px;flex-wrap:wrap}
 @media (max-width:980px){.proj.dev{grid-template-columns:1fr}}
+/* premium pass: calmer surface, finer depth */
+#field,.grain{display:none}
+body:after{display:none}
+body:before{background-image:radial-gradient(rgba(41,73,20,.07) 1px,transparent 1.2px);background-size:7px 7px}
+html,body{background:#F4F3EC}
+.card .face,.tool,.pj,.demo,.vc,.st,.wall a{box-shadow:0 1px 0 var(--tx),0 18px 40px -22px rgba(23,32,15,.45);border-width:1.5px;border-radius:10px}
+.card .face.front{border-radius:10px}
+.tool:hover,.pj:hover,.demo:hover{box-shadow:0 1px 0 var(--tx),0 26px 50px -20px rgba(217,56,30,.45);transform:translateY(-3px)}
+.pj,.demo,.tool{transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.photos figure,.strip figure,.vpanel{outline:1.5px solid var(--tx);border:4px solid #fff;box-shadow:0 22px 44px -22px rgba(23,32,15,.55);border-radius:6px}
+.qr{box-shadow:0 18px 36px -18px rgba(217,56,30,.55);border-width:1.5px;border-radius:12px}
+.lk{box-shadow:none;border-width:1.5px}.lk:hover{box-shadow:0 10px 24px -12px rgba(23,32,15,.5)}
+.btn{box-shadow:0 2px 0 var(--tx)}
+h1{text-shadow:none;letter-spacing:-.02em}
+h2{letter-spacing:-.015em}
+.kicker{letter-spacing:.18em;font-size:13px}
+.kicker:before{content:"";display:inline-block;width:28px;height:1.5px;background:var(--red);vertical-align:middle;margin-right:12px}
+mark{padding:0 .1em}
+#bar i{height:2px}
+.pb{box-shadow:none;border-width:1.5px}
 @media (max-width:980px){.pj .th{height:80px}}
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}}
 </style>
@@ -836,6 +856,7 @@ $('#deck').addEventListener('pointerup',e=>{if(!down||down.ix){down=null;return}
  if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)){dx<0?next():prev()}else if(Math.hypot(dx,dy)<10){e.clientX<innerWidth*.25?prev():next()}down=null});
 $('#next').onclick=next;$('#prev').onclick=prev;
 $('#nbtn').onclick=()=>notes.classList.toggle('show');
+if(!window.NOTES){$('#nbtn').style.display='none';$('.keys').textContent='← → · F full screen'}
 $('#clean').onclick=()=>document.body.classList.toggle('clean');
 function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),1600)}
 
