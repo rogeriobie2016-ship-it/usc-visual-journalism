@@ -157,6 +157,18 @@ figcaption{position:absolute;left:10px;bottom:10px;font-size:11px;letter-spacing
 .wall a:hover img{transform:scale(1.07)}
 .wall span{position:absolute;left:8px;bottom:8px;right:8px;font-size:11px;font-weight:600;line-height:1.25;background:rgba(18,18,17,.82);padding:5px 8px;border-radius:8px}
 
+/* real projects */
+.proj{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:24px}
+.pj{border:1px solid #33332e;border-top:3px solid var(--lima);border-radius:16px;padding:16px;background:rgba(18,18,17,.82);display:flex;flex-direction:column;gap:8px}
+.pj.y{border-top-color:var(--fita)}.pj.r{border-top-color:var(--urucum)}.pj.b{border-top-color:var(--noite)}
+.pj .t{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.pj h3{font-size:19px}
+.pj .who{font-size:12.5px;color:var(--mute);line-height:1.35}
+.pj p{font-size:14px;line-height:1.38;color:#d8d7cd}
+.pj .aw{font-size:12.5px;font-weight:700;color:var(--fita);line-height:1.3;margin-top:auto}
+.pj a{font-size:12px;font-weight:700;color:var(--lima);text-decoration:none}
+.pj a:after{content:" ↗"}
+
 /* creators list */
 .rules{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 26px;margin-top:26px;max-width:1050px}
 .rule{display:flex;gap:14px;align-items:baseline;border-top:1px solid #33332e;padding-top:12px}
@@ -259,7 +271,7 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
 .toast.show{opacity:1;transform:translateX(-50%)}
 
 @media (max-width:980px){
- .cards{grid-template-columns:repeat(2,1fr)}.tools,.live{grid-template-columns:repeat(2,1fr)}
+ .cards,.proj{grid-template-columns:repeat(2,1fr)}.tools,.live{grid-template-columns:repeat(2,1fr)}
  .tl,.tl.t7{grid-template-columns:repeat(2,1fr)}.tl:before{display:none}
  .cols,.opp{grid-template-columns:repeat(2,1fr)}.wall{grid-template-columns:repeat(3,1fr)}
  .split{grid-template-columns:1fr}.verd,.rules,.steps3,.opts4{grid-template-columns:1fr}
@@ -403,17 +415,18 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
  <div class="links f" data-s="3"><a class="lk" href="https://canva.link/d84kwo2hiamrc8z" target="_blank" rel="noopener">Pitch deck</a><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html#p-ssz" target="_blank" rel="noopener">Case study</a><a class="lk" href="https://iconoclasistas.net/" target="_blank" rel="noopener">Iconoclasistas (counter-mapping)</a></div>
 </section>
 
-<!-- 08 PHONES OUT -->
-<section class="slide" data-notes="0:57 a 1:05 · DEMO AO VIVO|Todo mundo com o celular. Escolham 1 QR, 2 minutos explorando, depois troquem com o vizinho.|Testar todos os QR no SEU celular antes da aula.|Se o wifi cair: mostra pelo seu notebook.">
- <div class="kicker f" data-s="0">Live · <b>phones out</b></div>
- <h2 class="f" data-s="0">Don't watch it. <mark>Walk into it.</mark></h2>
- <div class="live f" data-s="0">
-  <div class="demo"><div class="qr" data-qr="https://scaniverse.com/scan/lyzjlrcjmk5pd" data-done="1"><img src="qr/61a93f23.png" alt="QR code for https://scaniverse.com/scan/lyzjlrcjmk5pd"></div><div class="t">Gaussian splat · journalism</div><h3>Out of the Ashes</h3><p>A place from the LA fires. Pinch, drag, walk around it.</p><a class="lk" href="https://scaniverse.com/scan/lyzjlrcjmk5pd" target="_blank" rel="noopener">open</a></div>
-  <div class="demo" id="demoAR"></div>
-  <div class="demo"><div class="qr" data-qr="https://endearing-gecko-5856a3.netlify.app" data-done="1"><img src="qr/e2657927.png" alt="QR code for https://endearing-gecko-5856a3.netlify.app"></div><div class="t">WebXR · splats + 360°</div><h3>Pages of Prophecy</h3><p>A family's exile story, co-built with director Noelle Muluneh.</p><a class="lk" href="https://endearing-gecko-5856a3.netlify.app" target="_blank" rel="noopener">open</a></div>
-  <div class="demo"><div class="qr" data-qr="https://rogeriobie2016-ship-it.github.io/quasar-lab-site/flight.html" data-done="1"><img src="qr/36ffbb0b.png" alt="QR code for https://rogeriobie2016-ship-it.github.io/quasar-lab-site/flight.html"></div><div class="t">WebXR · explainer</div><h3>Quasar Flight</h3><p>Science explained by flying it. Tilt your phone, it follows your gyro.</p><a class="lk" href="https://rogeriobie2016-ship-it.github.io/quasar-lab-site/flight.html" target="_blank" rel="noopener">open</a></div>
+<!-- 08 REAL PROJECTS -->
+<section class="slide" data-notes="0:57 a 1:05 · REAL PROJECTS|1 min cada, um por clique. Pra ouvir e sentir, nao pra decorar.|Clouds Over Sidra: dado interno da ONU (Fortune, 2016): quem viu os filmes VR doou na taxa de 1 em 6, contra 1 em 12.|Notes on Blindness: diarios em audio do John Hull perdendo a visao. O momento really listening: fecha os olhos e escuta.|The Displaced: Grand Prix de Entertainment em Cannes Lions 2016.|Hunger in LA: feito com o Mixed Reality Lab da USC. O headset da estreia em Sundance foi montado pelo Palmer Luckey, que meses depois criou o Oculus Rift. Ligacao pessoal com a Nonny.|IKEA Place: marca usando AR no celular. Premio D&AD (Wood Pencil), nao Cannes.|Os QR de demo foram pro fim: hands-on, opcional.">
+ <div class="kicker f" data-s="0">Real projects · <b>one minute each</b></div>
+ <h2 class="f" data-s="0">Don't just watch it. <mark>Feel it.</mark></h2>
+ <div class="proj">
+  <div class="pj f" data-s="0"><div class="t">2015 · UN · 360° VR</div><h3>Clouds Over Sidra</h3><div class="who">Gabo Arora, Chris Milk, Barry Pousman (Vrse)</div><p>A day with Sidra, a girl in a Syrian refugee camp. The UN used its VR films to raise money.</p><div class="aw">UN data: viewers donated at 1 in 6, up from 1 in 12</div><a href="https://fortune.com/2016/04/18/un-uses-virtual-reality-to-raise-awareness-and-money/" target="_blank" rel="noopener">Fortune</a></div>
+  <div class="pj y f" data-s="1"><div class="t">2016 · VR · sound</div><h3>Notes on Blindness</h3><div class="who">Colinart, La Burthe, Middleton, Spinney (ARTE, Ex Nihilo)</div><p>Built from John Hull's audio diaries as he lost his sight. You learn to <b>really listen.</b></p><div class="aw">Tribeca Storyscapes Award 2016</div><a href="https://www.notesonblindness.co.uk/" target="_blank" rel="noopener">Notes on Blindness</a></div>
+  <div class="pj r f" data-s="2"><div class="t">2015 · NYT VR</div><h3>The Displaced</h3><div class="who">Imraan Ismail &amp; Ben Solomon, for The New York Times</div><p>The Times' first VR film: lives uprooted by war. Shipped with 1M+ Cardboards.</p><div class="aw">Entertainment Lions Grand Prix, Cannes Lions 2016</div><a href="https://www.nytimes.com/2015/11/08/magazine/the-displaced-introduction.html" target="_blank" rel="noopener">The Displaced</a></div>
+  <div class="pj b f" data-s="3"><div class="t">2012 · VR · Sundance</div><h3>Hunger in Los Angeles</h3><div class="who">Nonny de la Peña, with USC's Mixed Reality Lab</div><p>A real event: a man collapses in a food-bank line. You stand there as a witness. Made right here, at USC.</p><div class="aw">Premiered at Sundance 2012</div><a href="https://en.wikipedia.org/wiki/Nonny_de_la_Pe%C3%B1a" target="_blank" rel="noopener">Nonny de la Peña</a></div>
+  <div class="pj f" data-s="4"><div class="t">2017 · brand · AR</div><h3>IKEA Place</h3><div class="who">IKEA · AR app on your phone</div><p>See how the furniture looks in your own room before you buy it. Advertising learned this before newsrooms did.</p><div class="aw">D&amp;AD Wood Pencil 2018, Digital Design</div><a href="https://dandad.org/awards/professional/2018/digital-design/26765/ikea-place" target="_blank" rel="noopener">D&amp;AD</a></div>
  </div>
- <div class="wall f" data-s="1">
+ <div class="wall f" data-s="5">
   <a href="https://superposition.dk/Reality" target="_blank" rel="noopener"><img src="img/rlb-3.jpg" alt=""><span>Reality Looks Back · SXSW 2026 XR Spotlight ↗</span></a>
   <a href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html#p-lapl" target="_blank" rel="noopener"><img src="img/lapl-2.jpg" alt=""><span>XR at 5 LA Public Library branches ↗</span></a>
   <a href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html#p-siggraph" target="_blank" rel="noopener"><img src="img/sig-1.jpg" alt=""><span>SIGGRAPH 2026 Immersive Pavilion ↗</span></a>
@@ -547,13 +560,25 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
  </div><div class="photos f" data-s="0" style="grid-template-columns:1fr"><figure style="aspect-ratio:4/5"><img src="img/portrait-hero.jpg" alt="Rogério Bié"><figcaption>Rogério Bié · Los Angeles</figcaption></figure></div></div>
 </section>
 
+<!-- 16 HANDS-ON (optional) -->
+<section class="slide" data-notes="Depois do fechamento · OPCIONAL|Deixa na tela enquanto a turma sai ou se sobrar tempo.|Escolham 1 QR, 2 minutos explorando, troquem com o vizinho.|Testar todos os QR no SEU celular antes. Se o wifi cair: mostra pelo notebook.">
+ <div class="kicker f" data-s="0">Hands-on · <b>optional</b></div>
+ <h2 class="f" data-s="0">Don't watch it. <mark>Walk into it.</mark></h2>
+ <div class="live f" data-s="0">
+  <div class="demo"><div class="qr" data-qr="https://scaniverse.com/scan/lyzjlrcjmk5pd" data-done="1"><img src="qr/61a93f23.png" alt="QR code for https://scaniverse.com/scan/lyzjlrcjmk5pd"></div><div class="t">Gaussian splat · journalism</div><h3>Out of the Ashes</h3><p>A place from the LA fires. Pinch, drag, walk around it.</p><a class="lk" href="https://scaniverse.com/scan/lyzjlrcjmk5pd" target="_blank" rel="noopener">open</a></div>
+  <div class="demo" id="demoAR"></div>
+  <div class="demo"><div class="qr" data-qr="https://endearing-gecko-5856a3.netlify.app" data-done="1"><img src="qr/e2657927.png" alt="QR code for https://endearing-gecko-5856a3.netlify.app"></div><div class="t">WebXR · splats + 360°</div><h3>Pages of Prophecy</h3><p>A family's exile story, co-built with director Noelle Muluneh.</p><a class="lk" href="https://endearing-gecko-5856a3.netlify.app" target="_blank" rel="noopener">open</a></div>
+  <div class="demo"><div class="qr" data-qr="https://rogeriobie2016-ship-it.github.io/quasar-lab-site/flight.html" data-done="1"><img src="qr/36ffbb0b.png" alt="QR code for https://rogeriobie2016-ship-it.github.io/quasar-lab-site/flight.html"></div><div class="t">WebXR · explainer</div><h3>Quasar Flight</h3><p>Science explained by flying it. Tilt your phone, it follows your gyro.</p><a class="lk" href="https://rogeriobie2016-ship-it.github.io/quasar-lab-site/flight.html" target="_blank" rel="noopener">open</a></div>
+ </div>
+</section>
+
 </main>
 
 <div id="ctl">
  <div class="grp">
   <button class="pb" id="prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button>
   <button class="pb" id="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
-  <span class="count" id="count">01 / 15</span>
+  <span class="count" id="count">01 / 16</span>
  </div>
  <div class="grp"><span class="keys">← → · N notes · H clean · F full screen</span>
   <button class="pb" id="nbtn" aria-label="Speaker notes">N</button>
