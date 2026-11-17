@@ -894,8 +894,8 @@ mark{padding:0 .1em}
   <button class="pb" id="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
   <span class="count" id="count">01 / 20</span>
  </div>
- <div class="grp"><span class="keys">← → · N notes · H clean · F full screen</span>
-  <button class="pb" id="nbtn" aria-label="Speaker notes">N</button>
+ <div class="grp"><span class="keys">← → · F full screen</span>
+  
   <button class="pb" id="clean" aria-label="Clean screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/></svg></button>
  </div>
 </div>
@@ -967,8 +967,8 @@ $('#deck').addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY,ix:!
 $('#deck').addEventListener('pointerup',e=>{if(!down||down.ix){down=null;return}const dx=e.clientX-down.x,dy=e.clientY-down.y;
  if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)){dx<0?next():prev()}else if(Math.hypot(dx,dy)<10){e.clientX<innerWidth*.25?prev():next()}down=null});
 $('#next').onclick=next;$('#prev').onclick=prev;
-$('#nbtn').onclick=openNotes;
-if(!window.NOTES){$('#nbtn').style.display='none';$('.keys').textContent='← → · F full screen'}
+
+
 $('#clean').onclick=()=>document.body.classList.toggle('clean');
 function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),1600)}
 
