@@ -450,6 +450,21 @@ mark{padding:0 .1em}
 .pb{box-shadow:none;border-width:1.5px}
 .card{height:232px}.card p{font-size:13.5px}.card .ex{margin-top:8px;padding-top:7px;border-top:1.5px solid var(--tx);font-size:13px;line-height:1.3;font-weight:600}.card .ex span{display:block;font-family:var(--tw);font-weight:400;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
 .tl.t7 .ev .th{height:96px}.tl.t7 .ev .yr{font-size:clamp(22px,2.2vw,34px)}.tl.t7{margin-top:26px}
+.hero-media{position:absolute;right:6vw;top:50%;transform:translateY(-50%);width:min(40vw,640px);z-index:0}
+.hero-media.f{transform:translateY(-46%)}.hero-media.f.in{transform:translateY(-50%)}
+.hero-media .reel{aspect-ratio:16/9}.hero-media .reel video{background:#000}
+.hero-media .me{position:absolute;left:-60px;bottom:-70px;width:150px;aspect-ratio:4/5;margin:0;border:4px solid #fff;outline:1.5px solid var(--tx);border-radius:6px;overflow:hidden;box-shadow:0 22px 44px -22px rgba(23,32,15,.6);rotate:-4deg}
+.hero-media .me img{width:100%;height:100%;object-fit:cover;display:block}
+.slide:first-child h1,.slide:first-child .lead,.slide:first-child .hero-qr,.slide:first-child .links,.slide:first-child .kicker{max-width:min(48vw,760px)}
+.slide:first-child h1{font-size:clamp(38px,5vw,82px)}
+.pqr{width:64px;align-self:flex-start;background:#fff;border:1.5px solid var(--tx);border-radius:8px;padding:5px;margin-top:4px}
+.pqr img,.pqr canvas{display:block;width:100%!important;height:auto!important}
+.netwrap{margin-top:16px;border:1.5px solid var(--tx);border-radius:12px;background:#fbf7e6;box-shadow:0 18px 40px -22px rgba(23,32,15,.45);overflow:hidden}
+#net{display:block;width:100%;height:min(40vh,340px);cursor:pointer}
+.netbar{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-top:1.5px solid var(--tx);font-family:var(--tw);font-size:13px}
+.netbar .btn{padding:6px 14px;font-size:13px}
+.vpanel.yt{aspect-ratio:16/9}.vpanel.yt iframe{width:100%;height:100%;border:0;display:block}
+@media (max-width:980px){.hero-media{position:relative;right:auto;top:auto;transform:none!important;width:100%;margin-top:22px}.hero-media .me{width:96px;left:auto;right:10px;bottom:-30px}.slide:first-child h1,.slide:first-child .lead,.slide:first-child .hero-qr,.slide:first-child .links,.slide:first-child .kicker{max-width:none}}
 @media (max-width:980px){.pj .th{height:80px}}
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}}
 </style>
@@ -465,7 +480,7 @@ mark{padding:0 .1em}
 
 <!-- 01 TITLE -->
 <section class="slide">
- <div class="bgvid"><video src="video/hero.mp4" poster="video/hero-poster.jpg" autoplay muted loop playsinline></video></div>
+ <div class="hero-media f" data-s="0"><div class="vpanel reel"><video src="video/reel-2026.mp4" poster="video/reel-2026-poster.jpg" controls playsinline preload="metadata"></video><div class="rec">Demo reel 2026</div></div><figure class="me"><img src="img/portrait-hero.jpg" alt="Rogério Bié"><figcaption>Rogério Bié</figcaption></figure></div>
  <div class="kicker f" data-s="0">USC Annenberg · Week 14 · <b>guest lecture</b></div>
  <h1 class="f" data-s="0">What's next<br>in <mark>visual</mark><br>journalism?</h1>
  <p class="lead f mt" data-s="0">VR, AR, 360°, drones, GoPro, volumetric capture and Gaussian splats. And the question under all of them: <strong>who gets to hold the camera?</strong></p>
@@ -490,7 +505,7 @@ mark{padding:0 .1em}
     <div class="f" data-s="1"><span>3</span>Now: M.A. Narrative &amp; Emerging Media at ASU, with Prof. Nonny de la Peña. VR, volumetric capture, Gaussian splats.</div>
    </div>
    <div class="quote f mt" data-s="2"><p>"What separates me from many young people in my community isn't capability. It's access."</p></div>
-   <div class="links f" data-s="2"><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html" target="_blank" rel="noopener">All my work</a><a class="lk" href="https://youtu.be/hNjRzGMewbI" target="_blank" rel="noopener">Children of the Wind (doc)</a><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html#p-g20" target="_blank" rel="noopener">G20 youth newsroom</a><a class="lk hot" href="https://arrival.space/34193039" target="_blank" rel="noopener">Spatial portfolio</a></div>
+   <div class="links f" data-s="2"><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html" target="_blank" rel="noopener">All my work</a><a class="lk" href="https://youtu.be/hNjRzGMewbI" target="_blank" rel="noopener">Children of the Wind (doc)</a><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html#p-g20" target="_blank" rel="noopener">G20 youth newsroom</a><a class="lk hot" href="https://arrival.space/34193039" target="_blank" rel="noopener">Spatial portfolio</a><a class="lk" href="https://rogeriobie.site/feed.html" target="_blank" rel="noopener">Feed · work log</a></div>
   </div>
   <div class="photos f" data-s="0">
    <figure class="wide"><img src="img/sq-1.jpg" alt="Aerial view of the sertão in Santa Quitéria, Ceará"><figcaption>Santa Quitéria, Ceará</figcaption></figure>
@@ -547,12 +562,12 @@ mark{padding:0 .1em}
  <div class="kicker f" data-s="0">The toolbox · <b>format follows the question</b></div>
  <h2 class="f" data-s="0">Every format answers<br>a <mark>journalistic question.</mark></h2>
  <div class="tools f" data-s="1">
-  <a class="tool ix" href="https://www.cjr.org/tow_center_reports/virtual_reality_journalism.php" target="_blank" rel="noopener"><img src="img/rlb-4.jpg" alt=""><span class="go">open</span><div class="fmt">360° · GoPro</div><h3>"What was it like to be there?"</h3><p>Reality Looks Back, SXSW 2026: 400+ viewings in 5 days.</p></a>
-  <a class="tool ix" href="https://www.faa.gov/uas/commercial_operators" target="_blank" rel="noopener"><img src="img/sq-2.jpg" alt=""><span class="go">open</span><div class="fmt">Drone</div><h3>"How big is this, really?"</h3><p>Scale, distance, the shape of a territory.</p></a>
-  <a class="tool ix" href="https://modelviewer.dev/" target="_blank" rel="noopener"><img src="img/ssz-5.jpg" alt=""><span class="go">open</span><div class="fmt">AR</div><h3>"What if it were here?"</h3><p>The rocket, the flood line, the heat map, on your own desk.</p></a>
-  <a class="tool ix" href="https://www.ted.com/talks/nonny_de_la_pena_the_future_of_news_virtual_reality" target="_blank" rel="noopener"><img src="img/lapl-1.jpg" alt=""><span class="go">open</span><div class="fmt">VR · 6DoF</div><h3>"Can I stand inside it?"</h3><p>Embodiment: your body becomes part of the story.</p></a>
-  <a class="tool ix" href="https://agog.org/out-of-the-ashes-immersive-storytelling/" target="_blank" rel="noopener"><img src="img/cover-volumetric.jpg" alt=""><span class="go">open</span><div class="fmt">Volumetric</div><h3>"Can I meet this person?"</h3><p>A survivor, in 3D, at human scale.</p></a>
-  <a class="tool ix" href="https://superspl.at/" target="_blank" rel="noopener"><img src="img/ssz-9.jpg" alt=""><span class="go">open</span><div class="fmt">Gaussian splat</div><h3>"Can we rebuild what's gone?"</h3><p>A beach, a burned house, a memory, from photos.</p></a>
+  <a class="tool ix" href="https://techcrunch.com/2016/11/01/with-nyts-new-the-daily-360-samsung-looks-to-jumpstart-everyday-vr/" target="_blank" rel="noopener"><img src="img/rlb-4.jpg" alt=""><span class="go">open</span><div class="fmt">360° · NYT The Daily 360</div><h3>"What was it like to be there?"</h3><p>A 360° news video every day, 2016.</p></a>
+  <a class="tool ix" href="https://niemanlab.org/reading/the-bbc-is-using-drone-footage-to-show-the-extent-of-destruction-in-ukraine" target="_blank" rel="noopener"><img src="img/sq-2.jpg" alt=""><span class="go">open</span><div class="fmt">Drone · BBC, Ukraine</div><h3>"How big is this, really?"</h3><p>Drone footage showed the scale of destruction, 2022.</p></a>
+  <a class="tool ix" href="https://niemanlab.org/?p=154346" target="_blank" rel="noopener"><img src="https://www.niemanlab.org/images/pyeongchang-olympics-cc.jpg" alt="" referrerpolicy="no-referrer"><span class="go">open</span><div class="fmt">AR · NYT Olympics</div><h3>"What if it were here?"</h3><p>Life-size athletes in readers' living rooms, 2018.</p></a>
+  <a class="tool ix" href="https://www.youtube.com/watch?v=odcsxUbVyZA" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/odcsxUbVyZA/hqdefault.jpg" alt=""><span class="go">watch</span><div class="fmt">VR · The Guardian 6x9</div><h3>"Can I stand inside it?"</h3><p>Nine minutes in solitary confinement, 2016.</p></a>
+  <a class="tool ix" href="https://mobile-ar.reality.news/news/model-ashley-graham-struts-through-augmented-reality-via-3d-capture-by-new-york-times-0186969" target="_blank" rel="noopener"><img src="https://assets.content.technologyadvice.com/636717447434647290_b1c321e72a.webp" alt="" referrerpolicy="no-referrer"><span class="go">open</span><div class="fmt">Volumetric · NYT</div><h3>"Can I meet this person?"</h3><p>Ashley Graham in 3D, on your floor, 2018.</p></a>
+  <a class="tool ix" href="https://radiancefields.com/nzz-team-details-how-it-built-gaussian-splats-of-a-restricted-asylum-center-on-samos" target="_blank" rel="noopener"><img src="https://framerusercontent.com/images/2MOLJl1XDKrdXXzozcwr3Ma7hc.webp?width=1400&amp;height=1050" alt="" referrerpolicy="no-referrer"><span class="go">open</span><div class="fmt">Gaussian splat · NZZ</div><h3>"Can we rebuild what's gone?"</h3><p>A closed asylum camp, rebuilt from phone video.</p></a>
  </div>
 </section>
 
@@ -613,11 +628,11 @@ mark{padding:0 .1em}
  <div class="kicker f" data-s="0">Real projects · <b>one minute each</b></div>
  <h2 class="f" data-s="0">Don't just watch it. <mark>Feel it.</mark></h2>
  <div class="proj">
-  <div class="pj f" data-s="0"><div class="t">2015 · UN · 360° VR</div><h3>Clouds Over Sidra</h3><div class="who">Gabo Arora, Chris Milk, Barry Pousman (Vrse)</div><p>A day with Sidra, a girl in a Syrian refugee camp. The UN used its VR films to raise money.</p><div class="aw">UN data: viewers donated at 1 in 6, up from 1 in 12</div><a href="https://fortune.com/2016/04/18/un-uses-virtual-reality-to-raise-awareness-and-money/" target="_blank" rel="noopener">Fortune</a></div>
-  <div class="pj y f" data-s="1"><div class="t">2016 · VR · sound</div><h3>Notes on Blindness</h3><div class="who">Colinart, La Burthe, Middleton, Spinney (ARTE, Ex Nihilo)</div><p>Built from John Hull's audio diaries as he lost his sight. You learn to <b>really listen.</b></p><div class="aw">Tribeca Storyscapes Award 2016</div><a href="https://www.notesonblindness.co.uk/" target="_blank" rel="noopener">Notes on Blindness</a></div>
-  <div class="pj r f" data-s="2"><div class="t">2015 · NYT VR</div><h3>The Displaced</h3><div class="who">Imraan Ismail &amp; Ben Solomon, for The New York Times</div><p>The Times' first VR film: lives uprooted by war. Shipped with 1M+ Cardboards.</p><div class="aw">Entertainment Lions Grand Prix, Cannes Lions 2016</div><a href="https://www.nytimes.com/2015/11/08/magazine/the-displaced-introduction.html" target="_blank" rel="noopener">The Displaced</a></div>
-  <div class="pj b f" data-s="3"><div class="t">2012 · VR · Sundance</div><h3>Hunger in Los Angeles</h3><div class="who">Nonny de la Peña, with USC's Mixed Reality Lab</div><p>A real event: a man collapses in a food-bank line. You stand there as a witness. Made right here, at USC.</p><div class="aw">Premiered at Sundance 2012</div><a href="https://www.ted.com/talks/nonny_de_la_pena_the_future_of_news_virtual_reality" target="_blank" rel="noopener">Nonny de la Peña · TED</a></div>
-  <div class="pj f" data-s="4"><div class="t">2017 · brand · AR</div><h3>IKEA Place</h3><div class="who">IKEA · AR app on your phone</div><p>See how the furniture looks in your own room before you buy it. Advertising learned this before newsrooms did.</p><div class="aw">D&amp;AD Wood Pencil 2018, Digital Design</div><a href="https://dandad.org/awards/professional/2018/digital-design/26765/ikea-place" target="_blank" rel="noopener">D&amp;AD</a></div>
+  <div class="pj f" data-s="0"><div class="t">2015 · UN · 360° VR</div><h3>Clouds Over Sidra</h3><div class="who">Gabo Arora, Chris Milk, Barry Pousman (Vrse)</div><p>A day with Sidra, a girl in a Syrian refugee camp. The UN used its VR films to raise money.</p><div class="aw">UN data: viewers donated at 1 in 6, up from 1 in 12</div><div class="pqr" data-qr="https://fortune.com/2016/04/18/un-uses-virtual-reality-to-raise-awareness-and-money/"></div><a href="https://fortune.com/2016/04/18/un-uses-virtual-reality-to-raise-awareness-and-money/" target="_blank" rel="noopener">Fortune</a></div>
+  <div class="pj y f" data-s="1"><div class="t">2016 · VR · sound</div><h3>Notes on Blindness</h3><div class="who">Colinart, La Burthe, Middleton, Spinney (ARTE, Ex Nihilo)</div><p>Built from John Hull's audio diaries as he lost his sight. You learn to <b>really listen.</b></p><div class="aw">Tribeca Storyscapes Award 2016</div><div class="pqr" data-qr="https://www.notesonblindness.co.uk/"></div><a href="https://www.notesonblindness.co.uk/" target="_blank" rel="noopener">Notes on Blindness</a></div>
+  <div class="pj r f" data-s="2"><div class="t">2015 · NYT VR</div><h3>The Displaced</h3><div class="who">Imraan Ismail &amp; Ben Solomon, for The New York Times</div><p>The Times' first VR film: lives uprooted by war. Shipped with 1M+ Cardboards.</p><div class="aw">Entertainment Lions Grand Prix, Cannes Lions 2016</div><div class="pqr" data-qr="https://www.nytimes.com/2015/11/08/magazine/the-displaced-introduction.html"></div><a href="https://www.nytimes.com/2015/11/08/magazine/the-displaced-introduction.html" target="_blank" rel="noopener">The Displaced</a></div>
+  <div class="pj b f" data-s="3"><div class="t">2012 · VR · Sundance</div><h3>Hunger in Los Angeles</h3><div class="who">Nonny de la Peña, with USC's Mixed Reality Lab</div><p>A real event: a man collapses in a food-bank line. You stand there as a witness. Made right here, at USC.</p><div class="aw">Premiered at Sundance 2012</div><div class="pqr" data-qr="https://www.ted.com/talks/nonny_de_la_pena_the_future_of_news_virtual_reality"></div><a href="https://www.ted.com/talks/nonny_de_la_pena_the_future_of_news_virtual_reality" target="_blank" rel="noopener">Nonny de la Peña · TED</a></div>
+  <div class="pj f" data-s="4"><div class="t">2017 · brand · AR</div><h3>IKEA Place</h3><div class="who">IKEA · AR app on your phone</div><p>See how the furniture looks in your own room before you buy it. Advertising learned this before newsrooms did.</p><div class="aw">D&amp;AD Wood Pencil 2018, Digital Design</div><div class="pqr" data-qr="https://dandad.org/awards/professional/2018/digital-design/26765/ikea-place"></div><a href="https://dandad.org/awards/professional/2018/digital-design/26765/ikea-place" target="_blank" rel="noopener">D&amp;AD</a></div>
  </div>
  <div class="wall f" data-s="5">
   <a href="https://superposition.dk/Reality" target="_blank" rel="noopener"><img src="img/rlb-3.jpg" alt=""><span>Reality Looks Back · SXSW 2026 XR Spotlight ↗</span></a>
@@ -670,6 +685,23 @@ mark{padding:0 .1em}
   <div class="col r f" data-s="2"><div class="n">Ailton Krenak</div><h3>Tell one more story</h3><p>To postpone the end of the world, keep telling stories. The river is a relative, not a resource.</p><a href="https://www.e-flux.com/journal/110/335038" target="_blank" rel="noopener">Krenak in his own words</a></div>
   <div class="col y f" data-s="3"><div class="n">Kayapó · Video nas Aldeias</div><h3>The camera, flipped</h3><p>Indigenous filmmakers using the colonizer's storytelling machine on their own terms.</p><a href="https://archaeology.columbia.edu/kayapovideowarriors" target="_blank" rel="noopener">The camera is our weapon</a></div>
   <div class="col b f" data-s="4"><div class="n">Malcolm Gladwell</div><h3>The Tipping Point</h3><p>A few connectors, one sticky image, the right moment. That's how a small world tips a big one.</p><a href="https://www.gladwellbooks.com/titles/malcolm-gladwell/the-tipping-point/9780759574731" target="_blank" rel="noopener">The Tipping Point</a></div>
+ </div>
+</section>
+
+<!-- 10b TIPPING POINT -->
+<section class="slide">
+ <div class="kicker f" data-s="0">The tipping point · <b>how a small world tips a big one</b></div>
+ <div class="split" style="grid-template-columns:1fr 1fr;align-items:start;gap:4vw">
+  <div>
+   <h2 class="f" data-s="0" style="font-size:clamp(28px,3.6vw,56px)">A few connectors.<br>One <mark>sticky</mark> idea.</h2>
+   <p class="lead f" data-s="0" style="margin-top:12px">Tap a node. Watch an idea move through the room. Then tap a <strong style="color:var(--red)">connector</strong> (the big ones) and see the difference.</p>
+   <div class="netwrap f ix" data-s="0"><canvas id="net"></canvas><div class="netbar"><span id="netStat">0 of 0 reached</span><button class="btn y ix" id="netReset">Reset</button></div></div>
+  </div>
+  <div class="f" data-s="1">
+   <div class="vpanel yt"><iframe src="https://www.youtube-nocookie.com/embed/qXqvn_YUTXg?rel=0" title="Moviement: The Innovative Process, The Quasar Lab" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+   <p class="small" style="margin-top:12px"><b>Moviement: The Innovative Process</b> · The Quasar Lab</p>
+   <div class="hero-qr" style="margin-top:12px"><div class="qr sm" data-qr="https://youtu.be/qXqvn_YUTXg"></div><div class="qrcap"><b>Watch later</b>Scan to open the video.</div></div>
+  </div>
  </div>
 </section>
 
@@ -793,7 +825,7 @@ mark{padding:0 .1em}
  <div class="grp">
   <button class="pb" id="prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button>
   <button class="pb" id="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
-  <span class="count" id="count">01 / 17</span>
+  <span class="count" id="count">01 / 18</span>
  </div>
  <div class="grp"><span class="keys">← → · N notes · H clean · F full screen</span>
   <button class="pb" id="nbtn" aria-label="Speaker notes">N</button>
@@ -884,6 +916,24 @@ function closeRoom(){room.classList.remove('on');clearInterval(roomT);stopCam();
 document.addEventListener('click',e=>{const b=e.target.closest('[data-room]');if(b){e.stopPropagation();openRoom(b.dataset.room)}});
 $('#roomX').onclick=closeRoom;
 const tg=$('#tgClock');setInterval(()=>{if(!tg)return;const {ph}=phase();tg.textContent=ph<SHOW?'NOW':String(Math.ceil((CYCLE-ph)/1000));tg.style.color=ph<SHOW?'var(--red)':''},100);
+
+/* tipping point network */
+(function(){const cv=document.getElementById('net');if(!cv)return;const cx=cv.getContext('2d');let W,H,N=[],E=[],t0=0;
+function build(){const r=cv.getBoundingClientRect(),d=Math.min(2,devicePixelRatio||1);W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);
+ let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;N=[];E=[];
+ for(let i=0;i<54;i++)N.push({x:20+rnd()*(W-40),y:20+rnd()*(H-40),c:i<4,on:0,t:0});
+ N.forEach((a,i)=>{const near=N.map((b,j)=>[j,(a.x-b.x)**2+(a.y-b.y)**2]).filter(p=>p[0]!==i).sort((p,q)=>p[1]-q[1]);
+  near.slice(0,a.c?9:2).forEach(p=>{if(!E.some(e=>(e[0]===i&&e[1]===p[0])||(e[1]===i&&e[0]===p[0])))E.push([i,p[0]])})});
+ N.forEach((a,i)=>{if(a.c)for(let k=0;k<4;k++){const j=Math.floor(rnd()*N.length);if(j!==i)E.push([i,j])}})}
+function spread(i){if(N[i].on)return;N[i].on=1;N[i].t=performance.now();const delay=N[i].c?160:520;
+ E.forEach(e=>{const j=e[0]===i?e[1]:e[1]===i?e[0]:-1;if(j>=0&&!N[j].on&&(N[i].c||Math.random()<.55))setTimeout(()=>spread(j),delay+Math.random()*200)})}
+function draw(now){cx.clearRect(0,0,W,H);E.forEach(([a,b])=>{const A=N[a],B=N[b],lit=A.on&&B.on;cx.strokeStyle=lit?'rgba(217,56,30,.7)':'rgba(23,32,15,.16)';cx.lineWidth=lit?1.6:1;cx.beginPath();cx.moveTo(A.x,A.y);cx.lineTo(B.x,B.y);cx.stroke()});
+ let n=0;N.forEach(p=>{const r=p.c?9:4.5;if(p.on){n++;const k=Math.min(1,(now-p.t)/600);cx.fillStyle='rgba(255,232,67,'+(.5*(1-k))+')';cx.beginPath();cx.arc(p.x,p.y,r+18*k,0,7);cx.fill()}
+  cx.fillStyle=p.on?'#d9381e':(p.c?'#17200F':'#fbf7e6');cx.strokeStyle='#17200F';cx.lineWidth=1.5;cx.beginPath();cx.arc(p.x,p.y,r,0,7);cx.fill();cx.stroke()});
+ const st=document.getElementById('netStat');if(st)st.textContent=n+' of '+N.length+' reached';requestAnimationFrame(draw)}
+cv.addEventListener('click',e=>{const r=cv.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;let best=-1,bd=1e9;N.forEach((p,i)=>{const d=(p.x-x)**2+(p.y-y)**2;if(d<bd){bd=d;best=i}});if(best>=0&&bd<900)spread(best)});
+document.getElementById('netReset').onclick=()=>N.forEach(p=>p.on=0);
+new ResizeObserver(()=>{if(cv.getBoundingClientRect().width>0)build()}).observe(cv);requestAnimationFrame(draw)})();
 
 /* remix timer */
 let tLeft=300,tInt=null;const tEl=$('#timer');
