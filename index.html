@@ -119,6 +119,7 @@ figcaption{position:absolute;left:10px;bottom:10px;font-size:11px;letter-spacing
 .ev p{font-size:13.5px;line-height:1.4;color:#cfcec4}
 .ev a{display:inline-block;margin-top:8px;font-size:12px;font-weight:700;color:var(--lima);text-decoration:none}
 .ev a:after{content:" ↗"}
+.tl.t7{grid-template-columns:repeat(7,1fr);gap:12px}.tl.t7 .ev p{font-size:13px}.tl.t7 .ev h3{font-size:16px}
 
 /* toolbox */
 .tools{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
@@ -259,7 +260,7 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
 
 @media (max-width:980px){
  .cards{grid-template-columns:repeat(2,1fr)}.tools,.live{grid-template-columns:repeat(2,1fr)}
- .tl{grid-template-columns:repeat(2,1fr)}.tl:before{display:none}
+ .tl,.tl.t7{grid-template-columns:repeat(2,1fr)}.tl:before{display:none}
  .cols,.opp{grid-template-columns:repeat(2,1fr)}.wall{grid-template-columns:repeat(3,1fr)}
  .split{grid-template-columns:1fr}.verd,.rules,.steps3,.opts4{grid-template-columns:1fr}
  .slide{justify-content:flex-start;padding:80px 6vw 100px}.keys{display:none}
@@ -337,18 +338,19 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
 </section>
 
 <!-- 04 TIMELINE -->
-<section class="slide" data-notes="0:20 a 0:27|Isso nao comecou ontem: 14 anos de jornalismo imersivo.|Destaque pro Sam Wolson: fotojornalista que virou diretor de VR. We Who Remain (zona de guerra no Sudao) e Reeducated (New Yorker, Xinjiang, reconstrucao a partir de testemunhos).|Liga com a minha orientadora (Nonny) e com Out of the Ashes em Veneza.">
- <div class="kicker f" data-s="0">A short history · <b>immersive journalism</b></div>
- <h2 class="f" data-s="0">This didn't start <mark class="y">yesterday.</mark></h2>
- <div class="tl">
-  <div class="ev f" data-s="1"><div class="yr">2012</div><h3>Hunger in Los Angeles</h3><p>Nonny de la Peña recreates a food-bank line in VR. Premieres at Sundance. A field is born.</p><a href="https://en.wikipedia.org/wiki/Nonny_de_la_Pe%C3%B1a" target="_blank" rel="noopener">Nonny de la Peña</a></div>
-  <div class="ev f" data-s="1"><div class="yr">2015</div><h3>The Displaced · NYT VR</h3><p>The New York Times ships Google Cardboard to over a million print subscribers.</p><a href="https://www.nytimes.com/2015/11/08/magazine/the-displaced-introduction.html" target="_blank" rel="noopener">The Displaced</a></div>
-  <div class="ev f" data-s="2"><div class="yr">2015</div><h3>Clouds Over Sidra</h3><p>A 360° day in a Syrian refugee camp, for the UN, by Chris Milk and Gabo Arora.</p><a href="https://documentary.org/feature/vr-becoming-actual-reality-documentarians" target="_blank" rel="noopener">IDA feature</a></div>
-  <div class="ev hl f" data-s="2"><div class="yr">2017</div><h3>We Who Remain · Sam Wolson</h3><p>Co-directed: the first character-driven VR film shot in an active war zone. Premiered at SXSW.</p><a href="https://swissfilms.ch/f/person/sam-wolson/3819D967CD814DC3B56A13D08BD62670" target="_blank" rel="noopener">Sam Wolson</a></div>
-  <div class="ev hl f" data-s="3"><div class="yr">2021</div><h3>Reeducated · Sam Wolson</h3><p>VR doc with The New Yorker, built from former detainees' memories of Xinjiang camps. SXSW Special Jury Recognition.</p><a href="https://xrmust.com/?p=20581" target="_blank" rel="noopener">Interview</a></div>
-  <div class="ev f" data-s="3"><div class="yr">2026</div><h3>Out of the Ashes</h3><p>Volumetric doc on the LA fires by Rory Mitchell &amp; Nonny de la Peña. Special Jury Prize, Venice Immersive.</p><a href="https://agog.org/out-of-the-ashes-immersive-storytelling/" target="_blank" rel="noopener">The project</a></div>
+<section class="slide" data-notes="0:20 a 0:27|Arco: da maravilha ao storytelling. A tecnologia muda, a historia e o que move.|1838: Wheatstone, duas imagens, uma por olho. Todo headset ainda funciona assim. View-Master (1939) levou isso pras criancas.|1896: a lenda diz que o publico correu do trem. Historiadores (Loiperdinger, 2004) nao acharam nenhum relato da epoca. Pergunta: The legend says people ran. Why do we keep telling that story?|2012: Snow Fall (Pulitzer 2013, Feature Writing) e Hunger in LA (Nonny, Sundance).|2015: The Displaced (1 milhao+ de Cardboards) e Clouds Over Sidra.|Sam Wolson: We Who Remain e Reeducated (reconstrucao a partir de testemunhos, e disse isso).|Fecha: medo e deslumbramento sempre; no fim e storytelling.">
+ <div class="kicker f" data-s="0">From wonder to storytelling · <b>a short history</b></div>
+ <h2 class="f" data-s="0">The tech changes.<br><mark class="y">The story</mark> is what moves us.</h2>
+ <div class="tl t7">
+  <div class="ev f" data-s="1"><div class="yr">1838</div><h3>Stereoscope · Charles Wheatstone</h3><p>Two images, one per eye. The brain builds the depth. Every VR headset still works this way. View-Master (1939) put it in kids' hands.</p><a href="https://en.wikipedia.org/wiki/Stereoscope" target="_blank" rel="noopener">Stereoscope</a></div>
+  <div class="ev f" data-s="1"><div class="yr">1896</div><h3>Arrival of a Train · Lumière</h3><p>The legend says the audience ran from the screen. Historians found no record of it. <b>Why do we keep telling that story?</b></p><a href="https://en.wikipedia.org/wiki/L%27Arriv%C3%A9e_d%27un_train_en_gare_de_La_Ciotat" target="_blank" rel="noopener">The film and the myth</a></div>
+  <div class="ev f" data-s="2"><div class="yr">2012</div><h3>Snow Fall · The New York Times</h3><p>John Branch's avalanche story made the web scroll like a film. 2013 Pulitzer Prize, Feature Writing.</p><a href="https://www.nytimes.com/projects/2012/snow-fall/" target="_blank" rel="noopener">Snow Fall</a></div>
+  <div class="ev f" data-s="2"><div class="yr">2012</div><h3>Hunger in Los Angeles</h3><p>Nonny de la Peña recreates a food-bank line in VR. Premieres at Sundance. A field is born.</p><a href="https://en.wikipedia.org/wiki/Nonny_de_la_Pe%C3%B1a" target="_blank" rel="noopener">Nonny de la Peña</a></div>
+  <div class="ev f" data-s="3"><div class="yr">2015</div><h3>The Displaced · Clouds Over Sidra</h3><p>NYT ships 1M+ Google Cardboards to subscribers. The UN puts viewers inside a Syrian refugee camp.</p><a href="https://www.nytimes.com/2015/11/08/magazine/the-displaced-introduction.html" target="_blank" rel="noopener">The Displaced</a></div>
+  <div class="ev hl f" data-s="3"><div class="yr">2017 · 21</div><h3>Sam Wolson</h3><p>We Who Remain (Nuba Mountains, Sudan) and Reeducated (The New Yorker, Xinjiang). SXSW Special Jury Recognition, 2021.</p><a href="https://emblematicgroup.com/experiences/we-who-remain" target="_blank" rel="noopener">We Who Remain</a> <a href="https://xrmust.com/?p=20581" target="_blank" rel="noopener">Reeducated</a></div>
+  <div class="ev f" data-s="4"><div class="yr">2026</div><h3>Out of the Ashes · and now</h3><p>Rory Mitchell &amp; Nonny de la Peña: Special Jury Prize, Venice Immersive. Today: smart glasses, splats on your phone.</p><a href="https://www.labiennale.org/en/news/official-awards-83rd-venice-international-film-festival" target="_blank" rel="noopener">Venice awards</a></div>
  </div>
- <p class="small f mt" data-s="3">Notice Reeducated: there was no camera inside the camps. So they <strong style="color:var(--fita)">rebuilt it from testimony, and said so.</strong> Hold that thought for the ethics part.</p>
+ <p class="small f mt" data-s="4">Every new medium arrived wrapped in <strong style="color:var(--fita)">fear and wonder.</strong> What lasts is a good story. And notice Reeducated: no camera inside the camps, so they rebuilt it from testimony, <strong style="color:var(--fita)">and said so.</strong></p>
 </section>
 
 <!-- 05 TOOLBOX -->
