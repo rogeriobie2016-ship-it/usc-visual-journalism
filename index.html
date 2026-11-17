@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>What's next in visual journalism? · Rogério Bié at USC</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Yellowtail&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Yellowtail&family=Special+Elite&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
 :root{
@@ -280,6 +280,135 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
  .split{grid-template-columns:1fr}.verd,.rules,.steps3,.opts4{grid-template-columns:1fr}
  .slide{justify-content:flex-start;padding:80px 6vw 100px}.keys{display:none}
 }
+
+/* ===== LIGHT THEME · portfolio "tape" look + pulp sci-fi accents ===== */
+@font-face{font-family:'Archivo';font-style:normal;font-display:swap;font-weight:100 900;font-stretch:62% 125%;src:url(fonts/archivo-latin-standard-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212}
+@font-face{font-family:'Archivo';font-style:normal;font-display:swap;font-weight:100 900;font-stretch:62% 125%;src:url(fonts/archivo-latin-ext-standard-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+1E00-1E9F}
+@font-face{font-family:'Inter Tight';font-style:normal;font-display:swap;font-weight:100 900;src:url(fonts/inter-tight-latin-wght-normal.woff2) format('woff2')}
+@font-face{font-family:'Inter Tight';font-style:italic;font-display:swap;font-weight:100 900;src:url(fonts/inter-tight-latin-wght-italic.woff2) format('woff2')}
+:root{--pp:#F1F1EA;--pp2:#E6E7DC;--tx:#17200F;--tx2:#3A4430;--mt:#56604A;--ln:#C9CCBA;--wash:#E4ECC6;--tape:#FFE843;--lime:#B7DE43;--forest:#294914;--red:#d9381e;--navy:#0e1a2b;
+ --hd:"Archivo","Arial Black",Arial,sans-serif;--bd:"Inter Tight","Helvetica Neue",Arial,sans-serif;--tw:"Special Elite","Courier New",monospace}
+html,body{background:var(--pp);color:var(--tx)}
+body{font-family:var(--bd)}
+body:before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;background-image:radial-gradient(rgba(41,73,20,.13) 1px,transparent 1.3px);background-size:6px 6px}
+body:after{content:"";position:fixed;inset:0;z-index:3;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(23,32,15,.025) 0 1px,transparent 1px 3px)}
+.grain{opacity:.05;mix-blend-mode:multiply}
+#field{opacity:.55}
+#bar i{background:rgba(23,32,15,.14)}#bar i b{background:var(--tx)}#bar i.on b{background:var(--red)}
+.brand,#clock{color:var(--mt);font-family:var(--tw);letter-spacing:.08em}
+.brand em{color:var(--forest)}#clock b{color:var(--red)}
+.pb{background:rgba(241,241,234,.85);border:2px solid var(--tx);color:var(--tx);box-shadow:0 3px 0 var(--tx)}
+.pb:hover{border-color:var(--tx)}.pb.on{background:var(--tape);border-color:var(--tx);color:var(--tx)}
+.count{color:var(--tx2);font-family:var(--tw)}.keys{color:var(--mt);font-family:var(--tw)}
+#notes{border:2px solid var(--tx);box-shadow:8px 8px 0 var(--red);background:#fbf7e6}
+.kicker{font-family:var(--tw);letter-spacing:.12em;color:var(--tx2);font-size:14px}
+.kicker b{color:var(--red);font-weight:400}
+h1,h2,h3{font-family:var(--hd)}
+h1{font-stretch:118%;font-weight:860;letter-spacing:-.01em;color:var(--tx);text-shadow:4px 4px 0 var(--tape)}
+h2{font-stretch:112%;font-weight:840;text-transform:uppercase;letter-spacing:-.01em;line-height:.94;color:var(--tx)}
+h3{font-weight:760}
+mark{background:linear-gradient(transparent 8%,var(--tape) 8%,var(--tape) 92%,transparent 92%);color:var(--tx);font-style:normal}
+mark.y{background:linear-gradient(transparent 8%,var(--lime) 8%,var(--lime) 92%,transparent 92%)}
+mark.r{background:linear-gradient(transparent 8%,var(--red) 8%,var(--red) 92%,transparent 92%);color:#fff7e0}
+h1 mark{text-shadow:none}
+.script{color:var(--forest)}
+p.lead{color:var(--tx2);font-weight:400}p.lead strong{color:var(--tx);font-weight:700}
+.small{color:var(--mt)}
+.small strong[style]{color:var(--red)!important}
+p.lead strong[style]{color:var(--forest)!important}
+.bgimg img{filter:saturate(1.08) contrast(1.02)}
+.bgimg:after{background:linear-gradient(90deg,var(--pp) 0%,rgba(241,241,234,.93) 42%,rgba(241,241,234,.35) 72%,rgba(241,241,234,0) 100%)}
+.bgimg.bottom:after{background:linear-gradient(0deg,var(--pp) 18%,rgba(241,241,234,.86) 52%,rgba(241,241,234,.1) 100%)}
+.bgvid{position:absolute;inset:0;z-index:-1;overflow:hidden}
+.bgvid video{width:100%;height:100%;object-fit:cover}
+.bgvid:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--pp) 0%,rgba(241,241,234,.92) 40%,rgba(241,241,234,.25) 70%,rgba(241,241,234,0) 100%)}
+.lk{background:#fbf7e6;color:var(--tx);border:2px solid var(--tx);box-shadow:3px 3px 0 var(--tx);backdrop-filter:none}
+.lk:after{color:var(--red)}.lk:hover{border-color:var(--tx);box-shadow:5px 5px 0 var(--red)}
+.lk.hot{background:var(--tape);color:var(--tx);border-color:var(--tx)}.lk.hot:after{color:var(--tx)}
+.btn{border:2px solid var(--tx);box-shadow:0 4px 0 var(--tx);background:#fbf7e6;color:var(--tx)}
+.btn.g{background:var(--lime)}.btn.y{background:var(--tape)}.btn.ghost{background:#fbf7e6;color:var(--tx);border:2px solid var(--tx)}
+.qr{background:#fff;border:2px solid var(--tx);box-shadow:6px 6px 0 var(--red);border-radius:6px}
+.qrcap{color:var(--tx2)}.qrcap b{color:var(--red);font-family:var(--tw);letter-spacing:.1em;font-weight:400}.qrcap code{color:var(--mt)}
+.photos figure,.strip figure{border-radius:4px;border:3px solid #fbf7e6;outline:2px solid var(--tx);box-shadow:7px 7px 0 var(--tx)}
+.photos figure:nth-child(2){rotate:-1.5deg}.photos figure:nth-child(3){rotate:1.2deg}
+figcaption{background:var(--tape);color:var(--tx);font-family:var(--tw);letter-spacing:.06em;border-radius:2px;font-size:11.5px}
+.path div{color:var(--tx2)}.path span{color:var(--red)}
+.quote{border-left:5px solid var(--red)}.quote p{color:var(--tx);font-family:var(--hd)}.quote cite{color:var(--mt)}
+.card .face{background:#fbf7e6;border:2px solid var(--tx);box-shadow:6px 6px 0 var(--tx);border-radius:6px;backdrop-filter:none;overflow:hidden}
+.card .face.front{isolation:isolate}
+.card .face.front img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.card .face.front:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(14,26,43,.92) 12%,rgba(14,26,43,.1) 70%)}
+.card .face.front .n{color:var(--tape);font-family:var(--tw)}.card .face.front h3{color:#fff;text-shadow:2px 2px 0 var(--red)}
+.card .hint{color:var(--tape);font-family:var(--tw)}
+.card .back{background:var(--tape);border-color:var(--tx);color:var(--tx)}
+.card .back .n{color:var(--red);font-family:var(--tw)}
+.card .back a{color:var(--forest)}
+.tl:before{background:var(--tx);height:3px}
+.ev:before{background:var(--pp);border-color:var(--tx)}
+.ev.hl:before{background:var(--red);border-color:var(--tx);box-shadow:3px 3px 0 var(--tx)}
+.ev .yr{color:var(--tx);font-family:var(--hd);font-stretch:115%}
+.ev p{color:var(--tx2)}.ev p b{color:var(--red)}.ev a{color:var(--red)}
+.ev .th{height:84px;margin:0 0 8px;border:2px solid var(--tx);box-shadow:4px 4px 0 var(--tx);overflow:hidden;border-radius:3px}
+.ev .th img{width:100%;height:100%;object-fit:cover;display:block}
+.tool{border:2px solid var(--tx);border-radius:6px;box-shadow:7px 7px 0 var(--tx)}
+.tool:hover{border-color:var(--tx);box-shadow:9px 9px 0 var(--red)}
+.tool:after{background:linear-gradient(0deg,rgba(14,26,43,.94) 12%,rgba(14,26,43,.15) 100%)}
+.tool h3{color:#fff}.tool p{color:#eee6cf}.tool .fmt{color:var(--tape);font-family:var(--tw)}
+.tool .go{background:var(--tape);border:2px solid var(--tx)}
+.stat .v{color:var(--red);font-family:var(--hd);font-stretch:115%;text-shadow:3px 3px 0 var(--tape)}.stat .l{color:var(--tx2)}
+.pj{background:#fbf7e6;border:2px solid var(--tx);border-top:10px solid var(--lime);border-radius:6px;box-shadow:6px 6px 0 var(--tx)}
+.pj.y{border-top-color:var(--tape)}.pj.r{border-top-color:var(--red)}.pj.b{border-top-color:#4f7dff}
+.pj .t{font-family:var(--tw);color:var(--mt)}.pj h3{color:var(--tx)}.pj .who{color:var(--mt)}.pj p{color:var(--tx2)}
+.pj .aw{color:var(--red);font-family:var(--tw);font-weight:400}.pj a{color:var(--forest)}
+.demo{background:#fbf7e6;border:2px solid var(--tx);border-radius:6px;box-shadow:6px 6px 0 var(--tx)}
+.demo .t{color:var(--red);font-family:var(--tw)}.demo h3{color:var(--tx)}.demo p{color:var(--tx2)}
+.demo .missing{border-color:var(--mt);color:var(--mt)}
+.wall a{border:2px solid var(--tx);border-radius:4px;box-shadow:5px 5px 0 var(--tx)}
+.wall span{background:var(--tape);color:var(--tx);font-family:var(--tw);font-weight:400}
+.rule{border-top:2px solid var(--tx)}.rule span{color:var(--red)}.rule h3{color:var(--tx)}.rule p{color:var(--tx2)}
+.col{border-top:4px solid var(--forest)}.col.r{border-color:var(--red)}.col.y{border-color:#d9b400}.col.b{border-color:#4f7dff}
+.col .n{color:var(--red);font-family:var(--tw)}.col h3{color:var(--tx)}.col p{color:var(--tx2)}.col a{color:var(--forest)}
+.cam{border:3px solid var(--tx);box-shadow:8px 8px 0 var(--red)}
+.vc{background:#fbf7e6;border:2px solid var(--tx);border-radius:6px;box-shadow:6px 6px 0 var(--tx)}
+.vc .q{color:var(--tx)}.vc .opts span{border:2px solid var(--tx);color:var(--tx);font-family:var(--tw)}
+.vc.open{border-color:var(--tx);box-shadow:6px 6px 0 var(--red);background:#fff8d6}
+.vc .a{color:var(--tx2)}.vc .a b{color:var(--red)}
+.timer{color:var(--tx);font-family:var(--hd);font-stretch:118%;text-shadow:5px 5px 0 var(--tape)}.timer.low{color:var(--red)}
+.st{background:#fbf7e6;border:2px solid var(--tx);border-radius:6px;box-shadow:6px 6px 0 var(--tx)}
+.st .n{color:var(--red)}.st h3{color:var(--tx)}.st p{color:var(--tx2)}
+.qz .qn{color:var(--red);font-family:var(--tw)}.qz .qq{color:var(--tx);font-family:var(--hd)}
+.op{border:2px solid var(--tx);box-shadow:0 5px 0 var(--tx);border-radius:8px}
+.qbar{background:var(--pp2);border:2px solid var(--tx)}.qbar b{background:var(--red)}
+.why{color:var(--forest)}
+.team{border:2px solid var(--tx);background:#fbf7e6;color:var(--tx)}.team button.m{background:var(--pp2);color:var(--tx)}
+.og{border-top:4px solid var(--forest)}.og.y{border-color:#d9b400}.og.r{border-color:var(--red)}.og.b{border-color:#4f7dff}
+.og .n{color:var(--red);font-family:var(--tw)}
+.og a,.og .ph{color:var(--tx);border-bottom:1px solid var(--ln)}
+.og a:after{color:var(--red)}.og a:hover{color:var(--red)}
+.og a small,.og .ph small{color:var(--mt)}.og a small em{color:var(--red);font-weight:700}
+.meta{border-top:2px solid var(--tx);color:var(--tx2)}.meta b{color:var(--red);font-family:var(--tw);font-weight:400}.meta a{color:var(--forest)}
+.stamp{display:inline-block;padding:6px 12px 4px;border:4px double var(--red);color:var(--red);font-family:var(--hd);font-stretch:115%;font-weight:800;text-transform:uppercase;letter-spacing:.04em;rotate:-4deg;background:rgba(255,248,214,.9)}
+.vpanel{position:relative;border:3px solid #fbf7e6;outline:2px solid var(--tx);box-shadow:8px 8px 0 var(--red);border-radius:4px;overflow:hidden;background:#000}
+.vpanel video{display:block;width:100%;height:100%;object-fit:cover}
+.vpanel .rec{position:absolute;top:10px;left:12px;font-family:var(--tw);font-size:12px;color:#fff;display:flex;gap:6px;align-items:center;text-shadow:0 1px 2px #000}
+.vpanel .rec:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--red);animation:blink 1s infinite}
+.joinbtn{display:none}
+@media (pointer:coarse),(max-width:760px){.joinbtn{display:inline-flex}}
+#room{position:fixed;inset:0;z-index:100;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;background:var(--navy);color:#fff;font-family:var(--hd);transition:background .12s}
+#room.on{display:flex}
+#room video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+#room .hud{position:absolute;inset:14px;border:2px solid rgba(255,255,255,.8);border-radius:14px;z-index:1;pointer-events:none;display:none}
+#room.cam .hud{display:block}
+#room .hud:before{content:"\25CF  REC";position:absolute;top:12px;left:14px;font-family:var(--tw);font-size:14px;color:#ff5a36}
+#room .hud:after{content:"lens held by: YOU";position:absolute;top:12px;right:14px;font-family:var(--tw);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+#room .msg{position:relative;z-index:2;font-size:clamp(30px,9vw,70px);font-weight:860;font-stretch:118%;text-transform:uppercase;line-height:.95;text-shadow:3px 3px 0 #000}
+#room .sub{position:relative;z-index:2;font-family:var(--tw);font-size:15px;margin-top:14px;max-width:340px;text-shadow:0 1px 3px #000}
+#room .acts{position:relative;z-index:2;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+#room .x{position:absolute;bottom:22px;z-index:3;font-family:var(--tw);font-size:14px;background:#fff;color:#000;border:2px solid #000;border-radius:999px;padding:10px 18px}
+.together{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:18px}
+.together .clockbig{font-family:var(--hd);font-stretch:118%;font-weight:860;font-size:clamp(60px,9vw,140px);line-height:1;color:var(--tx);text-shadow:6px 6px 0 var(--tape);font-variant-numeric:tabular-nums}
+#flashStage{position:fixed;inset:0;z-index:4;pointer-events:none;opacity:0;transition:opacity .1s}
+@media (max-width:980px){.pj .th{height:80px}}
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}}
 </style>
 </head>
@@ -293,7 +422,7 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
 <main id="deck">
 
 <!-- 01 TITLE -->
-<section class="slide" data-notes="0:00 a 0:05|Deixa este slide na tela enquanto a turma entra.|Pede pra todo mundo escanear o QR AGORA: Quasar Flight, voar em volta de um buraco negro no celular (gira o celular pra pilotar).|Pergunta: Where are you right now? Deixa responderem.|Depois: You just learned physics by flying it, not by reading it. That's what immersive storytelling can do.|Ancora da aula: Who holds the camera? (volta no slide Kayapo e no fechamento).">
+<section class="slide">
  <div class="bgimg"><img src="img/ssz-rocket.jpg" alt=""></div>
  <div class="kicker f" data-s="0">USC Annenberg · Week 14 · <b>guest lecture</b></div>
  <h1 class="f" data-s="0">What's next<br>in <mark>visual</mark><br>journalism?</h1>
@@ -308,7 +437,7 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
 </section>
 
 <!-- 02 WHO -->
-<section class="slide" data-notes="0:05 a 0:10|Historia curta e pessoal. Nao ler a lista: contar.|Santa Quiteria, filho de agricultores, ameaca da mina de uranio. Primeiro da familia na universidade.|Jovem Embaixador aos 18. Jornalismo na UFC, SEDUC (350 mil alunos), G20 com 50 jovens.|Hoje: ASU NEM com a Nonny de la Pena. Fecha com a frase do acesso.">
+<section class="slide">
  <div class="split">
   <div>
    <div class="kicker f" data-s="0">Hi, I'm <b>Rogério</b></div>
@@ -330,7 +459,7 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
 </section>
 
 <!-- 03 GUESS THE TERM -->
-<section class="slide" data-notes="0:10 a 0:20 · DINAMICA 1|Metodo do Eric: pergunta primeiro, revela depois.|Le o termo, deixa 2 ou 3 alunos chutarem, ai vira a carta.|Se o tempo apertar, vira so 4: Gaussian splat, volumetric, AR e presence.">
+<section class="slide">
  <div class="kicker f" data-s="0">Dynamic 01 · <b>guess the term</b></div>
  <h2 class="f" data-s="0">What do you <mark>think</mark> it is?</h2>
  <p class="small f" data-s="0" style="margin-top:12px">Shout your guess first. Then we flip.</p>
@@ -355,7 +484,7 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
 </section>
 
 <!-- 04 TIMELINE -->
-<section class="slide" data-notes="0:20 a 0:27|Arco: da maravilha ao storytelling. A tecnologia muda, a historia e o que move.|1838: Wheatstone, duas imagens, uma por olho. Todo headset ainda funciona assim. View-Master (1939) levou isso pras criancas.|1896: a lenda diz que o publico correu do trem. Historiadores (Loiperdinger, 2004) nao acharam nenhum relato da epoca. Pergunta: The legend says people ran. Why do we keep telling that story?|2012: Snow Fall (Pulitzer 2013, Feature Writing) e Hunger in LA (Nonny, Sundance).|2015: The Displaced (1 milhao+ de Cardboards) e Clouds Over Sidra.|Sam Wolson: We Who Remain e Reeducated (reconstrucao a partir de testemunhos, e disse isso).|Fecha: medo e deslumbramento sempre; no fim e storytelling.">
+<section class="slide">
  <div class="kicker f" data-s="0">From wonder to storytelling · <b>a short history</b></div>
  <h2 class="f" data-s="0">The tech changes.<br><mark class="y">The story</mark> is what moves us.</h2>
  <div class="tl t7">
@@ -371,7 +500,7 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
 </section>
 
 <!-- 05 TOOLBOX -->
-<section class="slide" data-notes="0:27 a 0:40|Cada formato responde a uma pergunta jornalistica. Nao e sobre o gadget.|Clica em 1 ou 2 cards pra abrir o link se quiser mostrar.|Pergunta pra turma: qual desses caberia no projeto final de voces?">
+<section class="slide">
  <div class="kicker f" data-s="0">The toolbox · <b>format follows the question</b></div>
  <h2 class="f" data-s="0">Every format answers<br>a <mark>journalistic question.</mark></h2>
  <div class="tools f" data-s="1">
@@ -385,7 +514,7 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
 </section>
 
 <!-- 06 OUT OF THE ASHES -->
-<section class="slide" data-notes="0:40 a 0:47|Meu papel: assistente de captura volumetrica e criador de conteudo oficial.|Venice Immersive 2026: Special Jury Prize.|Mostra 1 reel do Instagram se der tempo (link abaixo).">
+<section class="slide">
  <div class="bgimg bottom"><img src="img/venice-1.jpg" alt=""></div>
  <div class="kicker f" data-s="0">Case 01 · <b>Out of the Ashes</b> · Rory Mitchell &amp; Nonny de la Peña</div>
  <h2 class="f" data-s="0">The LA fires,<br>kept in <mark>3D.</mark></h2>
@@ -404,7 +533,7 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
 </section>
 
 <!-- 07 SSZ -->
-<section class="slide" data-notes="0:47 a 0:57|Meu capstone. Boca Chica (Texas) e Playa Bagdad (Mexico), programa Starship da SpaceX.|Mecanica central: a cerca SPACEX PRIVATE PROPERTY vira portal. Chega intruso, sai aliado.|Embodied Edit: o barulho do foguete engole as vozes; quem presta atencao volta a ouvi-las.|ATENCAO: o build WebXR e interno (vozes sem release). Mostrar so video/screenshots, nao abrir pra turma.">
+<section class="slide">
  <div class="bgimg"><img src="img/ssz-9.jpg" alt=""></div>
  <div class="kicker f" data-s="0">Case 02 · my capstone · <b>The Sound of a Sacrifice Zone</b></div>
  <h2 class="f" data-s="0">Arrive as an <mark class="r">intruder.</mark><br>Leave as an <mark>ally.</mark></h2>
@@ -421,7 +550,7 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
 </section>
 
 <!-- 08 REAL PROJECTS -->
-<section class="slide" data-notes="0:57 a 1:05 · REAL PROJECTS|1 min cada, um por clique. Pra ouvir e sentir, nao pra decorar.|Clouds Over Sidra: dado interno da ONU (Fortune, 2016): quem viu os filmes VR doou na taxa de 1 em 6, contra 1 em 12.|Notes on Blindness: diarios em audio do John Hull perdendo a visao. O momento really listening: fecha os olhos e escuta.|The Displaced: Grand Prix de Entertainment em Cannes Lions 2016.|Hunger in LA: feito com o Mixed Reality Lab da USC. O headset da estreia em Sundance foi montado pelo Palmer Luckey, que meses depois criou o Oculus Rift. Ligacao pessoal com a Nonny.|IKEA Place: marca usando AR no celular. Premio D&AD (Wood Pencil), nao Cannes.|Os QR de demo foram pro fim: hands-on, opcional.">
+<section class="slide">
  <div class="kicker f" data-s="0">Real projects · <b>one minute each</b></div>
  <h2 class="f" data-s="0">Don't just watch it. <mark>Feel it.</mark></h2>
  <div class="proj">
@@ -441,7 +570,7 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
 </section>
 
 <!-- 09 CREATORS -->
-<section class="slide" data-notes="1:05 a 1:12|Ponte com o que eles fazem agora: video vertical, projeto final.|Citar o Eric: foi o workshop dele na Content Creators Academy (write the headline first, hook, audio).|Meu nicho: midia imersiva ajudando comunidades a se reconstruir depois de desastres climaticos.|Mercado alem do jornalismo (2 min): Travis Scott no Fortnite, 12,3 milhoes simultaneos no 1o show. Sphere abriu com U2 em set/2023. Felix &amp; Paul ganhou Emmy filmando na ISS; a exposicao The Infinite passou de 500 mil visitantes.|Caminho: festival, depois loja (Quest, Vision Pro), depois instalacao itinerante.|Frase final devagar: The tech is cheap and everywhere...">
+<section class="slide">
  <div class="bgimg"><img src="img/usc-3.jpg" alt=""></div>
  <div class="kicker f" data-s="0">USC Annenberg · <b>Content Creators Academy 2026</b></div>
  <h2 class="f" data-s="0">Journalists are now <mark class="y">creators.</mark></h2>
@@ -463,7 +592,7 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
 </section>
 
 <!-- 10 PLURIVERSE -->
-<section class="slide" data-notes="1:12 a 1:24|Momento mais conceitual. Toca na camera pra virar quem segura.|Kayapo, Altamira 1989: os jornalistas vieram filmar os indios, e os indios estavam filmando eles.|Escobar: design designs back. Krenak: contar mais uma historia adia o fim do mundo. Gladwell: poucos conectores, uma imagem que gruda, o momento certo.|Pergunta: se a camera era a ferramenta dos Kayapo, qual e a de hoje? Quem segura o headset?">
+<section class="slide">
  <div class="kicker f" data-s="0">The real question · <b>designing for the pluriverse</b></div>
  <div class="split" style="grid-template-columns:1.2fr .8fr">
   <div>
@@ -486,20 +615,20 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
 </section>
 
 <!-- 11 REAL OR RECONSTRUCTED -->
-<section class="slide" data-notes="1:24 a 1:32|Votacao rapida: mao levantada pra cada opcao, depois revela.|Regras que eu sigo no SSZ: splat de foto unica e reconstrucao e eu declaro; audio PBS fica fora de versao publica; consentimento antes de representar pessoas e lugares sagrados; nenhum fato sem fonte.">
+<section class="slide">
  <div class="kicker f" data-s="0">Ethics · <b>vote with your hands</b></div>
  <h2 class="f" data-s="0">Real, reconstructed,<br>or <mark class="r">not yours?</mark></h2>
  <div class="verd">
   <div class="vc ix f" data-s="0"><div class="q">A survivor recorded in a volumetric studio, telling her own story.</div><div class="opts"><span>Real</span><span>Reconstructed</span><span>Not yours</span></div><div class="a"><b>Real, but staged.</b> It's her voice and her body, in a studio, not her home. Tell the audience where and how it was captured.</div></div>
   <div class="vc ix f" data-s="0"><div class="q">A 3D scene generated from ONE family photo from the 1970s.</div><div class="opts"><span>Real</span><span>Reconstructed</span><span>Not yours</span></div><div class="a"><b>Reconstructed.</b> The AI invented everything the photo didn't show. Label it as a reconstruction, every time.</div></div>
-  <div class="vc ix f" data-s="0"><div class="q">Rocket audio from a TV broadcast, in your public VR piece.</div><div class="opts"><span>Real</span><span>Reconstructed</span><span>Not yours</span></div><div class="a"><b>Real, and not yours.</b> No license, no public release. My own prototype uses one, and it stays out of every public version.</div></div>
+  <div class="vc ix f" data-s="0"><div class="q">Rocket audio from a TV broadcast, in your public VR piece.</div><div class="opts"><span>Real</span><span>Reconstructed</span><span>Not yours</span></div><div class="a"><b>Real, and not yours.</b> No license, no public release. A reference track for a prototype can never ship.</div></div>
   <div class="vc ix f" data-s="0"><div class="q">An AI voice of a community member reading their own testimony.</div><div class="opts"><span>Real</span><span>Reconstructed</span><span>Not yours</span></div><div class="a"><b>Synthetic.</b> Only with explicit consent, and disclosed on screen. Otherwise it's a deepfake, even with good intentions.</div></div>
  </div>
  <p class="small f mt" data-s="0">Tap each card to reveal. Presence makes people believe. That's exactly why we owe them the label.</p>
 </section>
 
 <!-- 12 REMIX -->
-<section class="slide" data-notes="1:32 a 1:45 · DINAMICA 2|Grupos dos projetos finais. 5 minutos pra pensar, depois 30s a 1 min por grupo.|Aperta Start pra rodar o timer.">
+<section class="slide">
  <div class="kicker f" data-s="0">Dynamic 02 · <b>remix your final project</b></div>
  <div class="split" style="grid-template-columns:1.3fr .7fr;align-items:end">
   <div><h2 class="f" data-s="0">Pick one moment.<br>Make it <mark>immersive.</mark></h2>
@@ -516,7 +645,7 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
 </section>
 
 <!-- 13 QUIZ -->
-<section class="slide" data-notes="1:45 a 1:55 · QUIZ|Divide a sala em 4 times (por fileira). Cada pergunta: 20 segundos, os times gritam a cor.|Clica na resposta pra revelar e da ponto com os botoes +.|Setas do teclado continuam navegando; use os botoes Next question.">
+<section class="slide">
  <div class="kicker f" data-s="0">Quick quiz · <b>4 teams, 20 seconds each</b></div>
  <div class="qz f ix" data-s="0" id="qz">
   <div class="qn" id="qn"></div>
@@ -530,7 +659,7 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
 </section>
 
 <!-- 14 OPPORTUNITIES -->
-<section class="slide" data-notes="1:55 a 2:02 · STARTER GUIDE|Mensagem: da pra entrar nesse mundo AGORA. Eu entrei como voluntario no SIGGRAPH e docente no SXSW.|Esta semana: Scaniverse no celular, um splat no campus.|Hackathons: TrojanHacks (ACM USC) todo semestre, LA Hacks em abril, MIT Reality Hack em janeiro.|Prazos mais proximos: Peabody 15/12, Webby 18/12, Play4Change 31/12 (gratis), G4C Student Challenge 29/03.|Scout House: data a confirmar (placeholder).|Fecha: A lot of people use this tech just because it is new... Bring me your stories.">
+<section class="slide">
  <div class="kicker f" data-s="0">Starter guide · <b>your next steps</b></div>
  <div class="split" style="grid-template-columns:1.4fr .6fr;align-items:end">
   <h2 class="f" data-s="0" style="font-size:clamp(30px,3.8vw,58px)">You don't need permission<br>to <mark>start.</mark></h2>
@@ -568,7 +697,7 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
 </section>
 
 <!-- 15 CLOSE -->
-<section class="slide" data-notes="2:02 a 2:05|Primeiro o momento meta (30s): you guessed before I explained, you touched before I told, you got quizzed. Steal it.|Depois a ancora, devagar: Hold the camera.|Agradece ao Eric e devolve a palavra pra ele.">
+<section class="slide">
  <div class="split" style="grid-template-columns:1.3fr .7fr"><div>
  <div class="kicker f" data-s="0">Thank you · <b>let's keep in touch</b></div>
  <h1 class="f" data-s="0">Hold the<br><mark>camera.</mark></h1>
@@ -584,7 +713,7 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
 </section>
 
 <!-- 16 HANDS-ON (optional) -->
-<section class="slide" data-notes="Depois do fechamento · OPCIONAL|Deixa na tela enquanto a turma sai ou se sobrar tempo.|Escolham 1 QR, 2 minutos explorando, troquem com o vizinho.|Testar todos os QR no SEU celular antes. Se o wifi cair: mostra pelo notebook.">
+<section class="slide">
  <div class="kicker f" data-s="0">Hands-on · <b>optional</b></div>
  <h2 class="f" data-s="0">Don't watch it. <mark>Walk into it.</mark></h2>
  <div class="live f" data-s="0">
@@ -611,8 +740,8 @@ body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-c
 <div id="notes"></div>
 <div class="toast" id="toast"></div>
 
+<script src="notes.js" onerror="void 0"></script>
 <script>
-/* ====== EDIT HERE: paste your Scenery (FEELS LIKE) share link between the quotes ====== */
 const FEELS_LIKE_URL = "";
 
 (()=>{
@@ -623,7 +752,7 @@ const maxStep=s=>Math.max(0,...[...s.querySelectorAll('.f')].map(e=>+e.dataset.s
 /* AR demo tile */
 const ar=$('#demoAR');
 if(FEELS_LIKE_URL){ar.innerHTML=`<div class="qr" data-qr="${FEELS_LIKE_URL}"></div><div class="t">AR · data you can feel</div><h3>FEELS LIKE</h3><p>"Hot enough to fry an egg": extreme heat, in augmented reality. Point at the poster on screen.</p><a class="lk" href="${FEELS_LIKE_URL}" target="_blank" rel="noopener">open</a>`}
-else{ar.innerHTML=`<div class="missing">AR tile<br>Paste the Scenery link in FEELS_LIKE_URL</div><div class="t">AR · fallback</div><h3>Real AR in 10 seconds</h3><p>Google "tiger" (or "astronaut") on your phone → View in 3D → View in your space.</p>`}
+else{ar.innerHTML=`<div class="missing">AR<br>on any phone</div><div class="t">AR · try it now</div><h3>Real AR in 10 seconds</h3><p>Google "tiger" (or "astronaut") on your phone → View in 3D → View in your space.</p>`}
 
 /* QR codes */
 function makeQR(){$$('[data-qr]').forEach(el=>{if(el.dataset.done)return;const u=el.dataset.qr;
@@ -638,7 +767,7 @@ function paintBar(){[...bar.children].forEach((t,i)=>{t.classList.toggle('done',
 
 /* notes */
 const notes=$('#notes');
-function paintNotes(){const n=(slides[cur].dataset.notes||'').split('|');notes.innerHTML=`<div class="tm">${n[0]||''}</div><ul>${n.slice(1).map(x=>`<li>${x}</li>`).join('')}</ul>`}
+function paintNotes(){const n=((window.NOTES||[])[cur]||'').split('|');notes.innerHTML=`<div class="tm">${n[0]||''}</div><ul>${n.slice(1).map(x=>`<li>${x}</li>`).join('')}</ul>`}
 
 /* clock: elapsed since first advance */
 let t0=null;const clk=$('#clock');
