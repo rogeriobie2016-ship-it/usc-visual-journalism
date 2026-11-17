@@ -406,8 +406,19 @@ figcaption{background:var(--tape);color:var(--tx);font-family:var(--tw);letter-s
 #room .acts{position:relative;z-index:2;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
 #room .x{position:absolute;bottom:22px;z-index:3;font-family:var(--tw);font-size:14px;background:#fff;color:#000;border:2px solid #000;border-radius:999px;padding:10px 18px}
 .together{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:18px}
-.together .clockbig{font-family:var(--hd);font-stretch:118%;font-weight:860;font-size:clamp(60px,9vw,140px);line-height:1;color:var(--tx);text-shadow:6px 6px 0 var(--tape);font-variant-numeric:tabular-nums}
+.together .clockbig{font-family:var(--hd);font-stretch:118%;font-weight:860;font-size:clamp(48px,6vw,96px);line-height:1;color:var(--tx);text-shadow:6px 6px 0 var(--tape);font-variant-numeric:tabular-nums}
 #flashStage{position:fixed;inset:0;z-index:4;pointer-events:none;opacity:0;transition:opacity .1s}
+h2{font-size:clamp(30px,4.4vw,68px)}
+h1{font-size:clamp(42px,6.4vw,104px)}
+.slide{padding-top:78px;padding-bottom:96px}
+.strip figure{aspect-ratio:16/11}
+.og a,.og .ph{padding-top:4px;padding-bottom:4px}
+.rules{gap:10px 26px}
+.path{gap:8px;margin-top:16px}.path div{font-size:clamp(14px,1.2vw,17px)}.quote p{font-size:clamp(18px,1.7vw,26px)}
+.cols.mkt p{font-size:13px}.rule p{font-size:13.5px}
+.stamp{align-self:flex-start}
+.bgimg.bottom:after{background:linear-gradient(0deg,var(--pp) 30%,rgba(241,241,234,.82) 65%,rgba(241,241,234,.55) 100%)}
+.photos figure.wide{aspect-ratio:16/6.6}.photos figure[style*="aspect-ratio:1"]{aspect-ratio:4/3!important}
 @media (max-width:980px){.pj .th{height:80px}}
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}}
 </style>
@@ -423,7 +434,7 @@ figcaption{background:var(--tape);color:var(--tx);font-family:var(--tw);letter-s
 
 <!-- 01 TITLE -->
 <section class="slide">
- <div class="bgimg"><img src="img/ssz-rocket.jpg" alt=""></div>
+ <div class="bgvid"><video src="video/hero.mp4" poster="video/hero-poster.jpg" autoplay muted loop playsinline></video></div>
  <div class="kicker f" data-s="0">USC Annenberg · Week 14 · <b>guest lecture</b></div>
  <h1 class="f" data-s="0">What's next<br>in <mark>visual</mark><br>journalism?</h1>
  <p class="lead f mt" data-s="0">VR, AR, 360°, drones, GoPro, volumetric capture and Gaussian splats. And the question under all of them: <strong>who gets to hold the camera?</strong></p>
@@ -433,7 +444,7 @@ figcaption{background:var(--tape);color:var(--tx);font-family:var(--tw);letter-s
   <div class="qr md" data-qr="https://rogeriobie2016-ship-it.github.io/usc-visual-journalism/"></div>
   <div class="qrcap"><b>This deck, on your phone</b>Every slide, every link, live with us.</div>
  </div>
- <div class="links f" data-s="0"><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/index.html" target="_blank" rel="noopener">Rogério Bié · portfolio</a><a class="lk" href="https://www.linkedin.com/in/rogerio-bie" target="_blank" rel="noopener">LinkedIn</a></div>
+ <div class="links f" data-s="0"><button class="lk hot joinbtn ix" data-room="light">Join the room</button><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/index.html" target="_blank" rel="noopener">Rogério Bié · portfolio</a><a class="lk" href="https://arrival.space/34193039" target="_blank" rel="noopener">Spatial portfolio</a><a class="lk" href="https://www.linkedin.com/in/rogerio-bie" target="_blank" rel="noopener">LinkedIn</a></div>
 </section>
 
 <!-- 02 WHO -->
@@ -441,19 +452,20 @@ figcaption{background:var(--tape);color:var(--tx);font-family:var(--tw);letter-s
  <div class="split">
   <div>
    <div class="kicker f" data-s="0">Hi, I'm <b>Rogério</b></div>
-   <h2 class="f" data-s="0">From a farm in<br>Ceará to <mark>XR</mark><br>in Los Angeles.</h2>
+   <h2 class="f" data-s="0" style="font-size:clamp(28px,3.6vw,56px)">From a farm in Ceará<br>to <mark>XR</mark> in Los Angeles.</h2>
    <div class="path">
     <div class="f" data-s="1"><span>1</span>Grew up in rural Santa Quitéria, Brazil: third of six kids of farmers, first in my family to go to college.</div>
     <div class="f" data-s="1"><span>2</span>B.A. in Journalism (Federal University of Ceará). Ran communication for 350,000+ public school students and a 50-teen youth newsroom at the G20.</div>
     <div class="f" data-s="1"><span>3</span>Now: M.A. Narrative &amp; Emerging Media at ASU, with Prof. Nonny de la Peña. VR, volumetric capture, Gaussian splats.</div>
    </div>
    <div class="quote f mt" data-s="2"><p>"What separates me from many young people in my community isn't capability. It's access."</p></div>
-   <div class="links f" data-s="2"><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html" target="_blank" rel="noopener">All my work</a><a class="lk" href="https://youtu.be/hNjRzGMewbI" target="_blank" rel="noopener">Children of the Wind (doc)</a><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html#p-g20" target="_blank" rel="noopener">G20 youth newsroom</a></div>
+   <div class="links f" data-s="2"><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html" target="_blank" rel="noopener">All my work</a><a class="lk" href="https://youtu.be/hNjRzGMewbI" target="_blank" rel="noopener">Children of the Wind (doc)</a><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html#p-g20" target="_blank" rel="noopener">G20 youth newsroom</a><a class="lk hot" href="https://arrival.space/34193039" target="_blank" rel="noopener">Spatial portfolio</a></div>
   </div>
   <div class="photos f" data-s="0">
    <figure class="wide"><img src="img/sq-1.jpg" alt="Aerial view of the sertão in Santa Quitéria, Ceará"><figcaption>Santa Quitéria, Ceará</figcaption></figure>
-   <figure><img src="img/sq-4.jpg" alt="Family in front of a rural house"><figcaption>Home</figcaption></figure>
-   <figure><img src="img/wind-3.jpg" alt="Rogério at Cine Ceará"><figcaption>Cine Ceará 2024</figcaption></figure>
+   <figure style="aspect-ratio:1"><img src="img/sq-3.jpg" alt="Protest sign: Água sim, urânio não"><figcaption>Water yes, uranium no</figcaption></figure>
+   <figure style="aspect-ratio:1"><img src="img/field-4.jpg" alt="Rogério filming on a boat in Ceará"><figcaption>Field work, Ceará</figcaption></figure>
+   <figure class="wide"><img src="img/field-6.jpg" alt="Rogério with a clapperboard and teens of a youth newsroom"><figcaption>Youth newsroom</figcaption></figure>
   </div>
  </div>
 </section>
@@ -464,21 +476,21 @@ figcaption{background:var(--tape);color:var(--tx);font-family:var(--tw);letter-s
  <h2 class="f" data-s="0">What do you <mark>think</mark> it is?</h2>
  <p class="small f" data-s="0" style="margin-top:12px">Shout your guess first. Then we flip.</p>
  <div class="cards f" data-s="0">
-  <div class="card ix"><div class="in2"><div class="face"><div class="n">01</div><h3>360° video</h3><div class="hint">guess → flip</div></div>
+  <div class="card ix"><div class="in2"><div class="face front"><img src="img/rlb-4.jpg" alt="" loading="lazy"><div class="n">01</div><h3>360° video</h3><div class="hint">guess → flip</div></div>
    <div class="face back"><div><div class="n">You look around</div><p>A sphere of video. You choose where to look, but you can't move. Best for: <b>being there.</b></p></div><a href="https://www.cjr.org/tow_center_reports/virtual_reality_journalism.php" target="_blank" rel="noopener">Tow Center: VR journalism ↗</a></div></div></div>
-  <div class="card ix"><div class="in2"><div class="face"><div class="n">02</div><h3>AR</h3><div class="hint">guess → flip</div></div>
+  <div class="card ix"><div class="in2"><div class="face front"><img src="img/ssz-5.jpg" alt="" loading="lazy"><div class="n">02</div><h3>AR</h3><div class="hint">guess → flip</div></div>
    <div class="face back"><div><div class="n">Augmented reality</div><p>Digital layers on top of your real space, through a phone or glasses. The story lands <b>on your table.</b></p></div><a href="https://modelviewer.dev/" target="_blank" rel="noopener">Try web AR ↗</a></div></div></div>
-  <div class="card ix"><div class="in2"><div class="face"><div class="n">03</div><h3>VR</h3><div class="hint">guess → flip</div></div>
+  <div class="card ix"><div class="in2"><div class="face front"><img src="img/lapl-2.jpg" alt="" loading="lazy"><div class="n">03</div><h3>VR</h3><div class="hint">guess → flip</div></div>
    <div class="face back"><div><div class="n">Virtual reality</div><p>A headset replaces your world. With 6DoF you can walk inside the scene. Best for: <b>embodiment.</b></p></div><a href="https://en.wikipedia.org/wiki/Nonny_de_la_Pe%C3%B1a" target="_blank" rel="noopener">Nonny de la Peña ↗</a></div></div></div>
-  <div class="card ix"><div class="in2"><div class="face"><div class="n">04</div><h3>Drone</h3><div class="hint">guess → flip</div></div>
+  <div class="card ix"><div class="in2"><div class="face front"><img src="img/sq-2.jpg" alt="" loading="lazy"><div class="n">04</div><h3>Drone</h3><div class="hint">guess → flip</div></div>
    <div class="face back"><div><div class="n">Aerial reporting</div><p>The view that shows <b>scale</b>: a flood, a fire line, a launch site. In the US you need an FAA Part 107 license to fly for work.</p></div><a href="https://www.faa.gov/uas/commercial_operators" target="_blank" rel="noopener">FAA Part 107 ↗</a></div></div></div>
-  <div class="card ix"><div class="in2"><div class="face"><div class="n">05</div><h3>GoPro / POV</h3><div class="hint">guess → flip</div></div>
+  <div class="card ix"><div class="in2"><div class="face front"><img src="img/field-9.jpg" alt="" loading="lazy"><div class="n">05</div><h3>GoPro / POV</h3><div class="hint">guess → flip</div></div>
    <div class="face back"><div><div class="n">Point of view</div><p>A small camera on a body, a bike, a boat. The audience rides <b>with</b> the source, not watching them.</p></div><a href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/feed.html" target="_blank" rel="noopener">My vertical work ↗</a></div></div></div>
-  <div class="card ix"><div class="in2"><div class="face"><div class="n">06</div><h3>Volumetric capture</h3><div class="hint">guess → flip</div></div>
+  <div class="card ix"><div class="in2"><div class="face front"><img src="img/cover-volumetric.jpg" alt="" loading="lazy"><div class="n">06</div><h3>Volumetric capture</h3><div class="hint">guess → flip</div></div>
    <div class="face back"><div><div class="n">A person in 3D</div><p>Dozens of cameras record a person as a 3D video. You can walk around them while they talk.</p></div><a href="https://agog.org/out-of-the-ashes-immersive-storytelling/" target="_blank" rel="noopener">Out of the Ashes ↗</a></div></div></div>
-  <div class="card ix"><div class="in2"><div class="face"><div class="n">07</div><h3>Gaussian splat</h3><div class="hint">guess → flip</div></div>
+  <div class="card ix"><div class="in2"><div class="face front"><img src="img/ssz-9.jpg" alt="" loading="lazy"><div class="n">07</div><h3>Gaussian splat</h3><div class="hint">guess → flip</div></div>
    <div class="face back"><div><div class="n">A place from photos</div><p>Millions of soft 3D "blobs" rebuilt from photos or video. A phone can make one in minutes.</p></div><a href="https://scaniverse.com/" target="_blank" rel="noopener">Scaniverse (free) ↗</a></div></div></div>
-  <div class="card ix"><div class="in2"><div class="face"><div class="n">08</div><h3>Presence</h3><div class="hint">guess → flip</div></div>
+  <div class="card ix"><div class="in2"><div class="face front"><img src="img/venice-4.jpg" alt="" loading="lazy"><div class="n">08</div><h3>Presence</h3><div class="hint">guess → flip</div></div>
    <div class="face back"><div><div class="n">The goal</div><p>The feeling that you are <b>really there.</b> The superpower of immersive media, and its biggest ethical risk.</p></div><a href="https://documentary.org/feature/vr-becoming-actual-reality-documentarians" target="_blank" rel="noopener">IDA on VR docs ↗</a></div></div></div>
  </div>
 </section>
@@ -494,7 +506,7 @@ figcaption{background:var(--tape);color:var(--tx);font-family:var(--tw);letter-s
   <div class="ev f" data-s="2"><div class="yr">2012</div><h3>Hunger in Los Angeles</h3><p>Nonny de la Peña recreates a food-bank line in VR. Premieres at Sundance. A field is born.</p><a href="https://en.wikipedia.org/wiki/Nonny_de_la_Pe%C3%B1a" target="_blank" rel="noopener">Nonny de la Peña</a></div>
   <div class="ev f" data-s="3"><div class="yr">2015</div><h3>The Displaced · Clouds Over Sidra</h3><p>NYT ships 1M+ Google Cardboards to subscribers. The UN puts viewers inside a Syrian refugee camp.</p><a href="https://www.nytimes.com/2015/11/08/magazine/the-displaced-introduction.html" target="_blank" rel="noopener">The Displaced</a></div>
   <div class="ev hl f" data-s="3"><div class="yr">2017 · 21</div><h3>Sam Wolson</h3><p>We Who Remain (Nuba Mountains, Sudan) and Reeducated (The New Yorker, Xinjiang). SXSW Special Jury Recognition, 2021.</p><a href="https://emblematicgroup.com/experiences/we-who-remain" target="_blank" rel="noopener">We Who Remain</a> <a href="https://xrmust.com/?p=20581" target="_blank" rel="noopener">Reeducated</a></div>
-  <div class="ev f" data-s="4"><div class="yr">2026</div><h3>Out of the Ashes · and now</h3><p>Rory Mitchell &amp; Nonny de la Peña: Special Jury Prize, Venice Immersive. Today: smart glasses, splats on your phone.</p><a href="https://www.labiennale.org/en/news/official-awards-83rd-venice-international-film-festival" target="_blank" rel="noopener">Venice awards</a></div>
+  <div class="ev f" data-s="4"><div class="th"><img src="img/venice-4.jpg" alt="Out of the Ashes at Venice"></div><div class="yr">2026</div><h3>Out of the Ashes · and now</h3><p>Rory Mitchell &amp; Nonny de la Peña: Special Jury Prize, Venice Immersive. Today: smart glasses, splats on your phone.</p><a href="https://www.labiennale.org/en/news/official-awards-83rd-venice-international-film-festival" target="_blank" rel="noopener">Venice awards</a></div>
  </div>
  <p class="small f mt" data-s="4">Every new medium arrived wrapped in <strong style="color:var(--fita)">fear and wonder.</strong> What lasts is a good story. And notice Reeducated: no camera inside the camps, so they rebuilt it from testimony, <strong style="color:var(--fita)">and said so.</strong></p>
 </section>
@@ -504,10 +516,10 @@ figcaption{background:var(--tape);color:var(--tx);font-family:var(--tw);letter-s
  <div class="kicker f" data-s="0">The toolbox · <b>format follows the question</b></div>
  <h2 class="f" data-s="0">Every format answers<br>a <mark>journalistic question.</mark></h2>
  <div class="tools f" data-s="1">
-  <a class="tool ix" href="https://www.cjr.org/tow_center_reports/virtual_reality_journalism.php" target="_blank" rel="noopener"><img src="img/rlb-5.jpg" alt=""><span class="go">open</span><div class="fmt">360° · GoPro</div><h3>"What was it like to be there?"</h3><p>Reality Looks Back, SXSW 2026: 400+ viewings in 5 days.</p></a>
-  <a class="tool ix" href="https://www.faa.gov/uas/commercial_operators" target="_blank" rel="noopener"><img src="img/sq-1.jpg" alt=""><span class="go">open</span><div class="fmt">Drone</div><h3>"How big is this, really?"</h3><p>Scale, distance, the shape of a territory.</p></a>
+  <a class="tool ix" href="https://www.cjr.org/tow_center_reports/virtual_reality_journalism.php" target="_blank" rel="noopener"><img src="img/rlb-4.jpg" alt=""><span class="go">open</span><div class="fmt">360° · GoPro</div><h3>"What was it like to be there?"</h3><p>Reality Looks Back, SXSW 2026: 400+ viewings in 5 days.</p></a>
+  <a class="tool ix" href="https://www.faa.gov/uas/commercial_operators" target="_blank" rel="noopener"><img src="img/sq-2.jpg" alt=""><span class="go">open</span><div class="fmt">Drone</div><h3>"How big is this, really?"</h3><p>Scale, distance, the shape of a territory.</p></a>
   <a class="tool ix" href="https://modelviewer.dev/" target="_blank" rel="noopener"><img src="img/ssz-5.jpg" alt=""><span class="go">open</span><div class="fmt">AR</div><h3>"What if it were here?"</h3><p>The rocket, the flood line, the heat map, on your own desk.</p></a>
-  <a class="tool ix" href="https://en.wikipedia.org/wiki/Nonny_de_la_Pe%C3%B1a" target="_blank" rel="noopener"><img src="img/ssz-7.jpg" alt=""><span class="go">open</span><div class="fmt">VR · 6DoF</div><h3>"Can I stand inside it?"</h3><p>Embodiment: your body becomes part of the story.</p></a>
+  <a class="tool ix" href="https://en.wikipedia.org/wiki/Nonny_de_la_Pe%C3%B1a" target="_blank" rel="noopener"><img src="img/lapl-1.jpg" alt=""><span class="go">open</span><div class="fmt">VR · 6DoF</div><h3>"Can I stand inside it?"</h3><p>Embodiment: your body becomes part of the story.</p></a>
   <a class="tool ix" href="https://agog.org/out-of-the-ashes-immersive-storytelling/" target="_blank" rel="noopener"><img src="img/cover-volumetric.jpg" alt=""><span class="go">open</span><div class="fmt">Volumetric</div><h3>"Can I meet this person?"</h3><p>A survivor, in 3D, at human scale.</p></a>
   <a class="tool ix" href="https://superspl.at/" target="_blank" rel="noopener"><img src="img/ssz-9.jpg" alt=""><span class="go">open</span><div class="fmt">Gaussian splat</div><h3>"Can we rebuild what's gone?"</h3><p>A beach, a burned house, a memory, from photos.</p></a>
  </div>
@@ -519,14 +531,16 @@ figcaption{background:var(--tape);color:var(--tx);font-family:var(--tw);letter-s
  <div class="kicker f" data-s="0">Case 01 · <b>Out of the Ashes</b> · Rory Mitchell &amp; Nonny de la Peña</div>
  <h2 class="f" data-s="0">The LA fires,<br>kept in <mark>3D.</mark></h2>
  <p class="lead f mt" data-s="0">Fire-scarred homes in photogrammetry, survivors in volumetric capture. I worked on the capture and was the project's official content creator, from LA to the Venice Biennale.</p>
+ <div class="stamp f" data-s="1" style="margin-top:18px">Special Jury Prize · Venice 2026</div>
  <div class="stats f" data-s="1">
   <div class="stat"><div class="v">Special Jury Prize</div><div class="l">Venice Immersive 2026</div></div>
   <div class="stat"><div class="v">300+</div><div class="l">visitors I guided at the Music Center, Jan 2026</div></div>
  </div>
  <div class="strip f" data-s="1">
   <figure><img src="img/venice-3.jpg" alt=""><figcaption>Venice</figcaption></figure>
-  <figure><img src="img/venice-2.jpg" alt=""><figcaption>Competition</figcaption></figure>
+  <figure><img src="img/venice-5.jpg" alt=""><figcaption>Competition</figcaption></figure>
   <figure><img src="img/ashes-1.jpg" alt=""><figcaption>Capture</figcaption></figure>
+  <figure><img src="img/ashes-2.jpg" alt="" style="object-position:top"><figcaption>The poster</figcaption></figure>
   <figure><img src="img/cover-volumetric.jpg" alt=""><figcaption>Volumetric rig</figcaption></figure>
  </div>
  <div class="links f" data-s="1"><a class="lk hot" href="https://scaniverse.com/scan/lyzjlrcjmk5pd" target="_blank" rel="noopener">Open the splat</a><a class="lk" href="https://agog.org/out-of-the-ashes-immersive-storytelling/" target="_blank" rel="noopener">About the project</a><a class="lk" href="https://www.instagram.com/reel/DdkV88tCrug/" target="_blank" rel="noopener">Venice reel 1</a><a class="lk" href="https://www.instagram.com/reel/DdUc0zzERzO/" target="_blank" rel="noopener">Venice reel 2</a><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html#p-ashes" target="_blank" rel="noopener">My case study</a></div>
@@ -544,7 +558,7 @@ figcaption{background:var(--tape);color:var(--tx);font-family:var(--tw);letter-s
   <div class="col f" data-s="3"><div class="n">The method</div><h3>Social cartography</h3><p>The official closure perimeter erases the community's map. Their voices draw it back.</p></div>
  </div>
  <div class="strip f" data-s="3" style="max-width:1100px">
-  <figure><img src="img/ssz-rocket.jpg" alt=""></figure><figure><img src="img/ssz-5.jpg" alt=""></figure><figure><img src="img/ssz-6.jpg" alt=""></figure><figure><img src="img/ssz-3.jpg" alt=""></figure>
+  <figure><img src="img/ssz-1.jpg" alt="" style="object-position:top"></figure><figure><img src="img/ssz-rocket.jpg" alt=""></figure><figure><img src="img/ssz-8.jpg" alt=""></figure><figure><img src="img/ssz-6.jpg" alt=""></figure><figure><img src="img/ssz-2.jpg" alt=""></figure>
  </div>
  <div class="links f" data-s="3"><a class="lk" href="https://canva.link/d84kwo2hiamrc8z" target="_blank" rel="noopener">Pitch deck</a><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html#p-ssz" target="_blank" rel="noopener">Case study</a><a class="lk" href="https://iconoclasistas.net/" target="_blank" rel="noopener">Iconoclasistas (counter-mapping)</a></div>
 </section>
@@ -571,11 +585,11 @@ figcaption{background:var(--tape);color:var(--tx);font-family:var(--tw);letter-s
 
 <!-- 09 CREATORS -->
 <section class="slide">
- <div class="bgimg"><img src="img/usc-3.jpg" alt=""></div>
+ <div class="vpanel f" data-s="0" style="position:absolute;top:86px;right:7vw;width:min(33vw,500px);aspect-ratio:16/9"><video src="video/reel-2026-wall.mp4" poster="video/reel-wall-poster.jpg" autoplay muted loop playsinline preload="metadata"></video><div class="rec">my feed · 2026</div></div>
  <div class="kicker f" data-s="0">USC Annenberg · <b>Content Creators Academy 2026</b></div>
- <h2 class="f" data-s="0">Journalists are now <mark class="y">creators.</mark></h2>
+ <h2 class="f" data-s="0" style="font-size:clamp(30px,4.2vw,62px)">Journalists are<br>now <mark class="y">creators.</mark></h2>
  <p class="lead f" data-s="0" style="margin-top:12px">Your audience lives on a phone. What I learned this summer, in this building:</p>
- <div class="rules" style="margin-top:16px">
+ <div class="rules" style="margin-top:16px;max-width:min(54vw,820px)">
   <div class="rule f" data-s="1"><span>1</span><div><h3>Write the headline first</h3><p>Then build the piece from it. (Thank you, Eric.)</p></div></div>
   <div class="rule f" data-s="1"><span>2</span><div><h3>Engage, then explain</h3><p>Hook in the first second, verbally and on screen. Deliver the promise right away.</p></div></div>
   <div class="rule f" data-s="2"><span>3</span><div><h3>Always check your audio</h3><p>Mic to the speaker, human or not. Bad audio kills good images.</p></div></div>
@@ -616,6 +630,7 @@ figcaption{background:var(--tape);color:var(--tx);font-family:var(--tw);letter-s
 
 <!-- 11 REAL OR RECONSTRUCTED -->
 <section class="slide">
+ <div class="bgimg"><img src="img/ssz-6.jpg" alt=""></div>
  <div class="kicker f" data-s="0">Ethics · <b>vote with your hands</b></div>
  <h2 class="f" data-s="0">Real, reconstructed,<br>or <mark class="r">not yours?</mark></h2>
  <div class="verd">
@@ -629,6 +644,7 @@ figcaption{background:var(--tape);color:var(--tx);font-family:var(--tw);letter-s
 
 <!-- 12 REMIX -->
 <section class="slide">
+ <div class="bgimg"><img src="img/field-8.jpg" alt=""></div>
  <div class="kicker f" data-s="0">Dynamic 02 · <b>remix your final project</b></div>
  <div class="split" style="grid-template-columns:1.3fr .7fr;align-items:end">
   <div><h2 class="f" data-s="0">Pick one moment.<br>Make it <mark>immersive.</mark></h2>
@@ -662,7 +678,7 @@ figcaption{background:var(--tape);color:var(--tx);font-family:var(--tw);letter-s
 <section class="slide">
  <div class="kicker f" data-s="0">Starter guide · <b>your next steps</b></div>
  <div class="split" style="grid-template-columns:1.4fr .6fr;align-items:end">
-  <h2 class="f" data-s="0" style="font-size:clamp(30px,3.8vw,58px)">You don't need permission<br>to <mark>start.</mark></h2>
+  <h2 class="f" data-s="0" style="font-size:clamp(26px,3.2vw,50px)">You don't need permission<br>to <mark>start.</mark></h2>
   <div class="hero-qr f" data-s="0" style="margin:0;justify-content:flex-end"><div class="qr sm" data-qr="https://docs.google.com/spreadsheets/d/1CvwUyfs6O2VRd9MiGM6w7YhjssHoHxrJUtvCGymtGR4/edit" data-done="1"><img src="qr/9ea51a68.png" alt="QR code for https://docs.google.com/spreadsheets/d/1CvwUyfs6O2VRd9MiGM6w7YhjssHoHxrJUtvCGymtGR4/edit"></div><div class="qrcap"><b>Free tracker</b>XR, games &amp; funding calls 2026-27. Make a copy.</div></div>
  </div>
  <div class="opp">
@@ -700,15 +716,16 @@ figcaption{background:var(--tape);color:var(--tx);font-family:var(--tw);letter-s
 <section class="slide">
  <div class="split" style="grid-template-columns:1.3fr .7fr"><div>
  <div class="kicker f" data-s="0">Thank you · <b>let's keep in touch</b></div>
- <h1 class="f" data-s="0">Hold the<br><mark>camera.</mark></h1>
+ <h1 class="f" data-s="0" style="font-size:clamp(40px,5.4vw,90px)">Hold the <mark>camera.</mark></h1>
  <p class="lead f mt" data-s="0">The next big story in visual journalism might come from a place nobody is filming yet. Maybe yours.</p>
  <div class="meta f" data-s="1"><b>How today worked · steal it</b><span>You <mark>guessed</mark> before I explained</span><span>You <mark>touched</mark> before I told</span><span>You got <mark>quizzed</mark></span><span>One <mark class="y">sticky</mark> question, three times</span>
   <a href="https://en.wikipedia.org/wiki/Made_to_Stick" target="_blank" rel="noopener">Made to Stick ↗</a><a href="https://en.wikipedia.org/wiki/Howard_Gardner" target="_blank" rel="noopener">Gardner's entry points ↗</a></div>
  <div class="hero-qr f" data-s="2">
-  <div class="qr md" data-qr="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/index.html" data-done="1"><img src="qr/61f440bb.png" alt="QR code for https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/index.html"></div>
+  <div class="qr sm" data-qr="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/index.html" data-done="1"><img src="qr/61f440bb.png" alt="QR code for https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/index.html"></div>
   <div class="qrcap"><b>Rogério Bié</b>Portfolio, every link from today, and how to reach me.<br><code>rogeriobie2016@gmail.com</code></div>
  </div>
- <div class="links f" data-s="2"><a class="lk hot" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/index.html" target="_blank" rel="noopener">Portfolio</a><a class="lk" href="https://www.linkedin.com/in/rogerio-bie" target="_blank" rel="noopener">LinkedIn</a><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/research.html" target="_blank" rel="noopener">Research</a></div>
+ <div class="together f" data-s="2"><div class="clockbig" id="tgClock">10</div><div class="qrcap" style="max-width:420px"><b>All together · phones up</b>Tap <strong>Hold the camera</strong>. Every lens in this room points the same way. When the count hits zero, every screen lights up at once.</div><button class="lk hot joinbtn ix" data-room="cam">Hold the camera</button><button class="lk joinbtn ix" data-room="light">Light the room</button></div>
+ <div class="links f" data-s="2"><a class="lk hot" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/index.html" target="_blank" rel="noopener">Portfolio</a><a class="lk" href="https://arrival.space/34193039" target="_blank" rel="noopener">Spatial portfolio</a><a class="lk" href="https://www.linkedin.com/in/rogerio-bie" target="_blank" rel="noopener">LinkedIn</a><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/research.html" target="_blank" rel="noopener">Research</a></div>
  </div><div class="photos f" data-s="0" style="grid-template-columns:1fr"><figure style="aspect-ratio:4/5"><img src="img/portrait-hero.jpg" alt="Rogério Bié"><figcaption>Rogério Bié · Los Angeles</figcaption></figure></div></div>
 </section>
 
@@ -716,7 +733,8 @@ figcaption{background:var(--tape);color:var(--tx);font-family:var(--tw);letter-s
 <section class="slide">
  <div class="kicker f" data-s="0">Hands-on · <b>optional</b></div>
  <h2 class="f" data-s="0">Don't watch it. <mark>Walk into it.</mark></h2>
- <div class="live f" data-s="0">
+ <div class="live f" data-s="0" style="grid-template-columns:repeat(5,minmax(0,1fr))">
+  <div class="demo"><div class="qr" data-qr="https://arrival.space/34193039"></div><div class="t">Spatial portfolio · WebXR</div><h3>Walk through my work</h3><p>Each gate opens its own world.</p><a class="lk" href="https://arrival.space/34193039" target="_blank" rel="noopener">open</a></div>
   <div class="demo"><div class="qr" data-qr="https://scaniverse.com/scan/lyzjlrcjmk5pd" data-done="1"><img src="qr/61a93f23.png" alt="QR code for https://scaniverse.com/scan/lyzjlrcjmk5pd"></div><div class="t">Gaussian splat · journalism</div><h3>Out of the Ashes</h3><p>A place from the LA fires. Pinch, drag, walk around it.</p><a class="lk" href="https://scaniverse.com/scan/lyzjlrcjmk5pd" target="_blank" rel="noopener">open</a></div>
   <div class="demo" id="demoAR"></div>
   <div class="demo"><div class="qr" data-qr="https://endearing-gecko-5856a3.netlify.app" data-done="1"><img src="qr/e2657927.png" alt="QR code for https://endearing-gecko-5856a3.netlify.app"></div><div class="t">WebXR · splats + 360°</div><h3>Pages of Prophecy</h3><p>A family's exile story, co-built with director Noelle Muluneh.</p><a class="lk" href="https://endearing-gecko-5856a3.netlify.app" target="_blank" rel="noopener">open</a></div>
@@ -737,6 +755,7 @@ figcaption{background:var(--tape);color:var(--tx);font-family:var(--tw);letter-s
   <button class="pb" id="clean" aria-label="Clean screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/></svg></button>
  </div>
 </div>
+<div id="room" aria-live="polite"><video id="roomVid" playsinline muted></video><div class="hud"></div><div class="msg" id="roomMsg"></div><div class="sub" id="roomSub"></div><div class="acts"><button class="btn y" data-room="cam">Hold the camera</button><button class="btn g" data-room="light">Light the room</button></div><button class="x" id="roomX">Back to the slides</button></div>
 <div id="notes"></div>
 <div class="toast" id="toast"></div>
 
@@ -802,6 +821,24 @@ $$('.card').forEach(c=>c.addEventListener('click',e=>{if(e.target.closest('a'))r
 $$('.vc').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('open')));
 $('#cam').onclick=()=>{const c=$('#cam');c.classList.toggle('flip');$('#who').textContent=c.classList.contains('flip')?'lens held by: the community':'lens held by: outsiders'};
 
+/* together: wall-clock synced moments, no server needed */
+const room=$('#room'),rv=$('#roomVid'),rmsg=$('#roomMsg'),rsub=$('#roomSub');let roomT=null,stream=null,wake=null;
+const RPAL=['#FFE843','#B7DE43','#d9381e','#ffffff','#4f7dff','#294914'];const CYCLE=10000,SHOW=4000;
+function phase(){const t=Date.now();return{t,ph:t%CYCLE}}
+function stopCam(){if(stream){stream.getTracks().forEach(k=>k.stop());stream=null}rv.srcObject=null}
+function openRoom(mode){room.classList.add('on');room.classList.toggle('cam',mode==='cam');clearInterval(roomT);
+ try{navigator.wakeLock&&navigator.wakeLock.request('screen').then(w=>wake=w).catch(()=>{})}catch(e){}
+ if(mode==='cam'){rmsg.textContent='';rsub.textContent='Point it at the stage. You hold the camera now.';
+  if(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia){navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'},audio:false}).then(st=>{stream=st;rv.srcObject=st;rv.play()}).catch(()=>{rsub.textContent='Camera blocked. Try Light the room.'})}}
+ else{stopCam()}
+ roomT=setInterval(()=>{const {t,ph}=phase();
+  if(mode==='light'){if(ph<SHOW){room.style.background=RPAL[Math.floor(t/300)%RPAL.length];rmsg.textContent='';rsub.textContent=''}else{room.style.background='#0e1a2b';rmsg.textContent=Math.ceil((CYCLE-ph)/1000);rsub.textContent='Hold your phone up. Every screen in the room lights together.'}}
+  else{rmsg.textContent=ph<SHOW?'':String(Math.ceil((CYCLE-ph)/1000));room.style.background=ph<SHOW?RPAL[Math.floor(t/300)%RPAL.length]:'#0e1a2b';rv.style.opacity=ph<SHOW?.35:1}},50)}
+function closeRoom(){room.classList.remove('on');clearInterval(roomT);stopCam();room.style.background='';try{wake&&wake.release()}catch(e){}}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-room]');if(b){e.stopPropagation();openRoom(b.dataset.room)}});
+$('#roomX').onclick=closeRoom;
+const tg=$('#tgClock');setInterval(()=>{if(!tg)return;const {ph}=phase();tg.textContent=ph<SHOW?'NOW':String(Math.ceil((CYCLE-ph)/1000));tg.style.color=ph<SHOW?'var(--red)':''},100);
+
 /* remix timer */
 let tLeft=300,tInt=null;const tEl=$('#timer');
 function paintT(){tEl.textContent=Math.floor(tLeft/60)+':'+String(tLeft%60).padStart(2,'0');tEl.classList.toggle('low',tLeft<=30)}
@@ -841,7 +878,7 @@ showQ();paintTeams();
 /* background: drifting splat points */
 const cv=$('#field'),cx=cv.getContext('2d');let W,H;
 function size(){const d=Math.min(2,devicePixelRatio||1);W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0)}size();addEventListener('resize',size);
-const PAL=['#B7DE43','#FFE843','#f5f4ec','#ff5a36'];const pts=[...Array(110)].map(()=>({x:Math.random()*W,y:Math.random()*H,r:.8+Math.random()*2.6,c:PAL[Math.random()*PAL.length|0],p:Math.random()*6.28,s:.15+Math.random()*.4}));
+const PAL=['#94b82c','#e0c400','#294914','#d9381e'];const pts=[...Array(110)].map(()=>({x:Math.random()*W,y:Math.random()*H,r:.8+Math.random()*2.6,c:PAL[Math.random()*PAL.length|0],p:Math.random()*6.28,s:.15+Math.random()*.4}));
 const ptr={x:-999,y:-999};addEventListener('pointermove',e=>{ptr.x=e.clientX;ptr.y=e.clientY});
 function frame(now){const t=now/1000;cx.clearRect(0,0,W,H);
  for(const q of pts){q.x+=Math.cos(t*q.s+q.p)*.25;q.y+=Math.sin(t*q.s*.8+q.p)*.25-.08;
