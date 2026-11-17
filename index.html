@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What's next in visual journalism? · Rogério Bié at USC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Yellowtail&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{
+ --ink:#121211;--papel:#f5f4ec;--mute:#a7a69c;--line:#2e2e29;
+ --lima:#B7DE43;--fita:#FFE843;--floresta:#294914;--urucum:#ff5a36;--noite:#4f7dff;
+ --ease:cubic-bezier(.16,1,.3,1);--snap:cubic-bezier(.2,.9,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--ink);color:var(--papel);overflow:hidden}
+body{font-family:"Bricolage Grotesque",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+#field{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.grain{position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.06;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* chrome */
+#bar{position:fixed;top:16px;left:24px;right:24px;display:flex;gap:5px;z-index:20;transition:opacity .5s}
+#bar i{flex:1;height:3px;background:rgba(245,244,236,.16);border-radius:3px;overflow:hidden;position:relative;cursor:pointer}
+#bar i b{position:absolute;inset:0;background:var(--papel);transform-origin:left;transform:scaleX(0);transition:transform .6s var(--ease)}
+#bar i.done b{transform:scaleX(1)}#bar i.on b{background:var(--lima)}
+.brand{position:fixed;top:30px;left:24px;z-index:20;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);transition:opacity .5s}
+.brand em{font-family:Yellowtail,cursive;font-style:normal;letter-spacing:0;text-transform:none;font-size:20px;color:var(--lima);margin-right:6px}
+#clock{position:fixed;top:30px;right:24px;z-index:20;font-size:12px;letter-spacing:.2em;color:var(--mute);font-variant-numeric:tabular-nums;transition:opacity .5s}
+#clock b{color:var(--fita);font-weight:600}
+
+/* slides */
+#deck{position:fixed;inset:0;z-index:5}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:safe center;overflow-y:auto;padding:86px 7vw 104px;opacity:0;pointer-events:none;transition:opacity .7s var(--ease)}
+.slide.on{opacity:1;pointer-events:auto}
+.f{opacity:0;transform:translateY(16px);filter:blur(6px);transition:opacity .8s var(--ease),transform .8s var(--ease),filter .8s var(--ease)}
+.f.in{opacity:1;transform:none;filter:none}
+.bgimg{position:absolute;inset:0;z-index:-1;overflow:hidden}
+.bgimg img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 9s linear}
+.slide.on .bgimg img{transform:scale(1)}
+.bgimg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,18,17,.96) 0%,rgba(18,18,17,.84) 50%,rgba(18,18,17,.45) 100%)}
+.bgimg.bottom:after{background:linear-gradient(0deg,rgba(18,18,17,.97) 10%,rgba(18,18,17,.78) 60%,rgba(18,18,17,.5) 100%)}
+
+.kicker{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);margin-bottom:20px}
+.kicker b{color:var(--lima);font-weight:600}
+h1{font-size:clamp(46px,8vw,128px);line-height:.92;font-weight:800;letter-spacing:-.035em;text-transform:uppercase}
+h2{font-size:clamp(34px,5.2vw,80px);line-height:.95;font-weight:800;letter-spacing:-.03em}
+h3{font-size:clamp(19px,1.9vw,28px);line-height:1.12;font-weight:700;letter-spacing:-.01em}
+mark{background:linear-gradient(transparent 12%,var(--lima) 12%,var(--lima) 88%,transparent 88%);color:var(--ink);padding:0 .12em;font-style:italic;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+mark.y{background:linear-gradient(transparent 12%,var(--fita) 12%,var(--fita) 88%,transparent 88%)}
+mark.r{background:linear-gradient(transparent 12%,var(--urucum) 12%,var(--urucum) 88%,transparent 88%);color:#fff}
+.script{font-family:Yellowtail,cursive;font-weight:400;letter-spacing:0;text-transform:none;color:var(--lima)}
+.script.y{color:var(--fita)}.script.r{color:var(--urucum)}
+p.lead{font-size:clamp(17px,1.6vw,24px);line-height:1.4;max-width:780px;color:#dcdbd2;font-weight:300}
+p.lead strong{color:var(--papel);font-weight:600}
+.small{font-size:14px;color:var(--mute);line-height:1.5;max-width:760px}
+.mt{margin-top:24px}.mt2{margin-top:40px}
+.row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:5vw;align-items:center}
+
+/* link chips */
+.links{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}
+.lk{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;text-decoration:none;color:var(--papel);border:1px solid #45453f;background:rgba(18,18,17,.6);backdrop-filter:blur(6px);border-radius:999px;padding:9px 15px;transition:all .3s var(--snap)}
+.lk:after{content:"↗";color:var(--lima)}
+.lk:hover{border-color:var(--lima);transform:translateY(-2px)}
+.lk.hot{background:var(--lima);color:var(--ink);border-color:var(--lima)}.lk.hot:after{color:var(--ink)}
+
+/* buttons */
+.btn{font:inherit;font-size:15px;font-weight:600;color:var(--ink);background:var(--papel);border:0;border-radius:999px;padding:12px 20px;cursor:pointer;transition:transform .35s var(--snap),box-shadow .3s;display:inline-flex;align-items:center;gap:8px}
+.btn:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 10px 30px rgba(183,222,67,.25)}
+.btn.g{background:var(--lima)}.btn.y{background:var(--fita)}.btn.ghost{background:transparent;color:var(--papel);border:1px solid #45453f}
+
+/* title */
+.hero-qr{display:flex;gap:22px;align-items:center;margin-top:34px}
+.qr{background:var(--papel);border-radius:16px;padding:12px;display:inline-grid;place-items:center;flex:none}
+.qr img,.qr canvas{display:block;width:100%!important;height:auto!important}
+.qr.big{width:190px}.qr.md{width:150px}.qr.sm{width:120px}
+.qrcap{font-size:15px;line-height:1.4;color:#dcdbd2;max-width:360px}
+.qrcap b{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--fita);margin-bottom:6px}
+.qrcap code{font-size:12px;color:var(--mute);word-break:break-all}
+
+/* me */
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.photos figure{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/5}
+.photos figure.wide{grid-column:span 2;aspect-ratio:16/8}
+.photos img{width:100%;height:100%;object-fit:cover;display:block}
+figcaption{position:absolute;left:10px;bottom:10px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;background:rgba(18,18,17,.75);padding:5px 9px;border-radius:999px;color:var(--papel)}
+.path{display:flex;flex-direction:column;gap:12px;margin-top:26px;max-width:640px}
+.path div{display:flex;gap:14px;align-items:baseline;font-size:clamp(16px,1.5vw,21px);line-height:1.35;color:#dcdbd2}
+.path span{font-family:Yellowtail,cursive;color:var(--lima);font-size:1.4em;min-width:34px}
+.quote{border-left:3px solid var(--lima);padding:4px 0 4px 20px;max-width:820px}
+.quote p{font-size:clamp(20px,2.2vw,32px);line-height:1.2;font-weight:600;letter-spacing:-.01em}
+.quote cite{display:block;margin-top:8px;font-style:normal;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+
+/* flip cards */
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:28px}
+.card{perspective:1200px;height:200px;cursor:pointer}
+.card .in2{position:relative;width:100%;height:100%;transition:transform .8s var(--ease);transform-style:preserve-3d}
+.card.open .in2{transform:rotateY(180deg)}
+.card .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid #33332e;background:rgba(18,18,17,.82);backdrop-filter:blur(8px)}
+.card .back{transform:rotateY(180deg);background:var(--papel);color:var(--ink);border-color:var(--papel)}
+.card .n{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.card .back .n{color:var(--floresta)}
+.card h3{font-size:clamp(22px,2.3vw,34px)}
+.card p{font-size:14.5px;line-height:1.38;color:#2a2a27}
+.card .hint{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--lima)}
+.card .back a{font-size:12px;font-weight:700;color:var(--floresta)}
+
+/* timeline */
+.tl{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:40px}
+.tl:before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:linear-gradient(90deg,var(--lima),var(--fita),var(--urucum))}
+.ev{position:relative;padding-top:32px}
+.ev:before{content:"";position:absolute;top:2px;left:0;width:16px;height:16px;border-radius:50%;background:var(--ink);border:3px solid var(--lima)}
+.ev.hl:before{background:var(--fita);border-color:var(--fita);box-shadow:0 0 22px var(--fita)}
+.ev .yr{font-size:clamp(26px,2.6vw,40px);font-weight:800;letter-spacing:-.03em}
+.ev h3{font-size:17px;margin:6px 0 6px}
+.ev p{font-size:13.5px;line-height:1.4;color:#cfcec4}
+.ev a{display:inline-block;margin-top:8px;font-size:12px;font-weight:700;color:var(--lima);text-decoration:none}
+.ev a:after{content:" ↗"}
+
+/* toolbox */
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.tool{position:relative;border-radius:18px;overflow:hidden;min-height:190px;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;border:1px solid #2f2f2a;text-decoration:none;transition:transform .4s var(--snap),border-color .3s}
+.tool:hover{transform:translateY(-4px);border-color:var(--lima)}
+.tool img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s var(--ease)}
+.tool:hover img{transform:scale(1.06)}
+.tool:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(18,18,17,.95) 15%,rgba(18,18,17,.35) 100%)}
+.tool .fmt{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--fita)}
+.tool h3{margin:4px 0 4px}
+.tool p{font-size:14px;line-height:1.38;color:#d8d7cd}
+.tool .go{position:absolute;top:14px;right:14px;font-size:12px;font-weight:700;background:var(--lima);color:var(--ink);border-radius:999px;padding:5px 10px}
+
+/* stats */
+.stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:26px}
+.stat .v{font-size:clamp(34px,3.6vw,56px);font-weight:800;letter-spacing:-.03em;color:var(--lima);line-height:1}
+.stat .l{font-size:13px;color:var(--mute);margin-top:6px;max-width:190px;line-height:1.35}
+
+/* gallery strip */
+.strip{display:flex;gap:12px;margin-top:22px}
+.strip figure{position:relative;flex:1;border-radius:14px;overflow:hidden;aspect-ratio:4/3}
+.strip img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* live demos */
+.live{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+.demo{border:1px solid #33332e;border-radius:20px;padding:16px;background:rgba(18,18,17,.82);display:flex;flex-direction:column;gap:12px;text-decoration:none}
+.demo .qr{width:100%}
+.demo .t{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--fita)}
+.demo h3{font-size:18px}
+.demo p{font-size:13.5px;line-height:1.38;color:#cfcec4}
+.demo .missing{aspect-ratio:1;border:2px dashed #55554d;border-radius:14px;display:grid;place-items:center;text-align:center;font-size:13px;color:var(--mute);padding:14px}
+.wall{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:18px}
+.wall a{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/10;display:block;text-decoration:none;border:1px solid #2f2f2a}
+.wall img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease)}
+.wall a:hover img{transform:scale(1.07)}
+.wall span{position:absolute;left:8px;bottom:8px;right:8px;font-size:11px;font-weight:600;line-height:1.25;background:rgba(18,18,17,.82);padding:5px 8px;border-radius:8px}
+
+/* creators list */
+.rules{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 26px;margin-top:26px;max-width:1050px}
+.rule{display:flex;gap:14px;align-items:baseline;border-top:1px solid #33332e;padding-top:12px}
+.rule span{font-family:Yellowtail,cursive;color:var(--lima);font-size:30px;min-width:30px}
+.rule h3{font-size:19px}
+.rule p{font-size:14.5px;color:#cfcec4;line-height:1.38;margin-top:4px}
+
+/* pluriverse */
+.cols{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
+.col{border-top:2px solid var(--lima);padding-top:14px}
+.col.r{border-color:var(--urucum)}.col.y{border-color:var(--fita)}.col.b{border-color:var(--noite)}
+.col .n{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.col p{font-size:14.5px;line-height:1.4;color:#d8d7cd;margin-top:6px}
+.col a{display:inline-block;margin-top:8px;font-size:12px;font-weight:700;color:var(--lima);text-decoration:none}
+.col a:after{content:" ↗"}
+.cam{position:relative;width:min(420px,80vw);aspect-ratio:16/10;border-radius:20px;overflow:hidden;background:#0c0c0b;border:1px solid #2f2f2a;cursor:pointer}
+.cam .vf{position:absolute;inset:14px;border:1.5px solid rgba(245,244,236,.5);border-radius:12px}
+.cam .rec{position:absolute;top:26px;left:28px;font-size:12px;letter-spacing:.2em;display:flex;align-items:center;gap:8px}
+.cam .rec:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--urucum);animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.2}}
+.cam .who{position:absolute;top:26px;right:28px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.cam .scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;transition:opacity .7s var(--ease),transform .9s var(--ease);text-align:center;padding:0 12%}
+.cam .scene .big{font-size:52px}
+.cam .scene .cap{font-size:15px;color:#d8d7cd}
+.cam .s2{opacity:0;transform:scale(1.15) rotate(-4deg)}
+.cam.flip .s1{opacity:0;transform:scale(.85) rotate(4deg)}
+.cam.flip .s2{opacity:1;transform:none}
+.cam.flip{border-color:var(--lima);box-shadow:0 0 80px rgba(183,222,67,.18)}
+.cam .tap{position:absolute;bottom:20px;left:0;right:0;text-align:center;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+
+/* verdict cards */
+.verd{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:26px;max-width:1100px}
+.vc{border:1px solid #3a3a35;border-radius:18px;padding:18px 20px;background:rgba(18,18,17,.82);cursor:pointer;transition:all .5s var(--ease)}
+.vc .q{font-size:clamp(16px,1.5vw,21px);line-height:1.35;font-weight:600}
+.vc .opts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.vc .opts span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;border:1px solid #45453f;border-radius:999px;padding:5px 10px;color:var(--mute)}
+.vc .a{max-height:0;overflow:hidden;opacity:0;transition:all .6s var(--ease);font-size:15px;line-height:1.42;color:#dcdbd2}
+.vc.open{border-color:var(--fita)}
+.vc.open .a{max-height:220px;opacity:1;margin-top:12px}
+.vc .a b{color:var(--fita)}
+
+/* timer */
+.timer{font-size:clamp(70px,10vw,150px);font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums;line-height:1}
+.timer.low{color:var(--urucum)}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px;max-width:1100px}
+.st{border:1px solid #33332e;border-radius:18px;padding:18px;background:rgba(18,18,17,.82)}
+.st .n{font-family:Yellowtail,cursive;color:var(--lima);font-size:34px;line-height:1}
+.st h3{font-size:19px;margin:6px 0}
+.st p{font-size:14.5px;line-height:1.4;color:#cfcec4}
+
+/* quiz */
+.qz{max-width:1100px;width:100%}
+.qz .qn{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+.qz .qq{font-size:clamp(26px,3.4vw,52px);font-weight:800;letter-spacing:-.02em;line-height:1.05;margin:10px 0 20px}
+.opts4{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.op{display:flex;align-items:center;gap:14px;font:inherit;font-size:clamp(16px,1.6vw,22px);font-weight:600;color:#fff;border:0;border-radius:16px;padding:18px 20px;cursor:pointer;text-align:left;transition:all .5s var(--ease)}
+.op i{font-style:normal;font-size:22px;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:rgba(0,0,0,.22);flex:none}
+.op:nth-child(1){background:#d93a3a}.op:nth-child(2){background:#2f6fe0}.op:nth-child(3){background:#d9a40f}.op:nth-child(4){background:#2d9b4e}
+.qz.rev .op{opacity:.25;transform:scale(.97)}
+.qz.rev .op.ok{opacity:1;transform:scale(1.02);box-shadow:0 0 0 4px var(--papel)}
+.qbar{height:8px;border-radius:8px;background:#26261f;margin:14px 0 6px;overflow:hidden}
+.qbar b{display:block;height:100%;width:100%;background:var(--lima);transform-origin:left;transition:transform .25s linear}
+.why{min-height:24px;font-size:16px;color:var(--fita);margin-top:12px;line-height:1.4}
+.teams{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;align-items:center}
+.team{display:flex;align-items:center;gap:8px;border:1px solid #45453f;border-radius:999px;padding:6px 6px 6px 14px;font-size:14px;font-weight:600}
+.team b{font-size:18px;min-width:22px;text-align:center;font-variant-numeric:tabular-nums}
+.team button{font:inherit;border:0;border-radius:999px;width:30px;height:30px;cursor:pointer;background:var(--lima);font-weight:800}
+.team button.m{background:#33332e;color:var(--papel)}
+
+/* opportunities */
+.opp{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
+.og{border-top:2px solid var(--lima);padding-top:12px}
+.og.y{border-color:var(--fita)}.og.r{border-color:var(--urucum)}.og.b{border-color:var(--noite)}
+.og .n{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.og a{position:relative;display:block;font-size:15px;font-weight:600;text-decoration:none;padding:6px 20px 6px 0;border-bottom:1px solid #26261f;line-height:1.3}
+.og a:after{content:"↗";color:var(--lima);position:absolute;right:2px;top:6px}
+.og a:hover{color:var(--lima)}
+.og a small{display:block;font-weight:400;font-size:12.5px;color:var(--mute);margin-top:2px}
+.og a small em{color:var(--fita);font-style:normal}
+
+.meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;margin-top:22px;max-width:760px;font-size:15px;color:#dcdbd2;border-top:1px solid #33332e;padding-top:14px}
+.meta b{width:100%;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--fita)}
+.meta mark{font-weight:700}
+.meta a{font-size:12px;font-weight:700;color:var(--lima);text-decoration:none}
+/* controls */
+#ctl{position:fixed;bottom:20px;left:24px;right:24px;display:flex;justify-content:space-between;align-items:center;z-index:20;transition:opacity .5s}
+#ctl .grp{display:flex;gap:8px;align-items:center}
+.pb{width:42px;height:42px;border-radius:50%;border:1px solid #3a3a35;background:rgba(18,18,17,.6);backdrop-filter:blur(6px);color:var(--papel);display:grid;place-items:center;cursor:pointer;transition:all .3s var(--snap);font:inherit;font-size:13px;font-weight:700}
+.pb:hover{border-color:var(--papel);transform:scale(1.07)}
+.pb.on{background:var(--lima);color:var(--ink);border-color:var(--lima)}
+.pb svg{width:18px;height:18px}
+.count{font-size:13px;letter-spacing:.2em;color:var(--mute);font-variant-numeric:tabular-nums;margin-left:8px}
+.keys{font-size:12px;color:#6d6c64;letter-spacing:.08em}
+body.clean #bar,body.clean .brand,body.clean #clock,body.clean #ctl .grp:first-child,body.clean .keys{opacity:0}
+#notes{position:fixed;right:24px;bottom:76px;width:min(430px,90vw);max-height:52vh;overflow:auto;z-index:30;background:var(--papel);color:var(--ink);border-radius:18px;padding:18px 20px;font-size:15px;line-height:1.45;box-shadow:0 20px 60px rgba(0,0,0,.5);transform:translateY(20px);opacity:0;pointer-events:none;transition:all .4s var(--ease)}
+#notes.show{transform:none;opacity:1;pointer-events:auto}
+#notes .tm{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--floresta);font-weight:700;margin-bottom:6px}
+#notes ul{margin-left:18px}#notes li{margin:4px 0}
+.toast{position:fixed;left:50%;bottom:86px;transform:translateX(-50%) translateY(20px);background:var(--papel);color:var(--ink);padding:10px 18px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:all .5s var(--ease);z-index:40;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%)}
+
+@media (max-width:980px){
+ .cards{grid-template-columns:repeat(2,1fr)}.tools,.live{grid-template-columns:repeat(2,1fr)}
+ .tl{grid-template-columns:repeat(2,1fr)}.tl:before{display:none}
+ .cols,.opp{grid-template-columns:repeat(2,1fr)}.wall{grid-template-columns:repeat(3,1fr)}
+ .split{grid-template-columns:1fr}.verd,.rules,.steps3,.opts4{grid-template-columns:1fr}
+ .slide{justify-content:flex-start;padding:80px 6vw 100px}.keys{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}}
+</style>
+</head>
+<body>
+<canvas id="field"></canvas>
+<div class="grain"></div>
+<div id="bar"></div>
+<div class="brand"><em>visual journalism</em> USC · guest lecture</div>
+<div id="clock"></div>
+
+<main id="deck">
+
+<!-- 01 TITLE -->
+<section class="slide" data-notes="0:00 a 0:05|Antes de comecar, deixa este slide na tela enquanto a turma entra.|Pede pra todo mundo escanear o QR AGORA: e um splat de Out of the Ashes, uma casa queimada no incendio de LA, em 3D no celular.|Pergunta: o que voces estao vendo? Foto? Video? Jogo? Deixa responderem.">
+ <div class="bgimg"><img src="img/ssz-rocket.jpg" alt=""></div>
+ <div class="kicker f" data-s="0">USC Annenberg · Week 14 · <b>guest lecture</b></div>
+ <h1 class="f" data-s="0">What's next<br>in <mark>visual</mark><br>journalism?</h1>
+ <p class="lead f mt" data-s="0">VR, AR, 360°, drones, GoPro, volumetric capture and Gaussian splats. And the question under all of them: <strong>who gets to hold the camera?</strong></p>
+ <div class="hero-qr f" data-s="0">
+  <div class="qr big" data-qr="https://scaniverse.com/scan/lyzjlrcjmk5pd" data-done="1"><img src="qr/61a93f23.png" alt="QR code for https://scaniverse.com/scan/lyzjlrcjmk5pd"></div>
+  <div class="qrcap"><b>Phones out · right now</b>Scan this. You're about to walk around a place that burned in the 2025 LA fires.<br><code>scaniverse.com/scan/lyzjlrcjmk5pd</code></div>
+ </div>
+ <div class="links f" data-s="0"><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/index.html" target="_blank" rel="noopener">Rogério Bié · portfolio</a><a class="lk" href="https://www.linkedin.com/in/rogerio-bie" target="_blank" rel="noopener">LinkedIn</a></div>
+</section>
+
+<!-- 02 WHO -->
+<section class="slide" data-notes="0:05 a 0:10|Historia curta e pessoal. Nao ler a lista: contar.|Santa Quiteria, filho de agricultores, ameaca da mina de uranio. Primeiro da familia na universidade.|Jovem Embaixador aos 18. Jornalismo na UFC, SEDUC (350 mil alunos), G20 com 50 jovens.|Hoje: ASU NEM com a Nonny de la Pena. Fecha com a frase do acesso.">
+ <div class="split">
+  <div>
+   <div class="kicker f" data-s="0">Hi, I'm <b>Rogério</b></div>
+   <h2 class="f" data-s="0">From a farm in<br>Ceará to <mark>XR</mark><br>in Los Angeles.</h2>
+   <div class="path">
+    <div class="f" data-s="1"><span>1</span>Grew up in rural Santa Quitéria, Brazil: third of six kids of farmers, first in my family to go to college.</div>
+    <div class="f" data-s="1"><span>2</span>B.A. in Journalism (Federal University of Ceará). Ran communication for 350,000+ public school students and a 50-teen youth newsroom at the G20.</div>
+    <div class="f" data-s="1"><span>3</span>Now: M.A. Narrative &amp; Emerging Media at ASU, with Prof. Nonny de la Peña. VR, volumetric capture, Gaussian splats.</div>
+   </div>
+   <div class="quote f mt" data-s="2"><p>"What separates me from many young people in my community isn't capability. It's access."</p></div>
+   <div class="links f" data-s="2"><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html" target="_blank" rel="noopener">All my work</a><a class="lk" href="https://youtu.be/hNjRzGMewbI" target="_blank" rel="noopener">Children of the Wind (doc)</a><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html#p-g20" target="_blank" rel="noopener">G20 youth newsroom</a></div>
+  </div>
+  <div class="photos f" data-s="0">
+   <figure class="wide"><img src="img/sq-1.jpg" alt="Aerial view of the sertão in Santa Quitéria, Ceará"><figcaption>Santa Quitéria, Ceará</figcaption></figure>
+   <figure><img src="img/sq-4.jpg" alt="Family in front of a rural house"><figcaption>Home</figcaption></figure>
+   <figure><img src="img/wind-3.jpg" alt="Rogério at Cine Ceará"><figcaption>Cine Ceará 2024</figcaption></figure>
+  </div>
+ </div>
+</section>
+
+<!-- 03 GUESS THE TERM -->
+<section class="slide" data-notes="0:10 a 0:20 · DINAMICA 1|Metodo do Eric: pergunta primeiro, revela depois.|Le o termo, deixa 2 ou 3 alunos chutarem, ai vira a carta.|Se o tempo apertar, vira so 4: Gaussian splat, volumetric, AR e presence.">
+ <div class="kicker f" data-s="0">Dynamic 01 · <b>guess the term</b></div>
+ <h2 class="f" data-s="0">What do you <mark>think</mark> it is?</h2>
+ <p class="small f" data-s="0" style="margin-top:12px">Shout your guess first. Then we flip.</p>
+ <div class="cards f" data-s="0">
+  <div class="card ix"><div class="in2"><div class="face"><div class="n">01</div><h3>360° video</h3><div class="hint">guess → flip</div></div>
+   <div class="face back"><div><div class="n">You look around</div><p>A sphere of video. You choose where to look, but you can't move. Best for: <b>being there.</b></p></div><a href="https://www.cjr.org/tow_center_reports/virtual_reality_journalism.php" target="_blank" rel="noopener">Tow Center: VR journalism ↗</a></div></div></div>
+  <div class="card ix"><div class="in2"><div class="face"><div class="n">02</div><h3>AR</h3><div class="hint">guess → flip</div></div>
+   <div class="face back"><div><div class="n">Augmented reality</div><p>Digital layers on top of your real space, through a phone or glasses. The story lands <b>on your table.</b></p></div><a href="https://modelviewer.dev/" target="_blank" rel="noopener">Try web AR ↗</a></div></div></div>
+  <div class="card ix"><div class="in2"><div class="face"><div class="n">03</div><h3>VR</h3><div class="hint">guess → flip</div></div>
+   <div class="face back"><div><div class="n">Virtual reality</div><p>A headset replaces your world. With 6DoF you can walk inside the scene. Best for: <b>embodiment.</b></p></div><a href="https://en.wikipedia.org/wiki/Nonny_de_la_Pe%C3%B1a" target="_blank" rel="noopener">Nonny de la Peña ↗</a></div></div></div>
+  <div class="card ix"><div class="in2"><div class="face"><div class="n">04</div><h3>Drone</h3><div class="hint">guess → flip</div></div>
+   <div class="face back"><div><div class="n">Aerial reporting</div><p>The view that shows <b>scale</b>: a flood, a fire line, a launch site. In the US you need an FAA Part 107 license to fly for work.</p></div><a href="https://www.faa.gov/uas/commercial_operators" target="_blank" rel="noopener">FAA Part 107 ↗</a></div></div></div>
+  <div class="card ix"><div class="in2"><div class="face"><div class="n">05</div><h3>GoPro / POV</h3><div class="hint">guess → flip</div></div>
+   <div class="face back"><div><div class="n">Point of view</div><p>A small camera on a body, a bike, a boat. The audience rides <b>with</b> the source, not watching them.</p></div><a href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/feed.html" target="_blank" rel="noopener">My vertical work ↗</a></div></div></div>
+  <div class="card ix"><div class="in2"><div class="face"><div class="n">06</div><h3>Volumetric capture</h3><div class="hint">guess → flip</div></div>
+   <div class="face back"><div><div class="n">A person in 3D</div><p>Dozens of cameras record a person as a 3D video. You can walk around them while they talk.</p></div><a href="https://agog.org/out-of-the-ashes-immersive-storytelling/" target="_blank" rel="noopener">Out of the Ashes ↗</a></div></div></div>
+  <div class="card ix"><div class="in2"><div class="face"><div class="n">07</div><h3>Gaussian splat</h3><div class="hint">guess → flip</div></div>
+   <div class="face back"><div><div class="n">A place from photos</div><p>Millions of soft 3D "blobs" rebuilt from photos or video. A phone can make one in minutes.</p></div><a href="https://scaniverse.com/" target="_blank" rel="noopener">Scaniverse (free) ↗</a></div></div></div>
+  <div class="card ix"><div class="in2"><div class="face"><div class="n">08</div><h3>Presence</h3><div class="hint">guess → flip</div></div>
+   <div class="face back"><div><div class="n">The goal</div><p>The feeling that you are <b>really there.</b> The superpower of immersive media, and its biggest ethical risk.</p></div><a href="https://documentary.org/feature/vr-becoming-actual-reality-documentarians" target="_blank" rel="noopener">IDA on VR docs ↗</a></div></div></div>
+ </div>
+</section>
+
+<!-- 04 TIMELINE -->
+<section class="slide" data-notes="0:20 a 0:27|Isso nao comecou ontem: 14 anos de jornalismo imersivo.|Destaque pro Sam Wolson: fotojornalista que virou diretor de VR. We Who Remain (zona de guerra no Sudao) e Reeducated (New Yorker, Xinjiang, reconstrucao a partir de testemunhos).|Liga com a minha orientadora (Nonny) e com Out of the Ashes em Veneza.">
+ <div class="kicker f" data-s="0">A short history · <b>immersive journalism</b></div>
+ <h2 class="f" data-s="0">This didn't start <mark class="y">yesterday.</mark></h2>
+ <div class="tl">
+  <div class="ev f" data-s="1"><div class="yr">2012</div><h3>Hunger in Los Angeles</h3><p>Nonny de la Peña recreates a food-bank line in VR. Premieres at Sundance. A field is born.</p><a href="https://en.wikipedia.org/wiki/Nonny_de_la_Pe%C3%B1a" target="_blank" rel="noopener">Nonny de la Peña</a></div>
+  <div class="ev f" data-s="1"><div class="yr">2015</div><h3>The Displaced · NYT VR</h3><p>The New York Times ships Google Cardboard to over a million print subscribers.</p><a href="https://www.nytimes.com/2015/11/08/magazine/the-displaced-introduction.html" target="_blank" rel="noopener">The Displaced</a></div>
+  <div class="ev f" data-s="2"><div class="yr">2015</div><h3>Clouds Over Sidra</h3><p>A 360° day in a Syrian refugee camp, for the UN, by Chris Milk and Gabo Arora.</p><a href="https://documentary.org/feature/vr-becoming-actual-reality-documentarians" target="_blank" rel="noopener">IDA feature</a></div>
+  <div class="ev hl f" data-s="2"><div class="yr">2017</div><h3>We Who Remain · Sam Wolson</h3><p>Co-directed: the first character-driven VR film shot in an active war zone. Premiered at SXSW.</p><a href="https://swissfilms.ch/f/person/sam-wolson/3819D967CD814DC3B56A13D08BD62670" target="_blank" rel="noopener">Sam Wolson</a></div>
+  <div class="ev hl f" data-s="3"><div class="yr">2021</div><h3>Reeducated · Sam Wolson</h3><p>VR doc with The New Yorker, built from former detainees' memories of Xinjiang camps. SXSW Special Jury Recognition.</p><a href="https://xrmust.com/?p=20581" target="_blank" rel="noopener">Interview</a></div>
+  <div class="ev f" data-s="3"><div class="yr">2026</div><h3>Out of the Ashes</h3><p>Volumetric doc on the LA fires by Rory Mitchell &amp; Nonny de la Peña. Special Jury Prize, Venice Immersive.</p><a href="https://agog.org/out-of-the-ashes-immersive-storytelling/" target="_blank" rel="noopener">The project</a></div>
+ </div>
+ <p class="small f mt" data-s="3">Notice Reeducated: there was no camera inside the camps. So they <strong style="color:var(--fita)">rebuilt it from testimony, and said so.</strong> Hold that thought for the ethics part.</p>
+</section>
+
+<!-- 05 TOOLBOX -->
+<section class="slide" data-notes="0:27 a 0:40|Cada formato responde a uma pergunta jornalistica. Nao e sobre o gadget.|Clica em 1 ou 2 cards pra abrir o link se quiser mostrar.|Pergunta pra turma: qual desses caberia no projeto final de voces?">
+ <div class="kicker f" data-s="0">The toolbox · <b>format follows the question</b></div>
+ <h2 class="f" data-s="0">Every format answers<br>a <mark>journalistic question.</mark></h2>
+ <div class="tools f" data-s="1">
+  <a class="tool ix" href="https://www.cjr.org/tow_center_reports/virtual_reality_journalism.php" target="_blank" rel="noopener"><img src="img/rlb-5.jpg" alt=""><span class="go">open</span><div class="fmt">360° · GoPro</div><h3>"What was it like to be there?"</h3><p>Reality Looks Back, SXSW 2026: 400+ viewings in 5 days.</p></a>
+  <a class="tool ix" href="https://www.faa.gov/uas/commercial_operators" target="_blank" rel="noopener"><img src="img/sq-1.jpg" alt=""><span class="go">open</span><div class="fmt">Drone</div><h3>"How big is this, really?"</h3><p>Scale, distance, the shape of a territory.</p></a>
+  <a class="tool ix" href="https://modelviewer.dev/" target="_blank" rel="noopener"><img src="img/ssz-5.jpg" alt=""><span class="go">open</span><div class="fmt">AR</div><h3>"What if it were here?"</h3><p>The rocket, the flood line, the heat map, on your own desk.</p></a>
+  <a class="tool ix" href="https://en.wikipedia.org/wiki/Nonny_de_la_Pe%C3%B1a" target="_blank" rel="noopener"><img src="img/ssz-7.jpg" alt=""><span class="go">open</span><div class="fmt">VR · 6DoF</div><h3>"Can I stand inside it?"</h3><p>Embodiment: your body becomes part of the story.</p></a>
+  <a class="tool ix" href="https://agog.org/out-of-the-ashes-immersive-storytelling/" target="_blank" rel="noopener"><img src="img/cover-volumetric.jpg" alt=""><span class="go">open</span><div class="fmt">Volumetric</div><h3>"Can I meet this person?"</h3><p>A survivor, in 3D, at human scale.</p></a>
+  <a class="tool ix" href="https://superspl.at/" target="_blank" rel="noopener"><img src="img/ssz-9.jpg" alt=""><span class="go">open</span><div class="fmt">Gaussian splat</div><h3>"Can we rebuild what's gone?"</h3><p>A beach, a burned house, a memory, from photos.</p></a>
+ </div>
+</section>
+
+<!-- 06 OUT OF THE ASHES -->
+<section class="slide" data-notes="0:40 a 0:47|Meu papel: assistente de captura volumetrica e criador de conteudo oficial.|Venice Immersive 2026: Special Jury Prize.|Mostra 1 reel do Instagram se der tempo (link abaixo).">
+ <div class="bgimg bottom"><img src="img/venice-1.jpg" alt=""></div>
+ <div class="kicker f" data-s="0">Case 01 · <b>Out of the Ashes</b> · Rory Mitchell &amp; Nonny de la Peña</div>
+ <h2 class="f" data-s="0">The LA fires,<br>kept in <mark>3D.</mark></h2>
+ <p class="lead f mt" data-s="0">Fire-scarred homes in photogrammetry, survivors in volumetric capture. I worked on the capture and was the project's official content creator, from LA to the Venice Biennale.</p>
+ <div class="stats f" data-s="1">
+  <div class="stat"><div class="v">Special Jury Prize</div><div class="l">Venice Immersive 2026</div></div>
+  <div class="stat"><div class="v">300+</div><div class="l">visitors I guided at the Music Center, Jan 2026</div></div>
+ </div>
+ <div class="strip f" data-s="1">
+  <figure><img src="img/venice-3.jpg" alt=""><figcaption>Venice</figcaption></figure>
+  <figure><img src="img/venice-2.jpg" alt=""><figcaption>Competition</figcaption></figure>
+  <figure><img src="img/ashes-1.jpg" alt=""><figcaption>Capture</figcaption></figure>
+  <figure><img src="img/cover-volumetric.jpg" alt=""><figcaption>Volumetric rig</figcaption></figure>
+ </div>
+ <div class="links f" data-s="1"><a class="lk hot" href="https://scaniverse.com/scan/lyzjlrcjmk5pd" target="_blank" rel="noopener">Open the splat</a><a class="lk" href="https://agog.org/out-of-the-ashes-immersive-storytelling/" target="_blank" rel="noopener">About the project</a><a class="lk" href="https://www.instagram.com/reel/DdkV88tCrug/" target="_blank" rel="noopener">Venice reel 1</a><a class="lk" href="https://www.instagram.com/reel/DdUc0zzERzO/" target="_blank" rel="noopener">Venice reel 2</a><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html#p-ashes" target="_blank" rel="noopener">My case study</a></div>
+</section>
+
+<!-- 07 SSZ -->
+<section class="slide" data-notes="0:47 a 0:57|Meu capstone. Boca Chica (Texas) e Playa Bagdad (Mexico), programa Starship da SpaceX.|Mecanica central: a cerca SPACEX PRIVATE PROPERTY vira portal. Chega intruso, sai aliado.|Embodied Edit: o barulho do foguete engole as vozes; quem presta atencao volta a ouvi-las.|ATENCAO: o build WebXR e interno (vozes sem release). Mostrar so video/screenshots, nao abrir pra turma.">
+ <div class="bgimg"><img src="img/ssz-9.jpg" alt=""></div>
+ <div class="kicker f" data-s="0">Case 02 · my capstone · <b>The Sound of a Sacrifice Zone</b></div>
+ <h2 class="f" data-s="0">Arrive as an <mark class="r">intruder.</mark><br>Leave as an <mark>ally.</mark></h2>
+ <p class="lead f mt" data-s="0">A room-scale VR documentary about Boca Chica, Texas and Playa Bagdad, Mexico, where SpaceX's Starship program meets a border community and a fragile coastline. Co-created with local voices.</p>
+ <div class="cols" style="grid-template-columns:repeat(3,1fr);max-width:1100px">
+  <div class="col y f" data-s="1"><div class="n">The portal</div><h3>A real fence</h3><p>"SPACEX PRIVATE PROPERTY. DO NOT ENTER." In the piece, the fence is the door between chapters.</p></div>
+  <div class="col r f" data-s="2"><div class="n">The mechanic</div><h3>The Embodied Edit</h3><p>The rocket's roar swallows the community's voices. If you choose to pay attention, you hear them again.</p></div>
+  <div class="col f" data-s="3"><div class="n">The method</div><h3>Social cartography</h3><p>The official closure perimeter erases the community's map. Their voices draw it back.</p></div>
+ </div>
+ <div class="strip f" data-s="3" style="max-width:1100px">
+  <figure><img src="img/ssz-rocket.jpg" alt=""></figure><figure><img src="img/ssz-5.jpg" alt=""></figure><figure><img src="img/ssz-6.jpg" alt=""></figure><figure><img src="img/ssz-3.jpg" alt=""></figure>
+ </div>
+ <div class="links f" data-s="3"><a class="lk" href="https://canva.link/d84kwo2hiamrc8z" target="_blank" rel="noopener">Pitch deck</a><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html#p-ssz" target="_blank" rel="noopener">Case study</a><a class="lk" href="https://iconoclasistas.net/" target="_blank" rel="noopener">Iconoclasistas (counter-mapping)</a></div>
+</section>
+
+<!-- 08 PHONES OUT -->
+<section class="slide" data-notes="0:57 a 1:05 · DEMO AO VIVO|Todo mundo com o celular. Escolham 1 QR, 2 minutos explorando, depois troquem com o vizinho.|Testar todos os QR no SEU celular antes da aula.|Se o wifi cair: mostra pelo seu notebook.">
+ <div class="kicker f" data-s="0">Live · <b>phones out</b></div>
+ <h2 class="f" data-s="0">Don't watch it. <mark>Walk into it.</mark></h2>
+ <div class="live f" data-s="0">
+  <div class="demo"><div class="qr" data-qr="https://scaniverse.com/scan/lyzjlrcjmk5pd" data-done="1"><img src="qr/61a93f23.png" alt="QR code for https://scaniverse.com/scan/lyzjlrcjmk5pd"></div><div class="t">Gaussian splat · journalism</div><h3>Out of the Ashes</h3><p>A place from the LA fires. Pinch, drag, walk around it.</p><a class="lk" href="https://scaniverse.com/scan/lyzjlrcjmk5pd" target="_blank" rel="noopener">open</a></div>
+  <div class="demo" id="demoAR"></div>
+  <div class="demo"><div class="qr" data-qr="https://endearing-gecko-5856a3.netlify.app" data-done="1"><img src="qr/e2657927.png" alt="QR code for https://endearing-gecko-5856a3.netlify.app"></div><div class="t">WebXR · splats + 360°</div><h3>Pages of Prophecy</h3><p>A family's exile story, co-built with director Noelle Muluneh.</p><a class="lk" href="https://endearing-gecko-5856a3.netlify.app" target="_blank" rel="noopener">open</a></div>
+  <div class="demo"><div class="qr" data-qr="https://rogeriobie2016-ship-it.github.io/quasar-lab-site/flight.html" data-done="1"><img src="qr/36ffbb0b.png" alt="QR code for https://rogeriobie2016-ship-it.github.io/quasar-lab-site/flight.html"></div><div class="t">WebXR · explainer</div><h3>Quasar Flight</h3><p>Science explained by flying it. Tilt your phone, it follows your gyro.</p><a class="lk" href="https://rogeriobie2016-ship-it.github.io/quasar-lab-site/flight.html" target="_blank" rel="noopener">open</a></div>
+ </div>
+ <div class="wall f" data-s="1">
+  <a href="https://superposition.dk/Reality" target="_blank" rel="noopener"><img src="img/rlb-3.jpg" alt=""><span>Reality Looks Back · SXSW 2026 XR Spotlight ↗</span></a>
+  <a href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html#p-lapl" target="_blank" rel="noopener"><img src="img/lapl-2.jpg" alt=""><span>XR at 5 LA Public Library branches ↗</span></a>
+  <a href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/cases.html#p-siggraph" target="_blank" rel="noopener"><img src="img/sig-1.jpg" alt=""><span>SIGGRAPH 2026 Immersive Pavilion ↗</span></a>
+  <a href="https://endearing-gecko-5856a3.netlify.app" target="_blank" rel="noopener"><img src="img/pop-poster.jpg" alt=""><span>Pages of Prophecy ↗</span></a>
+  <a href="https://youtu.be/hNjRzGMewbI" target="_blank" rel="noopener"><img src="img/wind-3.jpg" alt=""><span>Children of the Wind · Cine Ceará ↗</span></a>
+ </div>
+</section>
+
+<!-- 09 CREATORS -->
+<section class="slide" data-notes="1:05 a 1:12|Ponte com o que eles fazem agora: video vertical, projeto final.|Citar o Eric: foi o workshop dele na Content Creators Academy (write the headline first, hook, audio).|Meu nicho: midia imersiva ajudando comunidades a se reconstruir depois de desastres climaticos.">
+ <div class="bgimg"><img src="img/usc-3.jpg" alt=""></div>
+ <div class="kicker f" data-s="0">USC Annenberg · <b>Content Creators Academy 2026</b></div>
+ <h2 class="f" data-s="0">Journalists are<br>now <mark class="y">creators.</mark></h2>
+ <p class="lead f mt" data-s="0">Immersive pieces live at festivals. Your audience lives on a phone. The future needs both. What I learned this summer, from people in this building:</p>
+ <div class="rules">
+  <div class="rule f" data-s="1"><span>1</span><div><h3>Write the headline first</h3><p>Then build the piece from it. (Thank you, Eric.)</p></div></div>
+  <div class="rule f" data-s="1"><span>2</span><div><h3>Engage, then explain</h3><p>Hook in the first second, verbally and on screen. Deliver the promise right away.</p></div></div>
+  <div class="rule f" data-s="2"><span>3</span><div><h3>Always check your audio</h3><p>Mic to the speaker, human or not. Bad audio kills good images.</p></div></div>
+  <div class="rule f" data-s="2"><span>4</span><div><h3>Find your niche, then a series</h3><p>Mine: immersive media helping communities rebuild after climate disasters.</p></div></div>
+ </div>
+ <div class="links f" data-s="2"><a class="lk" href="https://www.instagram.com/ericresendiztv/" target="_blank" rel="noopener">@ericresendiztv</a><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/feed.html" target="_blank" rel="noopener">My vertical work</a><a class="lk" href="https://www.tiktok.com/@lisaremillard" target="_blank" rel="noopener">Lisa Remillard · The News Girl</a></div>
+</section>
+
+<!-- 10 PLURIVERSE -->
+<section class="slide" data-notes="1:12 a 1:24|Momento mais conceitual. Toca na camera pra virar quem segura.|Kayapo, Altamira 1989: os jornalistas vieram filmar os indios, e os indios estavam filmando eles.|Escobar: design designs back. Krenak: contar mais uma historia adia o fim do mundo. Gladwell: poucos conectores, uma imagem que gruda, o momento certo.|Pergunta: se a camera era a ferramenta dos Kayapo, qual e a de hoje? Quem segura o headset?">
+ <div class="kicker f" data-s="0">The real question · <b>designing for the pluriverse</b></div>
+ <div class="split" style="grid-template-columns:1.2fr .8fr">
+  <div>
+   <h2 class="f" data-s="0">The future isn't a device.<br>It's <mark>who holds it.</mark></h2>
+   <p class="lead f mt" data-s="0">1989, Altamira, Brazil. Journalists came to film "the Indians" protesting a dam. The Kayapó were already filming <strong>them</strong>. The dam was stopped (for decades).</p>
+  </div>
+  <div class="f ix" data-s="0">
+   <div class="cam ix" id="cam"><div class="vf"></div><div class="rec">REC</div><div class="who" id="who">lens held by: outsiders</div>
+    <div class="scene s1"><div class="big">👀</div><div class="cap">The community is the object of the frame. Never the author.</div></div>
+    <div class="scene s2"><div class="big">🎥</div><div class="cap">The community holds the lens. The story changes hands.</div></div>
+    <div class="tap">tap to flip who holds the camera</div></div>
+  </div>
+ </div>
+ <div class="cols">
+  <div class="col f" data-s="1"><div class="n">Arturo Escobar</div><h3>Design designs back</h3><p>What we design ends up designing us. Autonomous design: communities designing their own worlds.</p><a href="https://en.wikipedia.org/wiki/Arturo_Escobar_(anthropologist)" target="_blank" rel="noopener">Designs for the Pluriverse</a></div>
+  <div class="col r f" data-s="2"><div class="n">Ailton Krenak</div><h3>Tell one more story</h3><p>To postpone the end of the world, keep telling stories. The river is a relative, not a resource.</p><a href="https://en.wikipedia.org/wiki/Ailton_Krenak" target="_blank" rel="noopener">Ideas to Postpone the End of the World</a></div>
+  <div class="col y f" data-s="3"><div class="n">Kayapó · Video nas Aldeias</div><h3>The camera, flipped</h3><p>Indigenous filmmakers using the colonizer's storytelling machine on their own terms.</p><a href="https://videonasaldeias.org.br/" target="_blank" rel="noopener">Video nas Aldeias</a></div>
+  <div class="col b f" data-s="4"><div class="n">Malcolm Gladwell</div><h3>The Tipping Point</h3><p>A few connectors, one sticky image, the right moment. That's how a small world tips a big one.</p><a href="https://en.wikipedia.org/wiki/The_Tipping_Point" target="_blank" rel="noopener">The Tipping Point</a></div>
+ </div>
+</section>
+
+<!-- 11 REAL OR RECONSTRUCTED -->
+<section class="slide" data-notes="1:24 a 1:32|Votacao rapida: mao levantada pra cada opcao, depois revela.|Regras que eu sigo no SSZ: splat de foto unica e reconstrucao e eu declaro; audio PBS fica fora de versao publica; consentimento antes de representar pessoas e lugares sagrados; nenhum fato sem fonte.">
+ <div class="kicker f" data-s="0">Ethics · <b>vote with your hands</b></div>
+ <h2 class="f" data-s="0">Real, reconstructed,<br>or <mark class="r">not yours?</mark></h2>
+ <div class="verd">
+  <div class="vc ix f" data-s="0"><div class="q">A survivor recorded in a volumetric studio, telling her own story.</div><div class="opts"><span>Real</span><span>Reconstructed</span><span>Not yours</span></div><div class="a"><b>Real, but staged.</b> It's her voice and her body, in a studio, not her home. Tell the audience where and how it was captured.</div></div>
+  <div class="vc ix f" data-s="0"><div class="q">A 3D scene generated from ONE family photo from the 1970s.</div><div class="opts"><span>Real</span><span>Reconstructed</span><span>Not yours</span></div><div class="a"><b>Reconstructed.</b> The AI invented everything the photo didn't show. Label it as a reconstruction, every time.</div></div>
+  <div class="vc ix f" data-s="0"><div class="q">Rocket audio from a TV broadcast, in your public VR piece.</div><div class="opts"><span>Real</span><span>Reconstructed</span><span>Not yours</span></div><div class="a"><b>Real, and not yours.</b> No license, no public release. My own prototype uses one, and it stays out of every public version.</div></div>
+  <div class="vc ix f" data-s="0"><div class="q">An AI voice of a community member reading their own testimony.</div><div class="opts"><span>Real</span><span>Reconstructed</span><span>Not yours</span></div><div class="a"><b>Synthetic.</b> Only with explicit consent, and disclosed on screen. Otherwise it's a deepfake, even with good intentions.</div></div>
+ </div>
+ <p class="small f mt" data-s="0">Tap each card to reveal. Presence makes people believe. That's exactly why we owe them the label.</p>
+</section>
+
+<!-- 12 REMIX -->
+<section class="slide" data-notes="1:32 a 1:45 · DINAMICA 2|Grupos dos projetos finais. 5 minutos pra pensar, depois 30s a 1 min por grupo.|Aperta Start pra rodar o timer.">
+ <div class="kicker f" data-s="0">Dynamic 02 · <b>remix your final project</b></div>
+ <div class="split" style="grid-template-columns:1.3fr .7fr;align-items:end">
+  <div><h2 class="f" data-s="0">Pick one moment.<br>Make it <mark>immersive.</mark></h2>
+  <p class="lead f mt" data-s="0">In your group, take ONE moment from your final video and redesign it with one tool from today.</p></div>
+  <div class="f ix" data-s="0" style="text-align:right"><div class="timer" id="timer">5:00</div>
+   <div class="row" style="justify-content:flex-end;margin-top:10px"><button class="btn g ix" id="tStart">Start</button><button class="btn ghost ix" id="tReset">Reset</button></div></div>
+ </div>
+ <div class="steps3">
+  <div class="st f" data-s="0"><div class="n">1</div><h3>The format</h3><p>360, drone, AR, VR, volumetric or splat. Which question does it answer for your story?</p></div>
+  <div class="st f" data-s="0"><div class="n">2</div><h3>The feeling</h3><p>What will the audience feel that a flat video can't give them?</p></div>
+  <div class="st f" data-s="0"><div class="n">3</div><h3>The camera</h3><p>Who holds it? What must you disclose: real, reconstructed or not yours?</p></div>
+ </div>
+ <div class="links f" data-s="0"><a class="lk" href="https://scaniverse.com/" target="_blank" rel="noopener">Scaniverse</a><a class="lk" href="https://superspl.at/" target="_blank" rel="noopener">SuperSplat</a><a class="lk" href="https://modelviewer.dev/" target="_blank" rel="noopener">model-viewer (web AR)</a><a class="lk" href="https://www.faa.gov/uas/commercial_operators" target="_blank" rel="noopener">FAA drone rules</a></div>
+</section>
+
+<!-- 13 QUIZ -->
+<section class="slide" data-notes="1:45 a 1:55 · QUIZ|Divide a sala em 4 times (por fileira). Cada pergunta: 20 segundos, os times gritam a cor.|Clica na resposta pra revelar e da ponto com os botoes +.|Setas do teclado continuam navegando; use os botoes Next question.">
+ <div class="kicker f" data-s="0">Quick quiz · <b>4 teams, 20 seconds each</b></div>
+ <div class="qz f ix" data-s="0" id="qz">
+  <div class="qn" id="qn"></div>
+  <div class="qq" id="qq"></div>
+  <div class="opts4" id="qo"></div>
+  <div class="qbar"><b id="qb"></b></div>
+  <div class="why" id="qw"></div>
+  <div class="row" style="margin-top:6px"><button class="btn g ix" id="qGo">Start timer</button><button class="btn ghost ix" id="qRev">Reveal</button><button class="btn y ix" id="qNext">Next question →</button></div>
+  <div class="teams" id="teams"></div>
+ </div>
+</section>
+
+<!-- 14 OPPORTUNITIES -->
+<section class="slide" data-notes="1:55 a 2:02|Mensagem: estudante pode entrar nesse mundo AGORA: volunteer, docente, hackathon, grant.|Eu entrei como voluntario no SIGGRAPH e docente no SXSW.|Prazos do meu tracker em 12/11; confirmar na pagina oficial. Compartilhar a planilha (anyone with link) antes da aula.">
+ <div class="kicker f" data-s="0">Your way in · <b>festivals, conferences, grants</b></div>
+ <div class="split" style="grid-template-columns:1.4fr .6fr;align-items:end">
+  <h2 class="f" data-s="0">You don't need permission<br>to <mark>start.</mark></h2>
+  <div class="hero-qr f" data-s="0" style="margin:0;justify-content:flex-end"><div class="qr md" data-qr="https://docs.google.com/spreadsheets/d/1CvwUyfs6O2VRd9MiGM6w7YhjssHoHxrJUtvCGymtGR4/edit" data-done="1"><img src="qr/9ea51a68.png" alt="QR code for https://docs.google.com/spreadsheets/d/1CvwUyfs6O2VRd9MiGM6w7YhjssHoHxrJUtvCGymtGR4/edit"></div><div class="qrcap"><b>Free tracker</b>XR, games &amp; funding calls 2026-27. Make a copy.</div></div>
+ </div>
+ <div class="opp">
+  <div class="og f" data-s="1"><div class="n">Festivals</div>
+   <a href="https://www.labiennale.org/en/cinema" target="_blank" rel="noopener">Venice Immersive<small>La Biennale di Venezia</small></a>
+   <a href="https://www.sxsw.com/" target="_blank" rel="noopener">SXSW XR<small>Austin · volunteer as a docent</small></a>
+   <a href="https://www.idfa.nl/" target="_blank" rel="noopener">IDFA DocLab<small>Amsterdam · immersive nonfiction</small></a>
+   <a href="https://filmfreeway.com/QldXRFestival" target="_blank" rel="noopener">Qld XR Festival<small>deadline <em>Dec 10, 2026</em></small></a></div>
+  <div class="og y f" data-s="1"><div class="n">Awards</div>
+   <a href="https://peabodyawards.com/awards/submit/interactive/" target="_blank" rel="noopener">Peabody Interactive &amp; Immersive<small>deadline <em>Dec 15, 2026</em></small></a>
+   <a href="https://webbyawards.com/eligibility-and-guidelines" target="_blank" rel="noopener">Webby Awards<small>deadline <em>Dec 18, 2026</em></small></a></div>
+  <div class="og r f" data-s="2"><div class="n">Conferences &amp; hacks</div>
+   <a href="https://www.siggraph.org/" target="_blank" rel="noopener">SIGGRAPH<small>student volunteers · Immersive Pavilion</small></a>
+   <a href="https://www.realityhack.org/" target="_blank" rel="noopener">MIT Reality Hack<small>build XR in a weekend</small></a>
+   <a href="https://journalists.org/" target="_blank" rel="noopener">ONA<small>Online News Association</small></a></div>
+  <div class="og b f" data-s="2"><div class="n">Funding</div>
+   <a href="https://unity.com/social-impact" target="_blank" rel="noopener">Unity for Humanity<small>real-time 3D for social impact</small></a>
+   <a href="https://agog.org/" target="_blank" rel="noopener">Agog<small>immersive media for impact</small></a></div>
+ </div>
+ <p class="small f mt" data-s="2">Deadlines from my tracker as of Nov 12, 2026. Always confirm on the official page before you apply.</p>
+</section>
+
+<!-- 15 CLOSE -->
+<section class="slide" data-notes="2:02 a 2:05|Primeiro o momento meta (30s): you guessed before I explained, you touched before I told, you got quizzed. Steal it.|Depois a ancora, devagar: Hold the camera.|Agradece ao Eric e devolve a palavra pra ele.">
+ <div class="split" style="grid-template-columns:1.3fr .7fr"><div>
+ <div class="kicker f" data-s="0">Thank you · <b>let's keep in touch</b></div>
+ <h1 class="f" data-s="0">Hold the<br><mark>camera.</mark></h1>
+ <p class="lead f mt" data-s="0">The next big story in visual journalism might come from a place nobody is filming yet. Maybe yours.</p>
+ <div class="meta f" data-s="1"><b>How today worked · steal it</b><span>You <mark>guessed</mark> before I explained</span><span>You <mark>touched</mark> before I told</span><span>You got <mark>quizzed</mark></span><span>One <mark class="y">sticky</mark> question, three times</span>
+  <a href="https://en.wikipedia.org/wiki/Made_to_Stick" target="_blank" rel="noopener">Made to Stick ↗</a><a href="https://en.wikipedia.org/wiki/Howard_Gardner" target="_blank" rel="noopener">Gardner's entry points ↗</a></div>
+ <div class="hero-qr f" data-s="2">
+  <div class="qr md" data-qr="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/index.html" data-done="1"><img src="qr/61f440bb.png" alt="QR code for https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/index.html"></div>
+  <div class="qrcap"><b>Rogério Bié</b>Portfolio, every link from today, and how to reach me.<br><code>rogeriobie2016@gmail.com</code></div>
+ </div>
+ <div class="links f" data-s="2"><a class="lk hot" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/index.html" target="_blank" rel="noopener">Portfolio</a><a class="lk" href="https://www.linkedin.com/in/rogerio-bie" target="_blank" rel="noopener">LinkedIn</a><a class="lk" href="https://rogeriobie2016-ship-it.github.io/RogerioPortfolio/research.html" target="_blank" rel="noopener">Research</a></div>
+ </div><div class="photos f" data-s="0" style="grid-template-columns:1fr"><figure style="aspect-ratio:4/5"><img src="img/portrait-hero.jpg" alt="Rogério Bié"><figcaption>Rogério Bié · Los Angeles</figcaption></figure></div></div>
+</section>
+
+</main>
+
+<div id="ctl">
+ <div class="grp">
+  <button class="pb" id="prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <button class="pb" id="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+  <span class="count" id="count">01 / 15</span>
+ </div>
+ <div class="grp"><span class="keys">← → · N notes · H clean · F full screen</span>
+  <button class="pb" id="nbtn" aria-label="Speaker notes">N</button>
+  <button class="pb" id="clean" aria-label="Clean screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/></svg></button>
+ </div>
+</div>
+<div id="notes"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ====== EDIT HERE: paste your Scenery (FEELS LIKE) share link between the quotes ====== */
+const FEELS_LIKE_URL = "";
+
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const slides=$$('.slide');let cur=0,step=0;
+const maxStep=s=>Math.max(0,...[...s.querySelectorAll('.f')].map(e=>+e.dataset.s||0));
+
+/* AR demo tile */
+const ar=$('#demoAR');
+if(FEELS_LIKE_URL){ar.innerHTML=`<div class="qr" data-qr="${FEELS_LIKE_URL}"></div><div class="t">AR · data you can feel</div><h3>FEELS LIKE</h3><p>"Hot enough to fry an egg": extreme heat, in augmented reality. Point at the poster on screen.</p><a class="lk" href="${FEELS_LIKE_URL}" target="_blank" rel="noopener">open</a>`}
+else{ar.innerHTML=`<div class="missing">AR tile<br>Paste the Scenery link in FEELS_LIKE_URL</div><div class="t">AR · fallback</div><h3>Real AR in 10 seconds</h3><p>Google "tiger" (or "astronaut") on your phone → View in 3D → View in your space.</p>`}
+
+/* QR codes */
+function makeQR(){$$('[data-qr]').forEach(el=>{if(el.dataset.done)return;const u=el.dataset.qr;
+ try{new QRCode(el,{text:u,width:512,height:512,colorDark:'#121211',colorLight:'#f5f4ec',correctLevel:QRCode.CorrectLevel.M});el.dataset.done=1}
+ catch(e){el.style.cssText+='color:#121211;font-size:12px;padding:14px;word-break:break-all';el.textContent=u}})}
+if(window.QRCode)makeQR();else addEventListener('load',()=>{if(window.QRCode)makeQR();else makeQR()});
+
+/* progress bar */
+const bar=$('#bar');slides.forEach((_,i)=>{const t=document.createElement('i');t.innerHTML='<b></b>';t.onclick=e=>{e.stopPropagation();go(i,0)};bar.appendChild(t)});
+function paintBar(){[...bar.children].forEach((t,i)=>{t.classList.toggle('done',i<cur);t.classList.toggle('on',i===cur);const b=t.firstChild;
+ if(i===cur){const m=maxStep(slides[cur]);b.style.transform=`scaleX(${m?Math.max(.08,step/m):1})`}else b.style.transform=''})}
+
+/* notes */
+const notes=$('#notes');
+function paintNotes(){const n=(slides[cur].dataset.notes||'').split('|');notes.innerHTML=`<div class="tm">${n[0]||''}</div><ul>${n.slice(1).map(x=>`<li>${x}</li>`).join('')}</ul>`}
+
+/* clock: elapsed since first advance */
+let t0=null;const clk=$('#clock');
+setInterval(()=>{if(!t0){clk.innerHTML='';return}const s=Math.floor((Date.now()-t0)/1000);clk.innerHTML=`<b>${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}</b> elapsed`},1000);
+
+function render(){
+ slides.forEach((s,i)=>{s.classList.toggle('on',i===cur);s.querySelectorAll('.f').forEach(f=>f.classList.toggle('in',i===cur&&(+f.dataset.s||0)<=step))});
+ $('#count').textContent=String(cur+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
+ paintBar();paintNotes();try{history.replaceState(null,'','#s'+(cur+1))}catch(e){}
+}
+function go(i,s){cur=Math.max(0,Math.min(slides.length-1,i));step=s;if(!t0&&cur>0)t0=Date.now();render()}
+function next(){if(step<maxStep(slides[cur])){step++;render()}else if(cur<slides.length-1)go(cur+1,0)}
+function prev(){if(step>0){step--;render()}else if(cur>0)go(cur-1,maxStep(slides[cur-1]))}
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea'))return;const k=e.key;
+ if(['ArrowRight','PageDown',' '].includes(k)){e.preventDefault();next()}
+ else if(['ArrowLeft','PageUp'].includes(k)){e.preventDefault();prev()}
+ else if(k.toLowerCase()==='n')notes.classList.toggle('show')
+ else if(k.toLowerCase()==='h')document.body.classList.toggle('clean')
+ else if(k.toLowerCase()==='f'){try{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}catch(err){}}
+ else if(k==='Home')go(0,0);else if(k==='End')go(slides.length-1,0)});
+let down=null;
+$('#deck').addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY,ix:!!e.target.closest('.ix,button,input,textarea,a,.card,.vc,.tool,.demo,.wall')}});
+$('#deck').addEventListener('pointerup',e=>{if(!down||down.ix){down=null;return}const dx=e.clientX-down.x,dy=e.clientY-down.y;
+ if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)){dx<0?next():prev()}else if(Math.hypot(dx,dy)<10){e.clientX<innerWidth*.25?prev():next()}down=null});
+$('#next').onclick=next;$('#prev').onclick=prev;
+$('#nbtn').onclick=()=>notes.classList.toggle('show');
+$('#clean').onclick=()=>document.body.classList.toggle('clean');
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),1600)}
+
+/* interactions */
+$$('.card').forEach(c=>c.addEventListener('click',e=>{if(e.target.closest('a'))return;c.classList.toggle('open')}));
+$$('.vc').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('open')));
+$('#cam').onclick=()=>{const c=$('#cam');c.classList.toggle('flip');$('#who').textContent=c.classList.contains('flip')?'lens held by: the community':'lens held by: outsiders'};
+
+/* remix timer */
+let tLeft=300,tInt=null;const tEl=$('#timer');
+function paintT(){tEl.textContent=Math.floor(tLeft/60)+':'+String(tLeft%60).padStart(2,'0');tEl.classList.toggle('low',tLeft<=30)}
+$('#tStart').onclick=()=>{if(tInt){clearInterval(tInt);tInt=null;$('#tStart').textContent='Start';return}
+ $('#tStart').textContent='Pause';tInt=setInterval(()=>{tLeft=Math.max(0,tLeft-1);paintT();if(!tLeft){clearInterval(tInt);tInt=null;$('#tStart').textContent='Start';toast('Time! Share your remix')}},1000)};
+$('#tReset').onclick=()=>{clearInterval(tInt);tInt=null;tLeft=300;$('#tStart').textContent='Start';paintT()};
+
+/* quiz */
+const Q=[
+ {q:"You can walk around inside it, but it was built from photos. What is it?",o:["360° video","Gaussian splat","Drone shot","GoPro POV"],a:1,w:"A splat rebuilds a place in 3D from photos, so you can move inside it. 360° only lets you look around."},
+ {q:"Which VR piece premiered at Sundance in 2012 and helped launch immersive journalism?",o:["Clouds Over Sidra","The Displaced","Hunger in Los Angeles","Reeducated"],a:2,w:"Nonny de la Peña's Hunger in Los Angeles, a food-bank line recreated in VR."},
+ {q:"In AR, where does the story live?",o:["Inside a headset only","On top of your real space","In a 360° sphere","On a flat screen"],a:1,w:"Augmented reality layers the story onto the world around you."},
+ {q:"A 3D scene made from ONE archival photo should be presented as…",o:["A document","A reconstruction","A live recording","Breaking news"],a:1,w:"Everything the photo didn't show was invented. Label it."},
+ {q:"Best format to show the SCALE of a flood or a launch site?",o:["Drone","Volumetric capture","GoPro POV","Audio only"],a:0,w:"Aerial views show distance, size and the shape of a territory."},
+ {q:"What's the Kayapó lesson for immersive journalism?",o:["Buy better cameras","Who holds the camera matters","Avoid technology","Film only rituals"],a:1,w:"Authorship, not just representation: the story changes when the community holds the lens."},
+ {q:"Which one is NOT one of Gladwell's three rules?",o:["The Law of the Few","The Stickiness Factor","The Law of Averages","The Power of Context"],a:2,w:"The three rules: the Law of the Few, the Stickiness Factor and the Power of Context."},
+ {q:"Creator rule: where does the hook go?",o:["At the end","After the intro","In the first second","In the caption"],a:2,w:"Engage, then explain. Hook immediately, verbally and on screen."}
+];
+const TEAMS=[["Red","#d93a3a"],["Blue","#2f6fe0"],["Yellow","#d9a40f"],["Green","#2d9b4e"]];let score=[0,0,0,0];
+const teamsEl=$('#teams');
+function paintTeams(){teamsEl.innerHTML=TEAMS.map((t,i)=>`<div class="team" style="border-color:${t[1]}"><span style="color:${t[1]}">${t[0]}</span><b>${score[i]}</b><button class="m ix" data-t="${i}" data-d="-1">−</button><button class="ix" data-t="${i}" data-d="1">+</button></div>`).join('')+`<button class="btn ghost ix" id="qReset" style="padding:8px 14px;font-size:13px">Reset quiz</button>`;
+ teamsEl.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{score[+b.dataset.t]=Math.max(0,score[+b.dataset.t]+(+b.dataset.d));paintTeams()});
+ $('#qReset').onclick=()=>{score=[0,0,0,0];qi=0;showQ();paintTeams()}}
+let qi=0,qT=null,qLeft=20;const qz=$('#qz');
+function showQ(){clearInterval(qT);qT=null;qLeft=20;const x=Q[qi];qz.classList.remove('rev');
+ $('#qn').textContent=`Question ${qi+1} of ${Q.length}`;$('#qq').textContent=x.q;$('#qw').textContent='';
+ $('#qo').innerHTML=x.o.map((o,i)=>`<button class="op ix" data-i="${i}"><i>${['▲','◆','●','■'][i]}</i>${o}</button>`).join('');
+ $('#qo').querySelectorAll('.op').forEach(b=>b.onclick=reveal);$('#qb').style.transform='scaleX(1)';$('#qGo').textContent='Start timer';
+ $('#qNext').textContent=qi<Q.length-1?'Next question →':'Final score'}
+function reveal(){clearInterval(qT);qT=null;qz.classList.add('rev');$('#qo').children[Q[qi].a].classList.add('ok');$('#qw').textContent=Q[qi].w;$('#qb').style.transform='scaleX(0)'}
+$('#qGo').onclick=()=>{if(qT)return;$('#qGo').textContent='…';qT=setInterval(()=>{qLeft-=.25;$('#qb').style.transform=`scaleX(${Math.max(0,qLeft/20)})`;if(qLeft<=0)reveal()},250)};
+$('#qRev').onclick=reveal;
+$('#qNext').onclick=()=>{if(qi<Q.length-1){qi++;showQ()}else{const m=Math.max(...score);const w=TEAMS.filter((t,i)=>score[i]===m).map(t=>t[0]).join(' & ');
+ $('#qn').textContent='Final score';$('#qq').textContent=m?`${w} wins! 🏆`:'Tie game!';$('#qo').innerHTML='';$('#qw').textContent='';qz.classList.remove('rev')}};
+showQ();paintTeams();
+
+/* background: drifting splat points */
+const cv=$('#field'),cx=cv.getContext('2d');let W,H;
+function size(){const d=Math.min(2,devicePixelRatio||1);W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0)}size();addEventListener('resize',size);
+const PAL=['#B7DE43','#FFE843','#f5f4ec','#ff5a36'];const pts=[...Array(110)].map(()=>({x:Math.random()*W,y:Math.random()*H,r:.8+Math.random()*2.6,c:PAL[Math.random()*PAL.length|0],p:Math.random()*6.28,s:.15+Math.random()*.4}));
+const ptr={x:-999,y:-999};addEventListener('pointermove',e=>{ptr.x=e.clientX;ptr.y=e.clientY});
+function frame(now){const t=now/1000;cx.clearRect(0,0,W,H);
+ for(const q of pts){q.x+=Math.cos(t*q.s+q.p)*.25;q.y+=Math.sin(t*q.s*.8+q.p)*.25-.08;
+  const dx=q.x-ptr.x,dy=q.y-ptr.y,d2=dx*dx+dy*dy;if(d2<16000){const f=(1-d2/16000)*2;q.x+=dx/Math.sqrt(d2+1)*f;q.y+=dy/Math.sqrt(d2+1)*f}
+  if(q.y<-10)q.y=H+10;if(q.x<-10)q.x=W+10;if(q.x>W+10)q.x=-10;
+  cx.globalAlpha=.5;cx.fillStyle=q.c;cx.beginPath();cx.arc(q.x,q.y,q.r,0,7);cx.fill();cx.globalAlpha=.08;cx.beginPath();cx.arc(q.x,q.y,q.r*4,0,7);cx.fill()}
+ cx.globalAlpha=1;requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+
+/* start at hash */
+const m=(location.hash||'').match(/^#s(\d+)$/);if(m)cur=Math.max(0,Math.min(slides.length-1,+m[1]-1));
+render();
+})();
+</script>
+</body>
+</html>
