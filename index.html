@@ -7,6 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Yellowtail&family=Special+Elite&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+<script src="ar-models.js"></script>
 <style>
 :root{
  --ink:#121211;--papel:#f5f4ec;--mute:#a7a69c;--line:#2e2e29;
@@ -475,6 +477,32 @@ mark{padding:0 .1em}
 .proj.dev .pj{position:relative}.proj.dev .pqr{position:absolute;top:10px;right:10px;width:62px;margin:0;z-index:2;box-shadow:0 8px 18px -8px rgba(0,0,0,.5)}
 .real .pqr,.proj:not(.dev) .pqr{width:58px}
 .strip figure{aspect-ratio:16/9.5}
+.picks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:20px}
+.pk{position:relative;display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;gap:8px 10px;align-items:end;text-decoration:none;color:var(--tx);background:#fbf7e6;border:1.5px solid var(--tx);border-radius:12px;padding:10px;box-shadow:0 1px 0 var(--tx),0 18px 40px -22px rgba(23,32,15,.45);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.pk:hover{transform:translateY(-3px);box-shadow:0 1px 0 var(--tx),0 26px 50px -20px rgba(217,56,30,.45)}
+.pk .pv{grid-column:1/-1;height:clamp(110px,17vh,170px);border-radius:8px;background:radial-gradient(circle at 50% 65%,#fff 0,#ecebe2 75%)}
+.pk .pt b{display:block;font-family:var(--hd);font-weight:760;font-size:16px;line-height:1.1}
+.pk .pt span{display:block;font-family:var(--tw);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-top:3px}
+.pqr2{width:62px;background:#fff;border:1.5px solid var(--tx);border-radius:7px;padding:4px}
+.pqr2 img,.pqr2 canvas{display:block;width:100%!important;height:auto!important}
+@media (max-width:980px){.picks{grid-template-columns:repeat(2,minmax(0,1fr))}.pqr2{display:none}}
+.igcard{display:block;text-decoration:none;color:var(--tx);background:#fff;border:1.5px solid var(--tx);border-radius:22px;padding:22px;box-shadow:0 1px 0 var(--tx),0 30px 60px -28px rgba(23,32,15,.55);max-width:560px;justify-self:end;width:100%}
+.ighead{display:flex;gap:18px;align-items:center}
+.igav{width:96px;height:96px;border-radius:50%;padding:3px;background:conic-gradient(#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5,#feda75);flex:none}
+.igav img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:3px solid #fff;display:block}
+.ighandle{font-family:var(--hd);font-weight:800;font-size:clamp(20px,2vw,28px);display:flex;align-items:center;gap:8px}
+.igv{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#3897f0;color:#fff;font-size:12px}
+.igname{font-weight:600;margin-top:2px}
+.igstats{display:flex;gap:16px;margin-top:6px;font-size:15px}
+.igbio{font-size:14.5px;line-height:1.4;margin:14px 0;color:var(--tx2)}
+.iggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;border-radius:10px;overflow:hidden}
+.iggrid img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.igfoot{display:flex;gap:16px;align-items:center;margin-top:16px}
+.igfoot .qr.md{width:120px}
+.igcta{display:inline-block;background:#0095f6;color:#fff;font-weight:700;border-radius:10px;padding:10px 26px;font-size:16px;margin-bottom:6px}
+.igask{margin-top:20px;max-width:560px;border-left:4px solid var(--red);padding:6px 0 6px 16px;font-size:clamp(16px,1.4vw,20px);line-height:1.4}
+.igask b{display:block;font-family:var(--tw);font-weight:400;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+@media (max-width:980px){.igcard{justify-self:stretch}}
 @media (max-width:980px){.pj .th{height:80px}}
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}}
 </style>
@@ -488,6 +516,23 @@ mark{padding:0 .1em}
 
 <main id="deck">
 
+<!-- 00 PICK ONE -->
+<section class="slide">
+ <div class="kicker f" data-s="0">Phones out · <b>before we start</b></div>
+ <h2 class="f" data-s="0" style="font-size:clamp(30px,4.4vw,70px)">Pick one. <mark>Bring it to class.</mark></h2>
+ <p class="lead f" data-s="0" style="margin-top:8px">Scan the one you want. Tap the yellow button. Put it on the floor, on your desk, next to your friend.</p>
+ <div class="picks f" data-s="0">
+  <a class="pk ix" data-k="armstrong" href="ar.html?m=armstrong" target="_blank" rel="noopener"><div class="pv"></div><div class="pt"></div><div class="pqr2" data-qr="https://rogeriobie2016-ship-it.github.io/usc-visual-journalism/ar.html?m=armstrong"></div></a>
+  <a class="pk ix" data-k="rocket" href="ar.html?m=rocket" target="_blank" rel="noopener"><div class="pv"></div><div class="pt"></div><div class="pqr2" data-qr="https://rogeriobie2016-ship-it.github.io/usc-visual-journalism/ar.html?m=rocket"></div></a>
+  <a class="pk ix" data-k="horse" href="ar.html?m=horse" target="_blank" rel="noopener"><div class="pv"></div><div class="pt"></div><div class="pqr2" data-qr="https://rogeriobie2016-ship-it.github.io/usc-visual-journalism/ar.html?m=horse"></div></a>
+  <a class="pk ix" data-k="robot" href="ar.html?m=robot" target="_blank" rel="noopener"><div class="pv"></div><div class="pt"></div><div class="pqr2" data-qr="https://rogeriobie2016-ship-it.github.io/usc-visual-journalism/ar.html?m=robot"></div></a>
+  <a class="pk ix" data-k="dragon" href="ar.html?m=dragon" target="_blank" rel="noopener"><div class="pv"></div><div class="pt"></div><div class="pqr2" data-qr="https://rogeriobie2016-ship-it.github.io/usc-visual-journalism/ar.html?m=dragon"></div></a>
+  <a class="pk ix" data-k="avocado" href="ar.html?m=avocado" target="_blank" rel="noopener"><div class="pv"></div><div class="pt"></div><div class="pqr2" data-qr="https://rogeriobie2016-ship-it.github.io/usc-visual-journalism/ar.html?m=avocado"></div></a>
+  <a class="pk ix" data-k="fox" href="ar.html?m=fox" target="_blank" rel="noopener"><div class="pv"></div><div class="pt"></div><div class="pqr2" data-qr="https://rogeriobie2016-ship-it.github.io/usc-visual-journalism/ar.html?m=fox"></div></a>
+  <a class="pk ix" data-k="astronaut" href="ar.html?m=astronaut" target="_blank" rel="noopener"><div class="pv"></div><div class="pt"></div><div class="pqr2" data-qr="https://rogeriobie2016-ship-it.github.io/usc-visual-journalism/ar.html?m=astronaut"></div></a>
+ </div>
+</section>
+
 <!-- 01 TITLE -->
 <section class="slide">
  <div class="hero-media f" data-s="0"><div class="vpanel reel"><video src="video/reel-2026.mp4" poster="video/reel-2026-poster.jpg" controls playsinline preload="metadata"></video><div class="rec">Demo reel 2026</div></div><figure class="me"><img src="img/portrait-hero.jpg" alt="Rogério Bié"><figcaption>Rogério Bié</figcaption></figure></div>
@@ -495,8 +540,6 @@ mark{padding:0 .1em}
  <h1 class="f" data-s="0">What's next<br>in <mark>visual</mark><br>journalism?</h1>
  <p class="lead f mt" data-s="0">VR, AR, 360°, drones, GoPro, volumetric capture and Gaussian splats. And the question under all of them: <strong>who gets to hold the camera?</strong></p>
  <div class="hero-qr f" data-s="0">
-  <div class="qr big" data-qr="https://rogeriobie2016-ship-it.github.io/usc-visual-journalism/ar.html"></div>
-  <div class="qrcap"><b>Phones out · right now</b>Scan this. Put Neil Armstrong's real spacesuit in this room.</div>
   <div class="qr md" data-qr="https://rogeriobie2016-ship-it.github.io/usc-visual-journalism/"></div>
   <div class="qrcap"><b>This deck, on your phone</b>Every slide, every link, live with us.</div>
  </div>
@@ -822,13 +865,34 @@ mark{padding:0 .1em}
  </div>
 </section>
 
+<!-- 20 FOLLOW -->
+<section class="slide">
+ <div class="split" style="grid-template-columns:1.05fr .95fr;gap:5vw;align-items:center">
+  <div>
+   <div class="kicker f" data-s="0">Last thing · <b>follow along</b></div>
+   <h2 class="f" data-s="0" style="font-size:clamp(30px,4.2vw,66px)">Make it. Then <mark>talk about it.</mark></h2>
+   <p class="lead f" data-s="0" style="margin-top:14px">A content creator doesn't only make the thing. They talk about it and bring people in. <strong>That's the power of what we do.</strong></p>
+   <div class="igask f" data-s="1"><b>Right now</b>Follow, then comment the AR object you brought to class today. I'll answer every one.</div>
+   <div class="links f" data-s="1"><a class="lk hot" href="https://www.instagram.com/roger_bie.mp3/" target="_blank" rel="noopener">@roger_bie.mp3</a><a class="lk" href="https://www.instagram.com/roger_bie.immersive/" target="_blank" rel="noopener">@roger_bie.immersive</a><a class="lk" href="https://rogeriobie.site/feed.html" target="_blank" rel="noopener">Feed · work log</a></div>
+  </div>
+  <a class="igcard f ix" data-s="0" href="https://www.instagram.com/roger_bie.mp3/" target="_blank" rel="noopener">
+   <div class="ighead"><div class="igav"><img src="img/portrait-hero.jpg" alt="Rogério Bié"></div>
+    <div><div class="ighandle">roger_bie.mp3 <span class="igv" title="Verified">✓</span></div><div class="igname">Rogério Bié</div>
+     <div class="igstats"><span><b>524</b> posts</span><span><b>16.8K</b> followers</span></div></div></div>
+   <div class="igbio">International journalist 🇧🇷 · Social media head, Brazil Conference · immersive work at @roger_bie.immersive</div>
+   <div class="iggrid"><img src="img/field-1.jpg" alt="" loading="lazy"><img src="img/venice-4.jpg" alt="" loading="lazy"><img src="img/me-3.jpg" alt="" loading="lazy"><img src="img/lapl-2.jpg" alt="" loading="lazy"><img src="img/wind-3.jpg" alt="" loading="lazy"><img src="img/field-9.jpg" alt="" loading="lazy"></div>
+   <div class="igfoot"><div class="qr md" data-qr="https://www.instagram.com/roger_bie.mp3/"></div><div><div class="igcta">Follow</div><div class="small">Scan to open Instagram</div></div></div>
+  </a>
+ </div>
+</section>
+
 </main>
 
 <div id="ctl">
  <div class="grp">
   <button class="pb" id="prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button>
   <button class="pb" id="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
-  <span class="count" id="count">01 / 18</span>
+  <span class="count" id="count">01 / 20</span>
  </div>
  <div class="grp"><span class="keys">← → · N notes · H clean · F full screen</span>
   <button class="pb" id="nbtn" aria-label="Speaker notes">N</button>
@@ -852,6 +916,11 @@ const maxStep=s=>Math.max(0,...[...s.querySelectorAll('.f')].map(e=>+e.dataset.s
 const ar=$('#demoAR')||document.createElement('div');
 if(FEELS_LIKE_URL){ar.innerHTML=`<div class="qr" data-qr="${FEELS_LIKE_URL}"></div><div class="t">AR · data you can feel</div><h3>FEELS LIKE</h3><p>"Hot enough to fry an egg": extreme heat, in augmented reality. Point at the poster on screen.</p><a class="lk" href="${FEELS_LIKE_URL}" target="_blank" rel="noopener">open</a>`}
 else{ar.innerHTML=`<div class="missing">AR<br>on any phone</div><div class="t">AR · try it now</div><h3>Real AR in 10 seconds</h3><p>Google "tiger" (or "astronaut") on your phone → View in 3D → View in your space.</p>`}
+
+/* pick-one tiles: live 3D previews from ar-models.js */
+$$('.pk').forEach(t=>{const m=(window.AR_MODELS||[]).find(x=>x.key===t.dataset.k);if(!m)return;
+ t.querySelector('.pt').innerHTML='<b>'+m.chip+'</b><span>'+m.tag+'</span>';
+ t.querySelector('.pv').innerHTML='<model-viewer src="'+m.src+'" alt="'+m.chip+'" auto-rotate autoplay '+(m.anim?'animation-name="'+m.anim+'" ':'')+'interaction-prompt="none" disable-zoom disable-pan shadow-intensity="1" loading="lazy" style="width:100%;height:100%;background:transparent;--poster-color:transparent"></model-viewer>'});
 
 /* QR codes */
 function makeQR(){$$('[data-qr]').forEach(el=>{if(el.dataset.done)return;const u=el.dataset.qr;
